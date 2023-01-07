@@ -1,4 +1,6 @@
+# this project has been taken in order to takes notes from.
 # Node.js Backend Architecture Typescript Project
+
 ### A complete project to build a blogging platform like Medium, and FreeCodeCamp
 
 [![Docker Compose CI](https://github.com/janishar/nodejs-backend-architecture-typescript/actions/workflows/docker_compose.yml/badge.svg)](https://github.com/janishar/nodejs-backend-architecture-typescript/actions/workflows/docker_compose.yml)
