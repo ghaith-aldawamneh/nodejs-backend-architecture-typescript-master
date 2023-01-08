@@ -10,6 +10,7 @@ errors that i faced:
   ```
 
 ## basics i learned:
+  - inside the global redeclearing the namespace of NODEJS to declear new contents.
   - Symbol has no constructor function, (Symbols also work as property keys, but are not iterable, which is great for serialisation)
   - Global symbols registry, There’s a global symbols registry that allows you to access tokens across your whole application.
   - declearing global in typescript
