@@ -10,6 +10,8 @@ errors that i faced:
   ```
 
 ## basics i learned:
+  - Symbol has no constructor function.
+  - declearing global in typescript
   - Running tsc locally will compile the closest project defined by a tsconfig.json, you can compile a set of TypeScript files by passing in a glob of files you want.
   - (TLS) is a Transport Layer Security, it encrypts data sent over the Internet to ensure that eavesdroppers and hackers are unable to see what you transmit which is particularly useful for private and sensitive information such as passwords, credit card numbers, and personal correspondence.
   - winston is designed to be a simple and universal logging library with support for multiple transports, https://github.com/winstonjs/winston
