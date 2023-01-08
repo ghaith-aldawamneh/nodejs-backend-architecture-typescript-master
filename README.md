@@ -10,6 +10,8 @@ errors that i faced:
   ```
 
 ## basics i learned:
+  - baseUrl tells Typescript to base all your modules from a specific directory. Which means they will also be compiled with paths relative to baseUrl.
+
 
 [![Docker Compose CI](https://github.com/janishar/nodejs-backend-architecture-typescript/actions/workflows/docker_compose.yml/badge.svg)](https://github.com/janishar/nodejs-backend-architecture-typescript/actions/workflows/docker_compose.yml)
 
