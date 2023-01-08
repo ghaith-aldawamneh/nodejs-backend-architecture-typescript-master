@@ -3,6 +3,14 @@
 
 ### A complete project to build a blogging platform like Medium, and FreeCodeCamp
 
+errors that i faced:
+  - must use TLS 1.2 or higher. You are currently using plaintext http to connect. Please visit the GitHub blog for more information: https://github.blog/2021-08-23-npm-registry-deprecating-tls-1-0-tls-1-1/{i fixed it be:
+  ```git
+  npm config set registry https://registry.npmjs.org/
+  ```
+
+## basics i learned:
+
 [![Docker Compose CI](https://github.com/janishar/nodejs-backend-architecture-typescript/actions/workflows/docker_compose.yml/badge.svg)](https://github.com/janishar/nodejs-backend-architecture-typescript/actions/workflows/docker_compose.yml)
 
 Note: This is the **latest (version 2)** of the project. If you are using **version 1** then checkout the branch [**version-1**](https://github.com/janishar/nodejs-backend-architecture-typescript/tree/version-1)
