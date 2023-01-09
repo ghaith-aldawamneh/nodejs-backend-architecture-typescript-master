@@ -15,6 +15,7 @@ errors that i faced:
 
 
 ## basics i learned:
+  - Abstract classes are mainly for inheritance where other classes may derive from them.
   - CORS Configuration Options: origin(Configures the Access-Control-Allow-Origin CORS header), methods(Configures the Access-Control-Allow-Methods CORS header), allowedHeaders(ex: ['Content-Type', 'Authorization']), exposedHeaders, optionsSuccessStatus: a status code for successful OPTIONS requests, since some legacy browsers (IE11, various SmartTVs) choke on 204.
   - Process events({'beforeExit' makes asynchronous calls},)
   - Process.on(uncaughtException(uncaught exception bubbles to the event loop), unhandledRejection (The latter is used when an exception happens in a Promise based async context)
