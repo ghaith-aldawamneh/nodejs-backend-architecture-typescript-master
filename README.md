@@ -8,8 +8,17 @@ errors that i faced:
   ```git
   npm config set registry https://registry.npmjs.org/
   ```
+## smart project assembly:
+  - server.ts that contains the app.listen(port,()=>{Logger.info})
+  - config.ts (has the db)
+
+
 
 ## basics i learned:
+ 
+  - Process events({'beforeExit' makes asynchronous calls},)
+  - Process.on(uncaughtException(uncaught exception bubbles to the event loop), unhandledRejection (The latter is used when an exception happens in a Promise based async context)
+  - winston (one of the most popular logging library),(Use Structured Logging),post-mortem debugging
   - lib.es5{the most famous used interface is Error interface}
   - events.d.ts{global{var process=NODEJS.process;namespace NODEJS{interface Process extends EventEmitter}}}, process.d.ts{global{namespace NODEJS{EventEmitter{on}}}
   - inside the global redeclearing the namespace of NODEJS to declear new contents.
