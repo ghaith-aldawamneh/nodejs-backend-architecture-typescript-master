@@ -18,6 +18,7 @@ errors that i faced:
    - mongoose.set, setting the mongoose options.
    - Mongoose plugins it is like a function that you can use in your schema and reuse again.
 ## basics i learned:
+  - emitter.on(event,listner)
   - extends keyof usage, public property names of T
   - Abstract classes are mainly for inheritance where other classes may derive from them.
   - CORS Configuration Options: origin(Configures the Access-Control-Allow-Origin CORS header), methods(Configures the Access-Control-Allow-Methods CORS header), allowedHeaders(ex: ['Content-Type', 'Authorization']), exposedHeaders, optionsSuccessStatus: a status code for successful OPTIONS requests, since some legacy browsers (IE11, various SmartTVs) choke on 204.
