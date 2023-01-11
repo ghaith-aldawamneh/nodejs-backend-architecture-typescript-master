@@ -13,6 +13,8 @@ errors that i faced:
   - config.ts (has the db)
 
 
+## mongoDB BASICS every one should knows:
+   - mongodb strictQuery property May be `false`, `true`, or `throw`, Sets the default [strictQuery] mode for schemas
 
 ## basics i learned:
   - extends keyof usage, public property names of T
