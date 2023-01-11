@@ -16,6 +16,7 @@ errors that i faced:
 ## mongoDB BASICS every one should knows:
    - mongodb strictQuery property May be `false`, `true`, or `throw`, Sets the default [strictQuery] mode for schemas
    - mongoose.set, setting the mongoose options.
+   - Mongoose plugins it is like a function that you can use in your schema and reuse again.
 ## basics i learned:
   - extends keyof usage, public property names of T
   - Abstract classes are mainly for inheritance where other classes may derive from them.
