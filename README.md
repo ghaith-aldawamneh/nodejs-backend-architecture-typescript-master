@@ -36,6 +36,7 @@ errors that i faced:
 ## functions i learned:
   - res.append (Appends the specified value to the HTTP response header field.)
   - Object.assign(target, ...sources), it copies the values and properties from one or more source objects to a target object.
+  - delete operator removes a property from an object.
 [![Docker Compose CI](https://github.com/janishar/nodejs-backend-architecture-typescript/actions/workflows/docker_compose.yml/badge.svg)](https://github.com/janishar/nodejs-backend-architecture-typescript/actions/workflows/docker_compose.yml)
 
 Note: This is the **latest (version 2)** of the project. If you are using **version 1** then checkout the branch [**version-1**](https://github.com/janishar/nodejs-backend-architecture-typescript/tree/version-1)
