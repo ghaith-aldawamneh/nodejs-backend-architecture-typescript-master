@@ -18,6 +18,7 @@ errors that i faced:
    - mongoose.set, setting the mongoose options.
    - Mongoose plugins it is like a function that you can use in your schema and reuse again.
 ## basics i learned:
+  - The connection process in Mongoose inherits the Node EventEmitter class
   - Currently errors are first forwarded to the process.on('error') event before reaching process.on('uncaughtException')
   - emitter.on(event,listner)
   - extends keyof usage, public property names of T
