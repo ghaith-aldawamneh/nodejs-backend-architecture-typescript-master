@@ -39,6 +39,8 @@ errors that i faced:
   - winston is designed to be a simple and universal logging library with support for multiple transports, https://github.com/winstonjs/winston
   - baseUrl tells Typescript to base all your modules from a specific directory. Which means they will also be compiled with paths relative to baseUrl, but node is not aware of tsconfig.json, so it will try to find these modules in the path relative to the script and relative to NODE_PATH env variable, So the solution would be to pass NODE_PATH before running, like this:```git npx tsc && NODE_PATH=src node src/main/app.ts```
   -  
+## mongoose methods and ways of using every one shoud knows:
+  - Pre-save hooks in mongoose.js
 ## functions i learned:
   - new(): T, is a class type that is referred to as a constructor function. 
   - some mongodb functions: mongoose.connection.close, mongoose.connection.on, mongoose.plugin, mongoose.connect
