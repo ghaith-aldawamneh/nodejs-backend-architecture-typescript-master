@@ -41,6 +41,7 @@ errors that i faced:
   - baseUrl tells Typescript to base all your modules from a specific directory. Which means they will also be compiled with paths relative to baseUrl, but node is not aware of tsconfig.json, so it will try to find these modules in the path relative to the script and relative to NODE_PATH env variable, So the solution would be to pass NODE_PATH before running, like this:```git npx tsc && NODE_PATH=src node src/main/app.ts```
   -  
 ## functions i learned:
+  - some mongodb functions: mongoose.connection.close, mongoose.connection.on, mongoose.plugin, mongoose.connect
   - res.append (Appends the specified value to the HTTP response header field.)
   - Object.assign(target, ...sources), it copies the values and properties from one or more source objects to a target object.
   - delete operator removes a property from an object.
