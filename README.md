@@ -67,7 +67,7 @@ Note: This is the **latest (version 2)** of the project. If you are using **vers
 7. Joi
 8. Unit Tests & Integration Tests
 9. Docker
-10. JWT
+10. JWT 
 
 # About The Project
 This project is designed for a production ready environment. It can handle the scale and complexity of a very demanding application. This project is being used by companies like MindOrks, AfterAcademy, and CuriousJr. Apps/Websites having 10+ million usebase.
