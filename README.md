@@ -43,7 +43,7 @@ errors that i faced:
 ## mongoose methods and ways of using every one shoud knows:
   - Pre-save hooks in mongoose.js
 ## joi library examples:
-  - Joi.string().valid, .pattern(, .alphanum(), Joi.array().includes(Joi.string())
+  - Joi.string().valid, .pattern(, .alphanum(), Joi.array().includes(Joi.string()), Joi.string().alphanum(), 
   - .pattern(/firstname|lastname/, Joi.string().min(2))
   - Joi.object().pattern(/\w{2,25}/, Joi.date().iso())
   - 
