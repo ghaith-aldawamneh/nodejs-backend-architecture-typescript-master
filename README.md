@@ -42,8 +42,11 @@ errors that i faced:
   -  
 ## mongoose methods and ways of using every one shoud knows:
   - Pre-save hooks in mongoose.js
+## joi library examples:
+  - .pattern(/firstname|lastname/, Joi.string().min(2))
+  - Joi.object().pattern(/\w{2,25}/, Joi.date().iso())
 ## functions i learned:
-  - Joi.string().valid, .pattern(, for example(.pattern(/firstname|lastname/, Joi.string().min(2))), 
+  - Joi.string().valid, .pattern(, .alphanum()
   - By calling Joi.object() you first create a schema that allows any keys and then by calling .keys([schema]) you extend that schema (basically the same as defining a new schema with Joi.object([schema]) )
   - new(): T, is a class type that is referred to as a constructor function. 
   - some mongodb functions: mongoose.connection.close, mongoose.connection.on, mongoose.plugin, mongoose.connect
