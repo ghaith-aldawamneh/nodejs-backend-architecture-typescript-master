@@ -56,12 +56,15 @@ errors that i faced:
   - res.append (Appends the specified value to the HTTP response header field.)
   - Object.assign(target, ...sources), it copies the values and properties from one or more source objects to a target object.
   - delete operator removes a property from an object.
+  - array.join(separator)
 ## basic concepts every one should know it:
   - Joi is a library that lets us validate an object’s structure with ease.
   - They are generated on the project making the call, and you can restrict their use to an environment such as an IP address range, or an Android or iOS app. By identifying the calling project, you can use API keys to associate usage information with that project.
   - Sudo (superuser do) is a utility for UNIX- and Linux-based systems that provides an efficient way to give specific users permission to use specific system commands at the root (most powerful) level of the system. Sudo also logs all commands and arguments.
   - Multi-factor authentication is a layered approach to securing data and applications where a system requires a user to present a combination of two or more credentials to verify a user's identity for login
-  - 
+## some RegEx concepts:
+  - i is used when it means that replace case-insensitive patterns
+
 [![Docker Compose CI](https://github.com/janishar/nodejs-backend-architecture-typescript/actions/workflows/docker_compose.yml/badge.svg)](https://github.com/janishar/nodejs-backend-architecture-typescript/actions/workflows/docker_compose.yml)
 
 Note: This is the **latest (version 2)** of the project. If you are using **version 1** then checkout the branch [**version-1**](https://github.com/janishar/nodejs-backend-architecture-typescript/tree/version-1)
