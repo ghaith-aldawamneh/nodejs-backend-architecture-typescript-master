@@ -57,7 +57,7 @@ errors that i faced:
   - .custom(fn: CustomValidator) ,type CustomValidator<V=any>=(value: V,helpers:CustomHelpers) =>V
   
 ## functions i learned:
-  
+  - .split([separator][, limit]); returns the new array. Also, when the string is empty, split returns an array containing one empty string, rather than an empty array. for ex, str.split(" ", 3); 
   - By calling Joi.object() you first create a schema that allows any keys and then by calling .keys([schema]) you extend that schema (basically the same as defining a new schema with Joi.object([schema]) )
   - new(): T, is a class type that is referred to as a constructor function. 
   - some mongodb functions: mongoose.connection.close, mongoose.connection.on, mongoose.plugin, mongoose.connect
