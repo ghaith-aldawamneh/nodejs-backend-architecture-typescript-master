@@ -17,6 +17,7 @@ errors that i faced:
    - mongodb strictQuery property May be `false`, `true`, or `throw`, Sets the default [strictQuery] mode for schemas
    - mongoose.set, setting the mongoose options.
    - Mongoose plugins it is like a function that you can use in your schema and reuse again.
+   - Using trim will help in removing the white spaces present (beginning and ending of the string) in the string that you want to save to the DB like.
 ## basics i learned:
   - process.exit(1) exit with failure error, while the process.exit(0) exits without
   - The connection process in Mongoose inherits the Node EventEmitter class
