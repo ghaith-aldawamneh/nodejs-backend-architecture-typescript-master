@@ -19,6 +19,10 @@ errors that i faced:
    - Mongoose plugins it is like a function that you can use in your schema and reuse again.
    - Using trim will help in removing the white spaces present (beginning and ending of the string) in the string that you want to save to the DB like.
    - model<EnforcedDocType>{DOCUMENT_NAME,schema,COLLECTION_NAME}
+## mongoose methods and ways of using every one shoud knows:
+  - Pre-save hooks in mongoose.js
+  - Lean(), By default, Mongoose queries return an instance of the Mongoose Document class. Documents are much heavier than vanilla JavaScript objects, because they have a lot of internal state for change tracking. Enabling the lean option tells Mongoose to skip instantiating a full Mongoose document and just give you the POJO.
+  
 ## basics i learned:
   - process.exit(1) exit with failure error, while the process.exit(0) exits without
   - The connection process in Mongoose inherits the Node EventEmitter class
@@ -42,8 +46,7 @@ errors that i faced:
   - winston is designed to be a simple and universal logging library with support for multiple transports, https://github.com/winstonjs/winston
   - baseUrl tells Typescript to base all your modules from a specific directory. Which means they will also be compiled with paths relative to baseUrl, but node is not aware of tsconfig.json, so it will try to find these modules in the path relative to the script and relative to NODE_PATH env variable, So the solution would be to pass NODE_PATH before running, like this:```git npx tsc && NODE_PATH=src node src/main/app.ts```
   -  
-## mongoose methods and ways of using every one shoud knows:
-  - Pre-save hooks in mongoose.js
+
 ## joi library examples:
   - Joi.string().valid, .pattern(, .alphanum(), Joi.array().includes(Joi.string()), Joi.string().alphanum(), 
   - .pattern(/firstname|lastname/, Joi.string().min(2))
