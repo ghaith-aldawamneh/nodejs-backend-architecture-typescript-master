@@ -53,7 +53,7 @@ errors that i faced:
   - .empty(), it allows the empty string and treat it the same as undefined (i.e., convert it to undefined)
   - .pattern(/firstname|lastname/, Joi.string().min(2))
   - Joi.object().pattern(/\w{2,25}/, Joi.date().iso())
-
+  - .allow, for examples allowing the null or ''.
 
 ## functions i learned:
   
