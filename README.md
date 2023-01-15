@@ -57,6 +57,7 @@ errors that i faced:
   - Object.assign(target, ...sources), it copies the values and properties from one or more source objects to a target object.
   - delete operator removes a property from an object.
   - array.join(separator)
+  - toString() is an inbuilt function in TypeScript which is used to return a string representing the specified object.
 ## basic concepts every one should know it:
   - Joi is a library that lets us validate an object’s structure with ease.
   - They are generated on the project making the call, and you can restrict their use to an environment such as an IP address range, or an Android or iOS app. By identifying the calling project, you can use API keys to associate usage information with that project.
