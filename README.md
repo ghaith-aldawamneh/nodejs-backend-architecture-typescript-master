@@ -54,7 +54,8 @@ errors that i faced:
   - .pattern(/firstname|lastname/, Joi.string().min(2))
   - Joi.object().pattern(/\w{2,25}/, Joi.date().iso())
   - .allow, for examples allowing the null or ''.
-
+  - .custom(fn: CustomValidator) ,type CustomValidator<V=any>=(value: V,helpers:CustomHelpers) =>V
+  
 ## functions i learned:
   
   - By calling Joi.object() you first create a schema that allows any keys and then by calling .keys([schema]) you extend that schema (basically the same as defining a new schema with Joi.object([schema]) )
