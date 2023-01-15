@@ -45,8 +45,9 @@ errors that i faced:
   - (TLS) is a Transport Layer Security, it encrypts data sent over the Internet to ensure that eavesdroppers and hackers are unable to see what you transmit which is particularly useful for private and sensitive information such as passwords, credit card numbers, and personal correspondence.
   - winston is designed to be a simple and universal logging library with support for multiple transports, https://github.com/winstonjs/winston
   - baseUrl tells Typescript to base all your modules from a specific directory. Which means they will also be compiled with paths relative to baseUrl, but node is not aware of tsconfig.json, so it will try to find these modules in the path relative to the script and relative to NODE_PATH env variable, So the solution would be to pass NODE_PATH before running, like this:```git npx tsc && NODE_PATH=src node src/main/app.ts```
-  -  
-
+  - var is function scoped(available only within that function.,If outside of it, then available everywhere i.e. a global variable.,you can refer to it anywhere inside the function in which it is defined.)
+  - let & const are block-scoped. They are scoped to the block in which they are declared i.e. inside the if/try/catch/while/for or any code block.
+  
 ## joi library examples:
 
   - Joi.string().valid, .pattern(, .alphanum(), Joi.array().includes(Joi.string()), Joi.string().alphanum(), 
