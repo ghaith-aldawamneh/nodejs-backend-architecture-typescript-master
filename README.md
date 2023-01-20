@@ -16,7 +16,12 @@ errors that i faced:
   - the validator takes the two args of schema.apiKey `Joi.object().keys({x-api-key: Joi.string().required(), }) .unknown(true),` and 'headers' string as the `ValidationSource.HEADER`
   - schema has the the apiKey and the auth which is `Joi.object() .keys({ authorization: JoiAuthBearer().required(), }) .unknown(true),`
   - JoiAuthBearer is `Joi.string().custom(`
-  - the asyncHandler
+  - the asyncHandler takes an async function (req,res,next) which will get the key_p as req.headers['x-api-key'] and `key = req.headers[Header.API_KEY]?.toString();` or throw new error. , the next step
+ 
+  
+  
+  
+  
 ## smart project assembly:
   - server.ts that contains the app.listen(port,()=>{Logger.info})
   - config.ts (has the db)
