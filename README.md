@@ -12,9 +12,11 @@ errors that i faced:
 
   - use routes with path of the '/' `express.Router()`
   - classifying the routes by `router.use` for each route like '/signup' including the apikey and  permission
-  - apikey is the route also `express.Router`
-  
-  
+  - apikey is the route also `express.Router` the use many args of (validator,asyncHandler, other routes like signup)
+  - the validator takes the two args of schema.apiKey `Joi.object().keys({x-api-key: Joi.string().required(), }) .unknown(true),` and 'headers' string as the `ValidationSource.HEADER`
+  - schema has the the apiKey and the auth which is `Joi.object() .keys({ authorization: JoiAuthBearer().required(), }) .unknown(true),`
+  - JoiAuthBearer is `Joi.string().custom(`
+  - the asyncHandler
 ## smart project assembly:
   - server.ts that contains the app.listen(port,()=>{Logger.info})
   - config.ts (has the db)
