@@ -11,8 +11,8 @@ errors that i faced:
 ## project assembly:
 
   - use routes with path of the '/' `express.Router()`
-  - classifying the routes by `router.use` for each route like '/signup'
-  - 
+  - classifying the routes by `router.use` for each route like '/signup' including the apikey and  permission
+  - apikey is the route also `express.Router`
   
   
 ## smart project assembly:
