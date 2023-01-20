@@ -8,6 +8,13 @@ errors that i faced:
   ```git
   npm config set registry https://registry.npmjs.org/
   ```
+## project assembly:
+
+  - use routes with path of the '/' `express.Router()`
+  - classifying the routes by `router.use` for each route like '/signup'
+  - 
+  
+  
 ## smart project assembly:
   - server.ts that contains the app.listen(port,()=>{Logger.info})
   - config.ts (has the db)
