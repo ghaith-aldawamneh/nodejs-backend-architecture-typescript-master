@@ -16,8 +16,9 @@ errors that i faced:
   - the validator takes the two args of schema.apiKey `Joi.object().keys({x-api-key: Joi.string().required(), }) .unknown(true),` and 'headers' string as the `ValidationSource.HEADER`
   - schema has the the apiKey and the auth which is `Joi.object() .keys({ authorization: JoiAuthBearer().required(), }) .unknown(true),`
   - JoiAuthBearer is `Joi.string().custom(`
-  - the asyncHandler takes an async function (req,res,next) which will get the key_p as req.headers['x-api-key'] and `key = req.headers[Header.API_KEY]?.toString();` or throw new error. , the next step
- 
+  - the asyncHandler takes inside it an async function (req,res,next) which will get the key_p as req.headers['x-api-key'] and `key = req.headers[Header.API_KEY]?.toString();` or throw new error. , the next step
+  - finding the apiKey from the mongoose by awaiting a function of findByKey
+  - findByKey is a function that takes one arg and return a Promise<ApiKey | null | undefined> inside this function it retruns `ApiKeyModel.findOne{ key: key, status: true }`
   
   
   
@@ -91,7 +92,8 @@ errors that i faced:
   - POJO stands for Plain Old Java Object. It is an ordinary Java object, not bound by any special restriction other than those forced by the Java Language Specification and not requiring any classpath. 
 ## some RegEx concepts:
   - i is used when it means that replace case-insensitive patterns
-
+## fast programming shortcuts:
+  - when taking an arg and its type you can use the arg a type since you decleared its type.
 [![Docker Compose CI](https://github.com/janishar/nodejs-backend-architecture-typescript/actions/workflows/docker_compose.yml/badge.svg)](https://github.com/janishar/nodejs-backend-architecture-typescript/actions/workflows/docker_compose.yml)
 
 Note: This is the **latest (version 2)** of the project. If you are using **version 1** then checkout the branch [**version-1**](https://github.com/janishar/nodejs-backend-architecture-typescript/tree/version-1)
