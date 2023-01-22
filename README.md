@@ -20,6 +20,7 @@ errors that i faced:
   - finding the apiKey from the mongoose by awaiting a function of findByKey
   - findByKey is a function that takes one arg and return a Promise<ApiKey | null | undefined> inside this function it retruns `ApiKeyModel.findOne{ key: key, status: true }` , setting `req.apiKey = apiKey;` , not to forgeting to return `next()`
   - the permission is an arrow function that after giving it the first arg of `'GENERAL'` as permission, the function will arrows to reqhandler func tha take (req,res,next) inside the reqhandler we have the try which inside it if `(!req.apikey!.permission)` return next(new ForbiddenError), then `exists= req.apikey.permission.find((entry)=>entry=== `'GENERAL'` as permission)`
+  - we can add an extra permission beside the `GENERAL = 'GENERAL'`
   - 
   
   
