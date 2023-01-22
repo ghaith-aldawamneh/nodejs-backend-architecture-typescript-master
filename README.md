@@ -36,10 +36,13 @@ errors that i faced:
 ## smart project assembly:
   - server.ts that contains the app.listen(port,()=>{Logger.info})
   - config.ts (has the db)
+
+
 ## mongoose database assembly declearation:
   - creating the database modeles 
 
 ## mongoDB BASICS every one should knows:
+   - mongoose methods and statics, and its declearing.
    - process.on('SIGINT')
    - mongodb strictQuery property May be `false`, `true`, or `throw`, Sets the default [strictQuery] mode for schemas
    - mongoose.set, setting the mongoose options.
