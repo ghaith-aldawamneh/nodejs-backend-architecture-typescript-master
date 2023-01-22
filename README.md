@@ -42,6 +42,7 @@ errors that i faced:
   - creating the database modeles 
 
 ## mongoDB BASICS every one should knows:
+   - array of ObjectIds
    - mongoose methods and statics, and its declearing.
    - process.on('SIGINT')
    - mongodb strictQuery property May be `false`, `true`, or `throw`, Sets the default [strictQuery] mode for schemas
