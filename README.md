@@ -12,16 +12,18 @@ errors that i faced:
 
   - use routes with path of the '/' `express.Router()`
   - classifying the routes by `router.use` for each route like '/signup' including the apikey and  permission
-  - apikey is the route also `express.Router` the use many args of (validator,asyncHandler, other routes like signup)
+  - apikey is the route also `express.Router` the use many args of (validator,asyncHandler)
   - the validator takes the two args of schema.apiKey `Joi.object().keys({x-api-key: Joi.string().required(), }) .unknown(true),` and 'headers' string as the `ValidationSource.HEADER`
-  - schema has the the apiKey and the auth which is `Joi.object() .keys({ authorization: JoiAuthBearer().required(), }) .unknown(true),`
+  - the validator starts with `const{error}=schema.validate(req['headers'])` then ` {details}=error` then `message = details.map((i) => i.message.replace(/['"]+/g,'')).join(',');`
+  - schema has the the apiKey and the auth which is `Joi.object() .keys({ authorization: JoiAuthBearer().required(),}).unknown(true),`
   - JoiAuthBearer is `Joi.string().custom(`
-  - the asyncHandler takes inside it an async function (req,res,next) which will get the key_p as req.headers['x-api-key'] and `key = req.headers[Header.API_KEY]?.toString();` or throw new error. , the next step
+  - the apikey asyncHandler takes inside it an async function (req:PublicRequest extends Request{apiKey:ApiKey;},res,next) which will get the key_p as req.headers['x-api-key'] and `key = req.headers[Header.API_KEY]?.toString();` or throw new error. , the next step
   - finding the apiKey from the mongoose by awaiting a function of findByKey
   - findByKey is a function that takes one arg and return a Promise<ApiKey | null | undefined> inside this function it retruns `ApiKeyModel.findOne{ key: key, status: true }` , setting `req.apiKey = apiKey;` , not to forgeting to return `next()`
   - the permission is an arrow function that after giving it the first arg of `'GENERAL'` as permission, the function will arrows to reqhandler func tha take (req,res,next) inside the reqhandler we have the try which inside it if `(!req.apikey!.permission)` return next(new ForbiddenError), then `exists= req.apikey.permission.find((entry)=>entry=== `'GENERAL'` as permission)`
   - we can add an extra permission beside the `GENERAL = 'GENERAL'`
-  - 
+  - signup middleware starts with two args(validator, async function) with the validator that does: the same as the last explained validator
+  - the signup asyncHandler takes inside it an async function (req:RoleRequest extends Request{currentRoleCodes:string[];},res,next) which will get
   
   
 ## fast programming shortcuts:
