@@ -24,7 +24,7 @@ errors that i faced:
   - we can add an extra permission beside the `GENERAL = 'GENERAL'`
   - signup middleware starts with two args(validator, async function) with the validator that does: the same as the last explained validator
   - the signup asyncHandler takes inside it an async function (req:RoleRequest extends Request{currentRoleCodes:string[];},res,next) which will get
-  
+  - 
   
 ## fast programming shortcuts:
   - when taking an arg and its type you can use the arg a type since you decleared its type.
