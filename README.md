@@ -28,6 +28,9 @@ errors that i faced:
   - the signup asyncHandler takes inside it an async function (req:RoleRequest extends Request{currentRoleCodes:string[];},res,next) which will get
   - 
   
+  
+  
+  
 ## fast programming shortcuts:
   - when taking an arg and its type you can use the arg a type since you decleared its type.
   - `const data = header['apikey']?.tostring()`
