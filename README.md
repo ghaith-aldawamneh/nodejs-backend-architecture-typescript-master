@@ -8,8 +8,10 @@ errors that i faced:
   ```git
   npm config set registry https://registry.npmjs.org/
   ```
-## project assembly:
 
+
+## project assembly:
+  - the data base starts form 
   - use routes with path of the '/' `express.Router()`
   - classifying the routes by `router.use` for each route like '/signup' including the apikey and  permission
   - apikey is the route also `express.Router` the use many args of (validator,asyncHandler)
@@ -34,6 +36,8 @@ errors that i faced:
 ## smart project assembly:
   - server.ts that contains the app.listen(port,()=>{Logger.info})
   - config.ts (has the db)
+## mongoose database assembly declearation:
+  - creating the database modeles 
 
 ## mongoDB BASICS every one should knows:
    - process.on('SIGINT')
@@ -47,6 +51,7 @@ errors that i faced:
   - Lean(), By default, Mongoose queries return an instance of the Mongoose Document class. Documents are much heavier than vanilla JavaScript objects, because they have a lot of internal state for change tracking. Enabling the lean option tells Mongoose to skip instantiating a full Mongoose document and just give you the POJO.
   
 ## basics i learned:
+
   - process.exit(1) exit with failure error, while the process.exit(0) exits without
   - The connection process in Mongoose inherits the Node EventEmitter class
   - Currently errors are first forwarded to the process.on('error') event before reaching process.on('uncaughtException')
@@ -93,6 +98,7 @@ errors that i faced:
   - indexOf() method returns the first index at which a given element can be found in the array, or -1 if it is not present.
   - startsWith() method determines whether a string begins with the characters of a specified string, returning true or false as appropriate.
 ## basic concepts every one should know it:
+  - A relational database management system (RDBMS) is a program used to create, update, and manage relational databases. Some of the most well-known RDBMSs include MySQL, PostgreSQL, MariaDB, Microsoft SQL Server, and Oracle Database.
   - Joi is a library that lets us validate an object’s structure with ease.
   - They are generated on the project making the call, and you can restrict their use to an environment such as an IP address range, or an Android or iOS app. By identifying the calling project, you can use API keys to associate usage information with that project.
   - Sudo (superuser do) is a utility for UNIX- and Linux-based systems that provides an efficient way to give specific users permission to use specific system commands at the root (most powerful) level of the system. Sudo also logs all commands and arguments.
