@@ -25,7 +25,7 @@ errors that i faced:
   - the permission is an arrow function that after giving it the first arg of `'GENERAL'` as permission, the function will arrows to reqhandler func tha take (req,res,next) inside the reqhandler we have the try which inside it if `(!req.apikey!.permission)` return next(new ForbiddenError), then `exists= req.apikey.permission.find((entry)=>entry=== `'GENERAL'` as permission)`
   - we can add an extra permission beside the `GENERAL = 'GENERAL'`
   - signup middleware starts with two args(validator, async function) with the validator that does: the same as the last explained validator
-  - the signup asyncHandler takes inside it an async function (req:RoleRequest extends Request{currentRoleCodes:string[];},res,next) which will get
+  - the signup asyncHandler takes inside it an async function (req:RoleRequest extends Request{currentRoleCodes:string[];},res,next) which will get search as `UserRepo.findByEmail(req.body.email)` 
   - 
   
   
@@ -48,6 +48,7 @@ errors that i faced:
    - Population is the process of automatically replacing the specified paths in the document with document(s) from other collection(s). We may populate a single document, multiple documents, plain object, multiple plain objects, or all objects returned from a query. Let's look at some examples.
    for example, Story .find(...) .populate({ path: 'fans', match: { age: { $gte: 21 }}, select: 'name -_id', options: { limit: 5 }
    path is the name of the collection, match the specified condition, the results will be showed accourdin to, options here we said we only want 5 results to be showed.
+   (https://www.grepper.com/tpc/mongoose+populate%20/%20http://man.hubwiz.com/docset/Mongoose.docset/Contents/Resources/Documents/mongoosejs.com/docs/populate.html)
    - array of ObjectIds
    - mongoose methods and statics, and its declearing.
    - process.on('SIGINT')
