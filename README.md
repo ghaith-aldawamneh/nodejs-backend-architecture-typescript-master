@@ -45,6 +45,9 @@ errors that i faced:
   - creating the database modeles 
 
 ## mongoDB BASICS every one should knows:
+   - Population is the process of automatically replacing the specified paths in the document with document(s) from other collection(s). We may populate a single document, multiple documents, plain object, multiple plain objects, or all objects returned from a query. Let's look at some examples.
+   for example, Story .find(...) .populate({ path: 'fans', match: { age: { $gte: 21 }}, select: 'name -_id', options: { limit: 5 }
+   path is the name of the collection, match the specified condition, the results will be showed accourdin to, options here we said we only want 5 results to be showed.
    - array of ObjectIds
    - mongoose methods and statics, and its declearing.
    - process.on('SIGINT')
