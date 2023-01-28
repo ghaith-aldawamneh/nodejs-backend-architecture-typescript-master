@@ -11,6 +11,7 @@ errors that i faced:
 
 
 ## project assembly:
+  - the permission is in the req.apikey, the apikey was put in the req.headers, password in the req.body
   - the data base starts form 
   - use routes with path of the '/' `express.Router()`
   - classifying the routes by `router.use` for each route like '/signup' including the apikey and  permission
