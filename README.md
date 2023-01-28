@@ -29,8 +29,6 @@ errors that i faced:
   - 
   
   
-  
-  
 ## fast programming shortcuts:
   - when taking an arg and its type you can use the arg a type since you decleared its type.
   - `const data = header['apikey']?.tostring()`
@@ -97,6 +95,7 @@ errors that i faced:
   - .custom(fn: CustomValidator) ,type CustomValidator<V=any>=(value: V,helpers:CustomHelpers) =>V
   
 ## functions i learned:
+  - The crypto.randomBytes() method is used to generate a cryptographically well-built artificial random data and the number of bytes to be generated in the written code.
   - .split([separator][, limit]); returns the new array. Also, when the string is empty, split returns an array containing one empty string, rather than an empty array. for ex, str.split(" ", 3); 
   - By calling Joi.object() you first create a schema that allows any keys and then by calling .keys([schema]) you extend that schema (basically the same as defining a new schema with Joi.object([schema]) )
   - new(): T, is a class type that is referred to as a constructor function. 
