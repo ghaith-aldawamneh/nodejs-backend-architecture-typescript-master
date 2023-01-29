@@ -50,6 +50,7 @@ errors that i faced:
   - creating the database modeles 
 
 ## mongoDB BASICS every one should knows:
+  - Partial indexes only index the documents in a collection that meet a specified filter expression. By indexing a subset of the documents in a collection, partial indexes have lower storage requirements and reduced performance costs for index creation and maintenance.
   - for the _id the index is normaly created by default.
   - the consequence of using alot of indexes: index creation can cause a significant performance impact. Disable the behavior by setting the autoIndex option of your schema to false, or globally on the connection by setting the option autoIndex to false.
    Data in MongoDB is stored in JSON format. More precisely said, data is stored in BSON format. BSON format provides a variety of data types. We can insert data from mongo shell or through mongoose. In both cases, the _id field is generated automatically in each document. The _id field acts as a primary key. It is unique throughout the collection. But there is one difference when inserting document(s) through mongoose. It auto-generates one more field. This field is the __v field. In this article, we will discuss what this __v field is and when it gets created.
