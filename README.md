@@ -30,7 +30,7 @@ errors that i faced:
   - //the User interface contains (_id:Types.ObjectId,name?,profilePicUrl?,email?,password?,roles:Role[],verified?:boolean,status?:boolean;createdAt?:Date,updatedAt?:Date)
   - //the Role interface contains (_id:Types.ObjectId,code:s,status?:boolean,createdAt?,updatedAt?)
   - //the Keystore interface contains( _id:Types.ObjectId,client:User,primaryKey,secondaryKey,status?:b;createdAt?,updatedAt?)
-  - the create function does RoleModel.findOne({code:'LEARNER'}).select('+code') if (!) throw E
+  - the create function does RoleModel.**findOne({code**:'LEARNER'}).select('+code') if (!) throw E
   - **user.roles**= [role];user.createdAt=user.updatedAt
   
 
@@ -50,7 +50,9 @@ errors that i faced:
 ## mongoose database assembly declearation:
   - creating the database modeles 
 
-## mongoDB BASICS every one should knows:(https://mongoosejs.com/docs/3.2.x/docs/guide.html#versionKey)
+## mongoDB BASICS every one should knows:
+  
+(https://mongoosejs.com/docs/3.2.x/docs/guide.html#versionKey)
   - This allow your application code to test if changes have been made between a fetch (bringing in version key 42 for example) and a consequent update (ensuring version value still is 42). If version key has a different value (eg. 43 because an update has been made to the document), your application code can handle the concurrent modification.(https://stackoverflow.com/questions/17810637/mongoose-versioning-when-is-it-safe-to-disable-it)
   - Document versioning can also be disabled by setting the versionKey to false. DO NOT disable versioning unless you know what you are doing.
   - When versionKey is enabled, the version value is atomically incremented whenever a document is updated.
@@ -77,7 +79,7 @@ errors that i faced:
   - select:false, Currently, if we use select: false in a schema, we need to do Model.findOne({ _id }).select("+field_a") to get its value.
   
 ## basics i learned:
-
+  - modal.create, Creates a new document or documents.
   - process.exit(1) exit with failure error, while the process.exit(0) exits without
   - The connection process in Mongoose inherits the Node EventEmitter class
   - Currently errors are first forwarded to the process.on('error') event before reaching process.on('uncaughtException')
