@@ -26,12 +26,13 @@ errors that i faced:
   - we can add an extra permission beside the `GENERAL = 'GENERAL'`
   - signup middleware starts with two args(validator, async function) with the validator that does: the same as the last explained validator
   - the signup asyncHandler takes inside it an async function (req:RoleRequest extends Request{currentRoleCodes:string[];},res,next) which will get search as `UserRepo.findByEmail(req.body.email)` if exist then throw an error.
-  - then the async create function which takes four parameters{user:User,accessTokenKey:string,refreshTokenKey:string, roleCode:string}, the accessTokenKey and refreshTokenKey are created by `crypto.randomBytes(64).toString('hex');` and the refreshTokenKey
-  - the User interface contains (_id:Types.ObjectId,name?,profilePicUrl?,email?,password?,roles:Role[],verified?:boolean,status?:boolean;createdAt?:Date,updatedAt?:Date)
-  - the Role interface contains (_id:Types.ObjectId,code:s,status?:boolean,createdAt?,updatedAt?)
-  - the Keystore interface contains( _id: Types.ObjectId,client:User,primaryKey,secondaryKey,status?:boolean;createdAt?,updatedAt?)
-  - 
-
+  - then awaiting the async create function:Promise<{ user: User; keystore: Keystore }> which takes four parameters{user:User,accessTokenKey:string,refreshTokenKey:string, roleCode:s('LEARNER')}, the accessTokenKey and refreshTokenKey are created by `crypto.randomBytes(64).toString('hex');` and the refreshTokenKey
+  - //the User interface contains (_id:Types.ObjectId,name?,profilePicUrl?,email?,password?,roles:Role[],verified?:boolean,status?:boolean;createdAt?:Date,updatedAt?:Date)
+  - //the Role interface contains (_id:Types.ObjectId,code:s,status?:boolean,createdAt?,updatedAt?)
+  - //the Keystore interface contains( _id:Types.ObjectId,client:User,primaryKey,secondaryKey,status?:b;createdAt?,updatedAt?)
+  - the create function does RoleModel.findOne({code:'LEARNER'}).select('+code') if (!) throw E
+  - *user.roles*= [role];user.createdAt=user.updatedAt
+  
 
 
 
