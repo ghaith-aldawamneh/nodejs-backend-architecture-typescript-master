@@ -9,7 +9,6 @@ errors that i faced:
   npm config set registry https://registry.npmjs.org/
   ```
 
-
 ## project assembly:
   - the permission is in the req.apikey, the apikey was put in the req.headers, password in the req.body
   - the data base starts form 
@@ -67,6 +66,7 @@ errors that i faced:
 ## mongoose methods and ways of using every one shoud knows:
   - Pre-save hooks in mongoose.js
   - Lean(), By default, Mongoose queries return an instance of the Mongoose Document class. Documents are much heavier than vanilla JavaScript objects, because they have a lot of internal state for change tracking. Enabling the lean option tells Mongoose to skip instantiating a full Mongoose document and just give you the POJO.
+  - select:false, Currently, if we use select: false in a schema, we need to do Model.findOne({ _id }).select("+field_a") to get its value.
   
 ## basics i learned:
 
