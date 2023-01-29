@@ -105,6 +105,7 @@ errors that i faced:
   - .custom(fn: CustomValidator) ,type CustomValidator<V=any>=(value: V,helpers:CustomHelpers) =>V
   
 ## functions i learned:
+  - .explain
   - .toString('hex'), it will just join the values into a comma-separated list of the values in decimal representation.
   - bcrypt.hash(string,number: The number of rounds to secure the hash. The number commonly ranges from 5 to 15,The callback function to execute when finishing the hashing)
   - The crypto.randomBytes() method is used to generate a cryptographically well-built artificial random data and the number of bytes to be generated in the written code.
