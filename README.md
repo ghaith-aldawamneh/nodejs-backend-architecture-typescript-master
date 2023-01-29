@@ -30,8 +30,13 @@ errors that i faced:
   - then the async create function which takes four parameters{user:User,accessTokenKey:string,refreshTokenKey:string, roleCode:string}, the accessTokenKey and refreshTokenKey are created by `crypto.randomBytes(64).toString('hex');` and the refreshTokenKey
   - the User interface contains (_id:Types.ObjectId,name?,profilePicUrl?,email?,password?,roles:Role[],verified?:boolean,status?:boolean;createdAt?:Date,updatedAt?:Date)
   - the Role interface contains (_id:Types.ObjectId,code:s,status?:boolean,createdAt?,updatedAt?)
-  - the Keystore contains(Keystore interface ( _id: Types.ObjectId,client:User,primaryKey,secondaryKey,status?:boolean; createdAt?,updatedAt?)
+  - the Keystore interface contains( _id: Types.ObjectId,client:User,primaryKey,secondaryKey,status?:boolean;createdAt?,updatedAt?)
   - 
+
+
+
+
+
 ## fast programming shortcuts:
   - when taking an arg and its type you can use the arg a type since you decleared its type.
   - `const data = header['apikey']?.tostring()`
