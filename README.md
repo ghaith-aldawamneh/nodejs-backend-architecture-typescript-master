@@ -31,7 +31,7 @@ errors that i faced:
   - //the Role interface contains (_id:Types.ObjectId,code:s,status?:boolean,createdAt?,updatedAt?)
   - //the Keystore interface contains( _id:Types.ObjectId,client:User,primaryKey,secondaryKey,status?:b;createdAt?,updatedAt?)
   - the create function does RoleModel.findOne({code:'LEARNER'}).select('+code') if (!) throw E
-  - *user.roles*= [role];user.createdAt=user.updatedAt
+  - **user.roles**= [role];user.createdAt=user.updatedAt
   
 
 
