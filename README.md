@@ -30,8 +30,8 @@ errors that i faced:
   - //the User interface contains (_id:Types.ObjectId,name?,profilePicUrl?,email?,password?,roles:Role[],verified?:boolean,status?:boolean;createdAt?:Date,updatedAt?:Date)
   - //the Role interface contains (_id:Types.ObjectId,code:s,status?:boolean,createdAt?,updatedAt?)
   - //the Keystore interface contains( _id:Types.ObjectId,client:User,primaryKey,secondaryKey,status?:b;createdAt?,updatedAt?)
-  - the create function does RoleModel.**findOne({code**:'LEARNER'}).select('+code') if (!) throw E
-  - **user.roles**= [role];user.createdAt=user.updatedAt
+  - the create function does RoleModel.**findOne({code**:'LEARNER'}).select('+code') if (!) throw E, then it **user.roles**=[role];**user.createdAt**=user.updatedAt=now, then createdUser=await**UserModel.create(user)**,keystore =await **KeystoreRepo.create**(createdUser, accessTokenKey, refreshTokenKey, );
+  - then keystore=**await UserModel.create(user,primaryKey,secondaryKey)**:Promise<Keystore> that will do **KeystoreModel.create**(User,primaryKey,secondaryKey)
   
 
 
