@@ -54,7 +54,7 @@ errors that i faced:
 (https://mongoosejs.com/docs/3.2.x/docs/guide.html#versionKey)
   
   
-  - we have to use either .toObect() when getting the result of the query, or to use 
+  - we have to use either .toObect() when getting the result of the query, or to use, because mongoose functions don't represent actual JavaScript objects. To get an actual JavaScript object you have to call (oddly enough) toObject().
   - This allow your application code to test if changes have been made between a fetch (bringing in version key 42 for example) and a consequent update (ensuring version value still is 42). If version key has a different value (eg. 43 because an update has been made to the document), your application code can handle the concurrent modification.(https://stackoverflow.com/questions/17810637/mongoose-versioning-when-is-it-safe-to-disable-it)
   - Document versioning can also be disabled by setting the versionKey to false. DO NOT disable versioning unless you know what you are doing.
   - When versionKey is enabled, the version value is atomically incremented whenever a document is updated.
