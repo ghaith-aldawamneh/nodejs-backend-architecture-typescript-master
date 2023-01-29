@@ -50,7 +50,7 @@ errors that i faced:
   - creating the database modeles 
 
 ## mongoDB BASICS every one should knows:(https://mongoosejs.com/docs/3.2.x/docs/guide.html#versionKey)
-  - 
+  - This allow your application code to test if changes have been made between a fetch (bringing in version key 42 for example) and a consequent update (ensuring version value still is 42). If version key has a different value (eg. 43 because an update has been made to the document), your application code can handle the concurrent modification.(https://stackoverflow.com/questions/17810637/mongoose-versioning-when-is-it-safe-to-disable-it)
   - Document versioning can also be disabled by setting the versionKey to false. DO NOT disable versioning unless you know what you are doing.
   - When versionKey is enabled, the version value is atomically incremented whenever a document is updated.
   - The __v field is called the version key. It describes the internal revision of a document. This __v field is used to track the revisions of a document. By default, its value is zero. In real practice, the __v field increments by one only when an array is updated. In other situations, the value of the __v field remains unaffected. So to keep the track of __v field in such situations, we can do it manually using the increment operator provided by the mongoose.
