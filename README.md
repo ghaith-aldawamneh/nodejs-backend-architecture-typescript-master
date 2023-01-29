@@ -26,10 +26,10 @@ errors that i faced:
   - the permission is an arrow function that after giving it the first arg of `'GENERAL'` as permission, the function will arrows to reqhandler func tha take (req,res,next) inside the reqhandler we have the try which inside it if `(!req.apikey!.permission)` return next(new ForbiddenError), then `exists= req.apikey.permission.find((entry)=>entry=== `'GENERAL'` as permission)`
   - we can add an extra permission beside the `GENERAL = 'GENERAL'`
   - signup middleware starts with two args(validator, async function) with the validator that does: the same as the last explained validator
-  - the signup asyncHandler takes inside it an async function (req:RoleRequest extends Request{currentRoleCodes:string[];},res,next) which will get search as `UserRepo.findByEmail(req.body.email)` 
-  - 
-  
-  
+  - the signup asyncHandler takes inside it an async function (req:RoleRequest extends Request{currentRoleCodes:string[];},res,next) which will get search as `UserRepo.findByEmail(req.body.email)` if exist then throw an error.
+  - then the async create function which takes four parameters{user:User,accessTokenKey:string,refreshTokenKey:string, roleCode:string}, know that the User contains 
+  - the User interface contains (_id:Types.ObjectId,name?,profilePicUrl?,email?,password?,roles:Role[],verified?:boolean,status?:boolean;createdAt?:Date,updatedAt?:Date)
+  - the Role interface contains (_id:Types.ObjectId,code:s,status?:boolean,createdAt?,updatedAt?)
 ## fast programming shortcuts:
   - when taking an arg and its type you can use the arg a type since you decleared its type.
   - `const data = header['apikey']?.tostring()`
