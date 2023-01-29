@@ -30,6 +30,7 @@ errors that i faced:
   - then the async create function which takes four parameters{user:User,accessTokenKey:string,refreshTokenKey:string, roleCode:string}, the accessTokenKey and refreshTokenKey are created by `crypto.randomBytes(64).toString('hex');` and the refreshTokenKey
   - the User interface contains (_id:Types.ObjectId,name?,profilePicUrl?,email?,password?,roles:Role[],verified?:boolean,status?:boolean;createdAt?:Date,updatedAt?:Date)
   - the Role interface contains (_id:Types.ObjectId,code:s,status?:boolean,createdAt?,updatedAt?)
+  - the Keystore contains(Keystore interface ( _id: Types.ObjectId,client:User,primaryKey,secondaryKey,status?:boolean; createdAt?,updatedAt?)
   - 
 ## fast programming shortcuts:
   - when taking an arg and its type you can use the arg a type since you decleared its type.
@@ -48,7 +49,7 @@ errors that i faced:
    - Population is the process of automatically replacing the specified paths in the document with document(s) from other collection(s). We may populate a single document, multiple documents, plain object, multiple plain objects, or all objects returned from a query. Let's look at some examples.
    for example, Story .find(...) .populate({ path: 'fans', match: { age: { $gte: 21 }}, select: 'name -_id', options: { limit: 5 }
    path is the name of the collection, match the specified condition, the results will be showed accourdin to, options here we said we only want 5 results to be showed.
-   (https://www.grepper.com/tpc/mongoose+populate%20/%20http://man.hubwiz.com/docset/Mongoose.docset/Contents/Resources/Documents/mongoosejs.com/docs/populate.html)
+   (https://www.grepper.com/tpc/mongoose+populate%20/%20......http://man.hubwiz.com/docset/Mongoose.docset/Contents/Resources/Documents/mongoosejs.com/docs/populate.html)
    - array of ObjectIds
    - mongoose methods and statics, and its declearing.
    - process.on('SIGINT')
