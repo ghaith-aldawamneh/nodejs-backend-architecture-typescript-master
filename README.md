@@ -50,6 +50,7 @@ errors that i faced:
   - creating the database modeles 
 
 ## mongoDB BASICS every one should knows:
+  - The __v field is called the version key. It describes the internal revision of a document. This __v field is used to track the revisions of a document. By default, its value is zero. In real practice, the __v field increments by one only when an array is updated. In other situations, the value of the __v field remains unaffected. So to keep the track of __v field in such situations, we can do it manually using the increment operator provided by the mongoose.
   - Partial indexes only index the documents in a collection that meet a specified filter expression. By indexing a subset of the documents in a collection, partial indexes have lower storage requirements and reduced performance costs for index creation and maintenance.
   - for the _id the index is normaly created by default.
   - the consequence of using alot of indexes: index creation can cause a significant performance impact. Disable the behavior by setting the autoIndex option of your schema to false, or globally on the connection by setting the option autoIndex to false.
