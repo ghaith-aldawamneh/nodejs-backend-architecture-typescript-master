@@ -32,7 +32,7 @@ errors that i faced:
   - //the Keystore interface contains( _id:Types.ObjectId,client:User,primaryKey,secondaryKey,status?:b;createdAt?,updatedAt?)
   - the create function does RoleModel.**findOne({code**:'LEARNER'}).select('+code') if (!) throw E, then it **user.roles**=[role];**user.createdAt**=user.updatedAt=now, then createdUser=await**UserModel.create(user)**,keystore =await **KeystoreRepo.create**(createdUser, accessTokenKey, refreshTokenKey, );
   - then keystore=**await UserModel.create(user,primaryKey,secondaryKey)**:Promise<Keystore> that will do **KeystoreModel.create**(User,primaryKey,secondaryKey)
-  
+  - 
 
 
 
@@ -51,8 +51,10 @@ errors that i faced:
   - creating the database modeles 
 
 ## mongoDB BASICS every one should knows:
-  
 (https://mongoosejs.com/docs/3.2.x/docs/guide.html#versionKey)
+  
+  
+  - we have to use either .toObect() when getting the result of the query, or to use 
   - This allow your application code to test if changes have been made between a fetch (bringing in version key 42 for example) and a consequent update (ensuring version value still is 42). If version key has a different value (eg. 43 because an update has been made to the document), your application code can handle the concurrent modification.(https://stackoverflow.com/questions/17810637/mongoose-versioning-when-is-it-safe-to-disable-it)
   - Document versioning can also be disabled by setting the versionKey to false. DO NOT disable versioning unless you know what you are doing.
   - When versionKey is enabled, the version value is atomically incremented whenever a document is updated.
@@ -74,6 +76,7 @@ errors that i faced:
    - Using trim will help in removing the white spaces present (beginning and ending of the string) in the string that you want to save to the DB like.
    - model<EnforcedDocType>{DOCUMENT_NAME,schema,COLLECTION_NAME}
 ## mongoose methods and ways of using every one shoud knows:
+  -  .lean() converts mongoose.Document to Plain Javascript Object (for create you must use .Object() because it returns a document)
   - Pre-save hooks in mongoose.js
   - Lean(), By default, Mongoose queries return an instance of the Mongoose Document class. Documents are much heavier than vanilla JavaScript objects, because they have a lot of internal state for change tracking. Enabling the lean option tells Mongoose to skip instantiating a full Mongoose document and just give you the POJO.
   - select:false, Currently, if we use select: false in a schema, we need to do Model.findOne({ _id }).select("+field_a") to get its value.
