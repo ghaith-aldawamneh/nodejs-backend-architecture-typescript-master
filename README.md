@@ -8,7 +8,9 @@ errors that i faced:
   ```git
   npm config set registry https://registry.npmjs.org/
   ```
-
+DB Schema:
+RoleModel(code:s-enum,status:b,createdAt,updatedAt)
+User(_id,name?,profilePicUrl?,email?,password?,roles[],verified?:b, status?,createdAt?,updatedAt?:)
 ## project assembly:
   - the permission is in the req.apikey, the apikey was put in the req.headers, password in the req.body
   - the data base starts form 
@@ -31,7 +33,7 @@ errors that i faced:
   - //the Role interface contains (_id:Types.ObjectId,code:s,status?:boolean,createdAt?,updatedAt?)
   - //the Keystore interface contains( _id:Types.ObjectId,client:User,primaryKey,secondaryKey,status?:b;createdAt?,updatedAt?)
   - the create function does RoleModel.**findOne({code**:'LEARNER'}).select('+code') if (!) throw E, then it **user.roles**=[role];**user.createdAt**=user.updatedAt=now, then createdUser=await**UserModel.create(user)**,keystore =await **KeystoreRepo.create**(createdUser, accessTokenKey, refreshTokenKey, );
-  - then keystore=**await UserModel.create(user,primaryKey,secondaryKey)**:Promise<Keystore> that will do **KeystoreModel.create**(User,primaryKey,secondaryKey)
+  - then keystore=**await UserModel.create(user,primaryKey,secondaryKey)**:Promise<Keystore> that will do **KeystoreModel.create**(User,primaryKey,secondaryKey) and return `keystore.toObject()`
   - 
 
 
