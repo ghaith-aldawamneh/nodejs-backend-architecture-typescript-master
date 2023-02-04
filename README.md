@@ -39,7 +39,7 @@ Blog(_id,title,description,text?,draftText?,tags,author,imgUrl?,blogUrl,likes?: 
   - //the Keystore interface contains( _id:Types.ObjectId,client:User,primaryKey,secondaryKey,status?:b;createdAt?,updatedAt?)
   - the create function does RoleModel.**findOne({code**:'LEARNER'}).select('+code') if (!) throw E, then it **user.roles**=[role];**user.createdAt**=user.updatedAt=now, then createdUser=await**UserModel.create(user)**,keystore =await **KeystoreRepo.create**(createdUser, accessTokenKey, refreshTokenKey, );
   - then keystore=**await UserModel.create(user,primaryKey,secondaryKey)**:Promise<Keystore> that will do **KeystoreModel.create**(User,primaryKey,secondaryKey) and return `keystore.toObject()`
-  - 
+  - in brief the signup{-findByEmail/error 2-accessTokenKey/refreshTokenKey 3-passwordHash 4-UserRepo.create(name: req.body.name, etc)4- inside the UserRepo.create role=RoleModel.findOne, user.roles=[role];createdUser=await UserModel.create(user); const keystore=await KeystoreRepo.create 5-tokens=await createTokens}
 
 
 
