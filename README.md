@@ -9,9 +9,12 @@ errors that i faced:
   npm config set registry https://registry.npmjs.org/
   ```
 DB Schema:
+//NB: RoleCode(LEARNER,WRITER,EDITOR,ADMIN)||_id:Types.ObjectId
+ApiKey(_id,key,version,permissions,comments,status?,createdAt,updatedAt)
 RoleModel(code:s-enum,status:b,createdAt,updatedAt)
-User(_id,name?,profilePicUrl?,email?,password?,roles[],verified?:b, status?,createdAt?,updatedAt?:)
-
+User(_id,name?,profilePicUrl?,email?,password?,roles[],verified?:b, status?,createdAt?,updatedAt?)
+Keystore(_id,client,primaryKey,secondaryKey,status?,createdAt?,updatedAt?)
+Blog(_id,title,description,text?,draftText?,tags,author,imgUrl?,blogUrl,likes?: n,score: n,isSubmitted: b,isDraft: b,isPublished: b,status?: b,publishedAt?,createdBy?: User,updatedBy?: User, createdAt?,updatedAt?)
 
 ## project assembly:
   - the permission is in the req.apikey, the apikey was put in the req.headers, password in the req.body
