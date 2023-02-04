@@ -11,6 +11,8 @@ errors that i faced:
 DB Schema:
 RoleModel(code:s-enum,status:b,createdAt,updatedAt)
 User(_id,name?,profilePicUrl?,email?,password?,roles[],verified?:b, status?,createdAt?,updatedAt?:)
+
+
 ## project assembly:
   - the permission is in the req.apikey, the apikey was put in the req.headers, password in the req.body
   - the data base starts form 
@@ -119,6 +121,8 @@ User(_id,name?,profilePicUrl?,email?,password?,roles[],verified?:b, status?,crea
   - .custom(fn: CustomValidator) ,type CustomValidator<V=any>=(value: V,helpers:CustomHelpers) =>V
   
 ## functions i learned:
+  - RequestHandler Type is (req: Request, res: Response, next: NextFunction)=>void
+  if you need to use the .catch you have to decleare the type of the AsyncFunction
   - .explain("executionStats")
   - .toString('hex'), it will just join the values into a comma-separated list of the values in decimal representation.
   - bcrypt.hash(string,number: The number of rounds to secure the hash. The number commonly ranges from 5 to 15,The callback function to execute when finishing the hashing)
