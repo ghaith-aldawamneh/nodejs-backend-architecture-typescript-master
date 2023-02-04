@@ -122,6 +122,7 @@ User(_id,name?,profilePicUrl?,email?,password?,roles[],verified?:b, status?,crea
   
 ## functions i learned:
   - RequestHandler Type is (req: Request, res: Response, next: NextFunction)=>void
+  - Asyncfunction Type is (req: Request, res: Response, next: NextFunction)=>promise {so you can do the catch then}
   if you need to use the .catch you have to decleare the type of the AsyncFunction
   - .explain("executionStats")
   - .toString('hex'), it will just join the values into a comma-separated list of the values in decimal representation.
