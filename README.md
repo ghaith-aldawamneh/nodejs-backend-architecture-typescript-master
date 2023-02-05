@@ -45,8 +45,8 @@ Blog(_id,title,description,text?,draftText?,tags,author,imgUrl?,blogUrl,likes?: 
   - we made a JwtPayload class with(aud,sub,iss,prm,iat=Math.floor(Date.now() / 1000),exp=iat+validity)
   - in brief we gave the payloud to the jwt.sign as {tokenInfo.issuer,tokenInfo.audience,user._id.toString(),accessTokenKey,tokenInfo.accessTokenValidity}
   - we created the accessTokenKey by hex before in
-
-
+  - at the end of the signup file we used the getUserData in order to retrieve the data directly from the DB so we make sure that all the steps went fine.
+  - 
 
 
 ## fast programming shortcuts:
