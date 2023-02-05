@@ -41,8 +41,9 @@ Blog(_id,title,description,text?,draftText?,tags,author,imgUrl?,blogUrl,likes?: 
   - then keystore=**await UserModel.create(user,primaryKey,secondaryKey)**:Promise<Keystore> that will do **KeystoreModel.create**(User,primaryKey,secondaryKey) and return `keystore.toObject()`
   - in brief the signup{-findByEmail/error 2-accessTokenKey/refreshTokenKey 3-passwordHash 4-UserRepo.create(name: req.body.name, etc)4- inside the UserRepo.create role=RoleModel.findOne, user.roles=[role];createdUser=await UserModel.create(user); const keystore=await KeystoreRepo.create 5-tokens=await createTokens 6- userData=await getUserData{_.pick(user, ['_id', 'name', 'roles', 'profilePicUrl'])} 7-
   - createTokens:Promise<Tokens> will sign the payloud(user_data) with the private Key,
-  - he made a JwtPayload class 
-  - 
+  - we made a JwtPayload class with(aud,sub,iss,prm,iat=Math.floor(Date.now() / 1000),exp=iat+validity)
+  - in brief we gave the payloud to the jwt.sign as {tokenInfo.issuer,tokenInfo.audience,user._id.toString(),accessTokenKey,tokenInfo.accessTokenValidity}
+  - we created the accessTokenKey by hex before in
 
 
 
