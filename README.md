@@ -8,6 +8,7 @@ errors that i faced:
   ```git
   npm config set registry https://registry.npmjs.org/
   ```
+
 DB Schema:
 //NB: RoleCode(LEARNER,WRITER,EDITOR,ADMIN)||_id:Types.ObjectId
 ApiKey(_id,key,version,permissions,comments,status?,createdAt,updatedAt)
@@ -15,8 +16,19 @@ RoleModel(code:s-enum,status:b,createdAt,updatedAt)
 User(_id,name?,profilePicUrl?,email?,password?,roles[],verified?:b, status?,createdAt?,updatedAt?)
 Keystore(_id,client,primaryKey,secondaryKey,status?,createdAt?,updatedAt?)
 Blog(_id,title,description,text?,draftText?,tags,author,imgUrl?,blogUrl,likes?: n,score: n,isSubmitted: b,isDraft: b,isPublished: b,status?: b,publishedAt?,createdBy?: User,updatedBy?: User, createdAt?,updatedAt?)
+## for res we have.
+  - .send
+  - .render
+  - .json
+
+
+
+
+
 ## Notes before the project assembly:
   - the validate by many way, but acually it depends on how accurate we want to validate, for example, we validate the api-key with joi to make an accurate validation, but we validated the payloud samply by (!payload ||!payload.iss ...etc)
+  - for validation purposes, for one middleware, we can set the type of the req to make sure that it contains a certain content like, like req: PublicRequest
+  - 
 ## project assembly:
   - the permission is in the req.apikey, the apikey was put in the req.headers, password in the req.body
   - the data base starts form 
