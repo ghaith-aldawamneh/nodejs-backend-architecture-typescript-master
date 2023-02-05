@@ -148,7 +148,7 @@ Blog(_id,title,description,text?,draftText?,tags,author,imgUrl?,blogUrl,likes?: 
   - startsWith() method determines whether a string begins with the characters of a specified string, returning true or false as appropriate.
   - The path.join() method joins the specified path segments into one path.
   - __dirname is an environment variable that tells you the absolute path of the directory containing the currently executing file.
-
+  - The util.promisify() method basically takes a function as an input that follows the common Node.js callback style, i.e., with a (err, value) and returns a version of the same that returns a promise instead of a callback.
 
 
 ## basic concepts every one should know it:
