@@ -40,9 +40,9 @@ Blog(_id,title,description,text?,draftText?,tags,author,imgUrl?,blogUrl,likes?: 
   - the create function does RoleModel.**findOne({code**:'LEARNER'}).select('+code') if (!) throw E, then it **user.roles**=[role];**user.createdAt**=user.updatedAt=now, then createdUser=await**UserModel.create(user)**,keystore =await **KeystoreRepo.create**(createdUser, accessTokenKey, refreshTokenKey, );
   - then keystore=**await UserModel.create(user,primaryKey,secondaryKey)**:Promise<Keystore> that will do **KeystoreModel.create**(User,primaryKey,secondaryKey) and return `keystore.toObject()`
   - in brief the signup{-findByEmail/error 2-accessTokenKey/refreshTokenKey 3-passwordHash 4-UserRepo.create(name: req.body.name, etc)4- inside the UserRepo.create role=RoleModel.findOne, user.roles=[role];createdUser=await UserModel.create(user); const keystore=await KeystoreRepo.create 5-tokens=await createTokens 6- userData=await getUserData{_.pick(user, ['_id', 'name', 'roles', 'profilePicUrl'])} 7-
-  - createTokens:Promise<Tokens>
-  }
-  
+  - createTokens:Promise<Tokens> will sign the payloud(user_data) with the private Key,
+  - he made a JwtPayload class 
+  - 
 
 
 
@@ -92,6 +92,7 @@ Blog(_id,title,description,text?,draftText?,tags,author,imgUrl?,blogUrl,likes?: 
   - select:false, Currently, if we use select: false in a schema, we need to do Model.findOne({ _id }).select("+field_a") to get its value.
   
 ## basics i learned:
+  - We used private.key to sign JWT and public.key to verify it
   - modal.create, Creates a new document or documents.
   - process.exit(1) exit with failure error, while the process.exit(0) exits without
   - The connection process in Mongoose inherits the Node EventEmitter class
@@ -150,7 +151,13 @@ Blog(_id,title,description,text?,draftText?,tags,author,imgUrl?,blogUrl,likes?: 
   - The util.promisify() method basically takes a function as an input that follows the common Node.js callback style, i.e., with a (err, value) and returns a version of the same that returns a promise instead of a callback.
   - The fs.readFile() method is an inbuilt method which is used to read the file. This method read the entire file into buffer. To load the fs module we use require() method. For example: var fs = require(‘fs’);
   fs.readFile( filename, encoding, callback_function ) default value of encoding is ‘utf8’,callback_function(err,data: Contents of the file)
-  - 
+  - The parseInt method parses a value as a string and returns the first integer. , 2 = binary, 8 = octal, 10 = decimal, 16 = hexadecimal. , If radix is omitted, JavaScript assumes radix 10 (some times it is used to remove the point and the numbers after, and also to remove the spaces) we used it for the token validate time.
+  
+  
+  
+  
+  
+  
   
   
   
@@ -159,6 +166,7 @@ Blog(_id,title,description,text?,draftText?,tags,author,imgUrl?,blogUrl,likes?: 
   
 
 ## basic concepts every one should know it:
+  
   - .PEM, Privacy Enhanced Mail (PEM) files are a type of Public Key Infrastructure (PKI) file used for keys and certificates. PEM, initially invented to make e-mail secure, is now an Internet security standard.
   - A relational database management system (RDBMS) is a program used to create, update, and manage relational databases. Some of the most well-known RDBMSs include MySQL, PostgreSQL, MariaDB, Microsoft SQL Server, and Oracle Database.
   - Joi is a library that lets us validate an object’s structure with ease.
@@ -169,6 +177,23 @@ Blog(_id,title,description,text?,draftText?,tags,author,imgUrl?,blogUrl,likes?: 
   - SSL stands for Secure Sockets Layer, It uses encryption algorithms to scramble data in transit, preventing hackers from reading it as it is sent over the connection. This information could be anything sensitive or personal which can include credit card numbers and other financial information, names and addresses.
   - regarding SSL: TLS (Transport Layer Security) is just an updated, more secure, version of SSL
   - regarding SSL: HTTPS (Hyper Text Transfer Protocol Secure) appears in the URL when a website is secured by an SSL certificate. The details of the certificate, including the issuing authority and the corporate name of the website owner, can be viewed by clicking on the lock symbol on the browser bar.
+  - hexadecimal? Hexadecimal is a numbering system with base 16
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
   
 ## some RegEx concepts:
