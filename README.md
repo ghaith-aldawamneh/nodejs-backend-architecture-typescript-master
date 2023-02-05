@@ -149,7 +149,15 @@ Blog(_id,title,description,text?,draftText?,tags,author,imgUrl?,blogUrl,likes?: 
   - The path.join() method joins the specified path segments into one path.
   - __dirname is an environment variable that tells you the absolute path of the directory containing the currently executing file.
   - The util.promisify() method basically takes a function as an input that follows the common Node.js callback style, i.e., with a (err, value) and returns a version of the same that returns a promise instead of a callback.
-
+  - The fs.readFile() method is an inbuilt method which is used to read the file. This method read the entire file into buffer. To load the fs module we use require() method. For example: var fs = require(‘fs’);
+  fs.readFile( filename, encoding, callback_function ) default value of encoding is ‘utf8’,callback_function(err,data: Contents of the file)
+  
+  
+  
+  
+  
+  
+  
 
 ## basic concepts every one should know it:
   - A relational database management system (RDBMS) is a program used to create, update, and manage relational databases. Some of the most well-known RDBMSs include MySQL, PostgreSQL, MariaDB, Microsoft SQL Server, and Oracle Database.
