@@ -40,8 +40,8 @@ Blog(_id,title,description,text?,draftText?,tags,author,imgUrl?,blogUrl,likes?: 
   - the create function does RoleModel.**findOne({code**:'LEARNER'}).select('+code') if (!) throw E, then it **user.roles**=[role];**user.createdAt**=user.updatedAt=now, then createdUser=await**UserModel.create(user)**,keystore =await **KeystoreRepo.create**(createdUser, accessTokenKey, refreshTokenKey, );
   - then keystore=**await UserModel.create(user,primaryKey,secondaryKey)**:Promise<Keystore> that will do **KeystoreModel.create**(User,primaryKey,secondaryKey) and return `keystore.toObject()`
   - in brief the signup{-findByEmail/error 2-accessTokenKey/refreshTokenKey 3-passwordHash 4-UserRepo.create(name: req.body.name, etc)4- inside the UserRepo.create role=RoleModel.findOne, user.roles=[role];createdUser=await UserModel.create(user); const keystore=await KeystoreRepo.create 5-tokens=await createTokens 6- userData=await getUserData{_.pick(user, ['_id', 'name', 'roles', 'profilePicUrl'])} 7-
+  
   - createTokens:Promise<Tokens>
- 
   }
   
 
@@ -146,6 +146,11 @@ Blog(_id,title,description,text?,draftText?,tags,author,imgUrl?,blogUrl,likes?: 
   - toString() is an inbuilt function in TypeScript which is used to return a string representing the specified object.
   - indexOf() method returns the first index at which a given element can be found in the array, or -1 if it is not present.
   - startsWith() method determines whether a string begins with the characters of a specified string, returning true or false as appropriate.
+  - The path.join() method joins the specified path segments into one path.
+  - __dirname is an environment variable that tells you the absolute path of the directory containing the currently executing file.
+
+
+
 ## basic concepts every one should know it:
   - A relational database management system (RDBMS) is a program used to create, update, and manage relational databases. Some of the most well-known RDBMSs include MySQL, PostgreSQL, MariaDB, Microsoft SQL Server, and Oracle Database.
   - Joi is a library that lets us validate an object’s structure with ease.
