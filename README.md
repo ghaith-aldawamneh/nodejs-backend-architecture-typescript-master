@@ -26,9 +26,15 @@ Blog(_id,title,description,text?,draftText?,tags,author,imgUrl?,blogUrl,likes?: 
 
 
 ## Notes before the project assembly:
+  - 
   - the validate by many way, but acually it depends on how accurate we want to validate, for example, we validate the api-key with joi to make an accurate validation, but we validated the payloud samply by (!payload ||!payload.iss ...etc)
   - for validation purposes, for one middleware, we can set the type of the req to make sure that it contains a certain content like, like req: PublicRequest
-  - we use the authentication in the three of:(logout,credential,profile)
+  - we use the authentication in the three of:(logout(post(L,validator,)),credential,profile), by .use before the middleware method(like .post)
+
+
+
+
+
 ## project assembly:
   - the permission is in the req.apikey, the apikey was put in the req.headers, password in the req.body
   - the data base starts form 
@@ -192,7 +198,9 @@ Blog(_id,title,description,text?,draftText?,tags,author,imgUrl?,blogUrl,likes?: 
   - regarding SSL: TLS (Transport Layer Security) is just an updated, more secure, version of SSL
   - regarding SSL: HTTPS (Hyper Text Transfer Protocol Secure) appears in the URL when a website is secured by an SSL certificate. The details of the certificate, including the issuing authority and the corporate name of the website owner, can be viewed by clicking on the lock symbol on the browser bar.
   - hexadecimal? Hexadecimal is a numbering system with base 16
-  
+  - Authentication is the process of determining whether someone or something is, in fact, who or what it says it is. Authentication technology provides access control for systems by checking to see if a user's credentials match the credentials in a database of authorized users or in a data authentication server.
+  - A credential is a data structure that provides proof of an application's claim to a principal name. An application uses a credential to establish its global identity.
+  - A user credential is a user name and password authentication token that is bound to a particular user. You can create user credentials for a user.
   
   
   
