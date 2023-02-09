@@ -83,7 +83,7 @@ Blog(_id,title,description,text?,draftText?,tags,author,imgUrl?,blogUrl,likes?: 
 ## mongoDB BASICS every one should knows:
 (https://mongoosejs.com/docs/3.2.x/docs/guide.html#versionKey)
   
-  
+  - MongoDB ObjectId: MongoDB creates a unique 12 bytes ID for every object using the timestamp of respective Object creation. This ObjectId can be used to uniquely target a specific object in the database. Structure: 4-byte timestamp value 5-byte random value 3-byte incrementing counter, initialized to a random value(that is why we use (ObjectId.isValid(id),However, it ObjectId.isValid(id) returns true even for invalid strings with length 12.)
   - we have to use either .toObect() when getting the result of the query, or to use, because mongoose functions don't represent actual JavaScript objects. To get an actual JavaScript object you have to call (oddly enough) toObject().
   - This allow your application code to test if changes have been made between a fetch (bringing in version key 42 for example) and a consequent update (ensuring version value still is 42). If version key has a different value (eg. 43 because an update has been made to the document), your application code can handle the concurrent modification.(https://stackoverflow.com/questions/17810637/mongoose-versioning-when-is-it-safe-to-disable-it)
   - Document versioning can also be disabled by setting the versionKey to false. DO NOT disable versioning unless you know what you are doing.
@@ -173,7 +173,7 @@ Blog(_id,title,description,text?,draftText?,tags,author,imgUrl?,blogUrl,likes?: 
   fs.readFile( filename, encoding, callback_function ) default value of encoding is ‘utf8’,callback_function(err,data: Contents of the file)
   - The parseInt method parses a value as a string and returns the first integer. , 2 = binary, 8 = octal, 10 = decimal, 16 = hexadecimal. , If radix is omitted, JavaScript assumes radix 10 (some times it is used to remove the point and the numbers after, and also to remove the spaces) we used it for the token validate time.
   - Math.floor() static method always rounds down and returns the largest integer less than or equal to a given number.
-  
+  - ObjectId.isValid(id){However, it ObjectId.isValid(id) returns true even for invalid strings with length 12.}
   
   
   
