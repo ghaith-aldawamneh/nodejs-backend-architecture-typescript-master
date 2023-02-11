@@ -184,7 +184,7 @@ Blog(_id,title,description,text?,draftText?,tags,author,imgUrl?,blogUrl,likes?: 
   - ObjectId.isValid(id){However, it ObjectId.isValid(id) returns true even for invalid strings with length 12.}
   - length: length is a final variable applicable for arrays. With the help of the length variable, we can obtain the size of the array.
   - from the BSON library .equals(Compares the equality of this ObjectId with `otherID`.
-  
+  - from the lodash library .pick(user, ['_id', 'name', 'email']){Creates an object composed of the picked `object` properties.}
   
   
   
