@@ -69,7 +69,7 @@ Blog(_id,title,description,text?,draftText?,tags,author,imgUrl?,blogUrl,likes?: 
   - role:1- req.currentRoleCodes = roleCodes;
   - authorization: 1-(!req.user || !req.user.roles || !req.currentRoleCodes) | 2-findByCodes(req.currentRoleCodes) | 3-for(const userRole of req.user.roles): authorized = true;break;next or error
   - the credential starts with schema.validate(body){email,password}
-  - UserRepo.findByEmail(req.body.email)
+  - UserRepo.findByEmail(req.body.email)-->!user then error -->
   
   
   
