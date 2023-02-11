@@ -29,7 +29,7 @@ Blog(_id,title,description,text?,draftText?,tags,author,imgUrl?,blogUrl,likes?: 
   - 
   - the validate by many way, but acually it depends on how accurate we want to validate, for example, we validate the api-key with joi to make an accurate validation, but we validated the payloud samply by (!payload ||!payload.iss ...etc)
   - for validation purposes, for one middleware, we can set the type of the req to make sure that it contains a certain content like, like req: PublicRequest
-  - we use the authentication in the three of:(logout(post(L,validator,)),credential,profile), by .use before the middleware method(like .post)
+  - we use the authentication in the three of:(credential|profile|logout(post(L,validator,))), by .use before the middleware method(like .post)
 
 
 
@@ -65,6 +65,10 @@ Blog(_id,title,description,text?,draftText?,tags,author,imgUrl?,blogUrl,likes?: 
   - we created the accessTokenKey by hex before in
   - at the end of the signup file we used the getUserData in order to retrieve the data directly from the DB so we make sure that all the steps went fine.
   - 
+  
+  
+  
+  
 
 
 ## fast programming shortcuts:
@@ -202,7 +206,7 @@ Blog(_id,title,description,text?,draftText?,tags,author,imgUrl?,blogUrl,likes?: 
   - A credential is a data structure that provides proof of an application's claim to a principal name. An application uses a credential to establish its global identity.
   - A user credential is a user name and password authentication token that is bound to a particular user. You can create user credentials for a user.
   - Authorization is the process where the database manager gets information about the authenticated user. Part of that information is determining which database operations the user can perform and which data objects a user can access.
-  
+  - authentication in the logout, you definitely must authenticate the /logout endpoint, to prevent an attacker from forcefully logging out all your users. If you do not validate this endpoint, anyone can logout any user. Hence this endpoint must be protected.
   
   
   
