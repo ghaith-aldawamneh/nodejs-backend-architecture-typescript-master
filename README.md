@@ -68,8 +68,8 @@ Blog(_id,title,description,text?,draftText?,tags,author,imgUrl?,blogUrl,likes?: 
   - authentication:1-{va_schema.auth(req[header]authorization: JoiAuthBearer(),header)} | 2-getAccessToken(req.headers.authorization){no/or no barear-->error Barear Token} | 3-payload = await JWT.validate | 4-validateTokenData{||!payload.prm||payload.aud!==tokenInfo.audience||!Types.ObjectId.isValid(payload.sub)} | 5-UserRepo.findById (req.user = user)--> KeystoreRepo.findforKey(req.keystore = keystore)
   - role:1- req.currentRoleCodes = roleCodes;
   - authorization: 1-(!req.user || !req.user.roles || !req.currentRoleCodes) | 2-findByCodes(req.currentRoleCodes) | 3-for(const userRole of req.user.roles): authorized = true;break;next or error
-
-  
+  - the credential starts with schema.validate(body){email,password}
+  - UserRepo.findByEmail(req.body.email)
   
   
   
