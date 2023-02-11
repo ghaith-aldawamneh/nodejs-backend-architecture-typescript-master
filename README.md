@@ -182,7 +182,8 @@ Blog(_id,title,description,text?,draftText?,tags,author,imgUrl?,blogUrl,likes?: 
   - The parseInt method parses a value as a string and returns the first integer. , 2 = binary, 8 = octal, 10 = decimal, 16 = hexadecimal. , If radix is omitted, JavaScript assumes radix 10 (some times it is used to remove the point and the numbers after, and also to remove the spaces) we used it for the token validate time.
   - Math.floor() static method always rounds down and returns the largest integer less than or equal to a given number.
   - ObjectId.isValid(id){However, it ObjectId.isValid(id) returns true even for invalid strings with length 12.}
-  
+  - length: length is a final variable applicable for arrays. With the help of the length variable, we can obtain the size of the array.
+  - from the BSON library .equals(Compares the equality of this ObjectId with `otherID`.
   
   
   
