@@ -201,7 +201,7 @@ Blog(_id,title,description,text?,draftText?,tags,author,imgUrl?,blogUrl,likes?: 
   - Authentication is the process of determining whether someone or something is, in fact, who or what it says it is. Authentication technology provides access control for systems by checking to see if a user's credentials match the credentials in a database of authorized users or in a data authentication server.
   - A credential is a data structure that provides proof of an application's claim to a principal name. An application uses a credential to establish its global identity.
   - A user credential is a user name and password authentication token that is bound to a particular user. You can create user credentials for a user.
-  
+  - Authorization is the process where the database manager gets information about the authenticated user. Part of that information is determining which database operations the user can perform and which data objects a user can access.
   
   
   
