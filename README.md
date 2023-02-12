@@ -32,6 +32,7 @@ Blog(_id,title,description,text?,draftText?,tags,author,imgUrl?,blogUrl,likes?: 
   - we use the authentication in the three of:(credential|profile|logout(post(L,validator,))), by .use before the middleware method(like .post)
   - the authentication in brief gives the req.user and req.keystore from the Jwt.validate(Token)
   - the authorization:(!req.user || !req.user.roles || !req.currentRoleCodes)-->findByCodes(req.currentRoleCodes)-->for(constof req.user.roles)-->authorized 
+  - the credential(changing the password of the admin) after auth,rolegetting,authoriz,1-validate_credential(email,pass),2- finduserbyemail,3-passhash,4-UserRepo.update,5- keystoreRepo.RemoveAll, 6-forClient success response
 
 
 
