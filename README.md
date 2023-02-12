@@ -30,7 +30,8 @@ Blog(_id,title,description,text?,draftText?,tags,author,imgUrl?,blogUrl,likes?: 
   - the validate by many way, but acually it depends on how accurate we want to validate, for example, we validate the api-key with joi to make an accurate validation, but we validated the payloud samply by (!payload ||!payload.iss ...etc)
   - for validation purposes, for one middleware, we can set the type of the req to make sure that it contains a certain content like, like req: PublicRequest
   - we use the authentication in the three of:(credential|profile|logout(post(L,validator,))), by .use before the middleware method(like .post)
-  - 
+  - the authentication in brief gives the req.user and req.keystore from the Jwt.validate(Token)
+  - the authorization:(!req.user || !req.user.roles || !req.currentRoleCodes)-->findByCodes(req.currentRoleCodes)-->for(constof req.user.roles)-->authorized 
 
 
 
@@ -67,10 +68,10 @@ Blog(_id,title,description,text?,draftText?,tags,author,imgUrl?,blogUrl,likes?: 
   - authentication:(validate auth:header,getToken, JWT.validate, validateTokenpayloud, setting user.user req.keystore)
   - authentication:1-{va_schema.auth(req[header]authorization: JoiAuthBearer(),header)} | 2-getAccessToken(req.headers.authorization){no/or no barear-->error Barear Token} | 3-payload = await JWT.validate | 4-validateTokenData{||!payload.prm||payload.aud!==tokenInfo.audience||!Types.ObjectId.isValid(payload.sub)} | 5-UserRepo.findById (req.user = user)--> KeystoreRepo.findforKey(req.keystore = keystore)
   - role:1- req.currentRoleCodes = roleCodes;
-  - authorization: 1-(!req.user || !req.user.roles || !req.currentRoleCodes) | 2-findByCodes(req.currentRoleCodes) | 3-for(const userRole of req.user.roles): authorized = true;break;next or error
+  - authorization: 1-(!req.user || !req.user.roles || !req.currentRoleCodes) | 2-roles=findByCodes(req.currentRoleCodes) | 3-for(const userRole of req.user.roles):for(of roles) authorized = true;break;next or error
   - the credential starts with schema.validate(body){email,password}
   - UserRepo.findByEmail(req.body.email)-->!user then error -->
-  
+  - 
   
   
 
@@ -184,6 +185,7 @@ Blog(_id,title,description,text?,draftText?,tags,author,imgUrl?,blogUrl,likes?: 
   - ObjectId.isValid(id){However, it ObjectId.isValid(id) returns true even for invalid strings with length 12.}
   - length: length is a final variable applicable for arrays. With the help of the length variable, we can obtain the size of the array.
   - from the BSON library .equals(Compares the equality of this ObjectId with `otherID`.
+  - from the bson.d.ts declare class ObjectId{constructor(inputId?: string | number | ObjectId | ObjectIdLike | Buffer | Uint8Array);}
   - from the lodash library .pick(user, ['_id', 'name', 'email']){Creates an object composed of the picked `object` properties.}
   
   
