@@ -26,14 +26,14 @@ Blog(_id,title,description,text?,draftText?,tags,author,imgUrl?,blogUrl,likes?: 
 
 
 ## Notes before the project assembly:
-  - 
+  - we use the validate(schema.auth,HEADER) when you want to get to the req.header
   - the validate by many way, but acually it depends on how accurate we want to validate, for example, we validate the api-key with joi to make an accurate validation, but we validated the payloud samply by (!payload ||!payload.iss ...etc)
   - for validation purposes, for one middleware, we can set the type of the req to make sure that it contains a certain content like, like req: PublicRequest
   - we use the authentication in the three of:(credential|profile|logout(post(L,validator,))), by .use before the middleware method(like .post)
-  - the authentication in brief gives the req.user and req.keystore from the Jwt.validate(Token)
+  - the authentication: in brief gives the req.user and req.keystore from the Jwt.validate(Token)
   - the authorization:(!req.user || !req.user.roles || !req.currentRoleCodes)-->findByCodes(req.currentRoleCodes)-->for(constof req.user.roles)-->authorized 
   - the credential(changing the password of the admin) after auth,rolegetting,authoriz,1-validate_credential(email,pass),2- finduserbyemail,3-passhash,4-UserRepo.update,5- keystoreRepo.RemoveAll, 6-forClient success response
-  -
+  - The post refrToken:1- validate the header and body's Token, 2-
 
 
 
