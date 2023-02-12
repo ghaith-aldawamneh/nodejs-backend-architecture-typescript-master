@@ -33,7 +33,7 @@ Blog(_id,title,description,text?,draftText?,tags,author,imgUrl?,blogUrl,likes?: 
   - the authentication in brief gives the req.user and req.keystore from the Jwt.validate(Token)
   - the authorization:(!req.user || !req.user.roles || !req.currentRoleCodes)-->findByCodes(req.currentRoleCodes)-->for(constof req.user.roles)-->authorized 
   - the credential(changing the password of the admin) after auth,rolegetting,authoriz,1-validate_credential(email,pass),2- finduserbyemail,3-passhash,4-UserRepo.update,5- keystoreRepo.RemoveAll, 6-forClient success response
-
+  -
 
 
 
@@ -215,6 +215,9 @@ Blog(_id,title,description,text?,draftText?,tags,author,imgUrl?,blogUrl,likes?: 
   - A user credential is a user name and password authentication token that is bound to a particular user. You can create user credentials for a user.
   - Authorization is the process where the database manager gets information about the authenticated user. Part of that information is determining which database operations the user can perform and which data objects a user can access.
   - authentication in the logout, you definitely must authenticate the /logout endpoint, to prevent an attacker from forcefully logging out all your users. If you do not validate this endpoint, anyone can logout any user. Hence this endpoint must be protected.
+  - The difference between Post and Get is :
+  - Regarding Get: values are visible in the URL, limitation on the length of the values, generally 255 characters, performs are better compared to POST because of the simple nature of appending the values in the URL, supports only string data types, can be bookmarked, request is often cacheable, Parameters remain in web browser history.
+  - Regarding Post: values are not visible in the URL, no limitation on the length of the values since they are submitted via the body of HTTP, lower performance as compared to GET method because of time spent in including POST values in the HTTP body, supports different data types, such as string, numeric, binary.., no bookmark, request is hardly cacheable, Parameters are not saved in web browser history.
   
   
   
