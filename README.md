@@ -17,7 +17,7 @@ DB Schema:
 -Keystore(_id,client,primaryKey,secondaryKey,status?,createdAt?,updatedAt?)
 -Blog(_id,title,description,text?,draftText?,tags,author,imgUrl?,blogUrl,likes?: n,score: n,isSubmitted: b,isDraft: b,isPublished: b,status?: -b,publishedAt?,createdBy?: User,updatedBy?: User, createdAt?,updatedAt?)
 -interface Tokens{accessToken,refreshToken}
--interface JwtPayload(issuer: s, audience:s, subject: s,param:s,validity: number)
+-interface JwtPayload(issuer: s, audience:s, subject: s,param:s,validity: number){sub:user id, param:the key in the keystore}
 
 ## for res we have.
   - .send
