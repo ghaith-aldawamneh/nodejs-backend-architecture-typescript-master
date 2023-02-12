@@ -38,6 +38,7 @@ Blog(_id,title,description,text?,draftText?,tags,author,imgUrl?,blogUrl,likes?: 
 
 
 ## project assembly:
+
   - the permission is in the req.apikey, the apikey was put in the req.headers, password in the req.body
   - the data base starts form 
   - use routes with path of the '/' `express.Router()`
