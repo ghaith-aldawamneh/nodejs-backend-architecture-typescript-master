@@ -87,7 +87,12 @@ DB Schema:
 
   
 ## abstract class APIResponse:
-  - 3* protected class members(statusCode,status,message) 1* protected method prepare, 1* public send, 1* private static sanitize
+  - 3* protected class members(statusCode,status,message) and:
+  
+  1* protected prepare<T extends ApiResponse>( res: Response, response: T, headers: { [key: string]: string }, ): Response
+  1* public send( res: Response, headers: { [key: string]: string } = {}, ): Response, 
+  
+  1* private static sanitize<T extends ApiResponse>(response: T): T
   - 
 ## fast programming shortcuts:
   - when taking an arg and its type you can use the arg a type since you decleared its type.
