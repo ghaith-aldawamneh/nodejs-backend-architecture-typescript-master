@@ -206,7 +206,7 @@ DB Schema:
   it is saying that _FilterQuery can be any key of T which is the module
   | means or, & means and
   condition could be T | T[] | $eq, $gt, $gte, $in etc.
-  
+  - the type of the object and its indexes we mean the keys, are defined as followed //: { [key: string]: string }//
   
   
   
