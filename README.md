@@ -37,8 +37,10 @@ DB Schema:
   - the authorization:(!req.user || !req.user.roles || !req.currentRoleCodes)-->findByCodes(req.currentRoleCodes)-->for(constof req.user.roles)-->authorized 
   - the credential(changing the password of the admin) after auth,rolegetting,authoriz,1-validate_credential(email,pass),2- finduserbyemail,3-passhash,4-UserRepo.update,5- keystoreRepo.RemoveAll, 6-forClient success response
   - The post refrToken:1- validate the header and body's Token, 2-
-
-
+  - authorization( authorized = true -->next() or Permission denied)
+  - authentication(req.user=, req.keystore= )
+  - Role(req.currentRoleCodes = roleCodes)
+  - credential(user/assign){changing password}: (authentication,Role,authorization)val(ema,pass)UserRepo.updateInfo()
 
 ## project assembly:
 
@@ -198,7 +200,12 @@ DB Schema:
   === is used for comparision between two variables but this will check strict type, which
   for example in the authorization we did the if (roles.length === 0) the same type
   ("0"==0)-->True, (0n==0)-->True
-  
+  - reading TypeScript catalogs: we did the .updateOne({ _id: user._id }, { $set: { ...user } })
+  .updateOne(_FilterQuery<T>, { $set: { ...user } })
+  type _FilterQuery<T>={[P in keyof T]?: Condition<T[P]>;} & RootQuerySelector<T>;
+  it is saying that _FilterQuery can be any key of T which is the module
+  | means or, & means and
+  condition could be T | T[] | $eq, $gt, $gte, $in etc.
   
   
   
