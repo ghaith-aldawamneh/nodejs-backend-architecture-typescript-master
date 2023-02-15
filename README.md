@@ -71,12 +71,14 @@ DB Schema:
   - we created the accessTokenKey by hex before in
   - at the end of the signup file we used the getUserData in order to retrieve the data directly from the DB so we make sure that all the steps went fine.
   - authentication:(validate auth:header,getToken, JWT.validate, validateTokenpayloud, setting user.user req.keystore)
-  - authentication:1-{va_schema.auth(req[header]authorization: JoiAuthBearer(),header)} | 2-getAccessToken(req.headers.authorization){no/or no barear-->error Barear Token} | 3-payload = await JWT.validate | 4-validateTokenData{||!payload.prm||payload.aud!==tokenInfo.audience||!Types.ObjectId.isValid(payload.sub)} | 5-UserRepo.findById (req.user = user)--> KeystoreRepo.findforKey(req.keystore = keystore)
+  - * authentication:1-{va_schema.auth(req[header]authorization: JoiAuthBearer(),header)} | 2-getAccessToken(req.headers.authorization){no/or no barear-->error Barear Token} | 3-payload = await JWT.validate | 4-validateTokenData{||!payload.prm||payload.aud!==tokenInfo.audience||!Types.ObjectId.isValid(payload.sub)} | 5-UserRepo.findById (req.user = user)--> KeystoreRepo.findforKey(req.keystore = keystore)
   - role:1- req.currentRoleCodes = roleCodes;
   - authorization: 1-(!req.user || !req.user.roles || !req.currentRoleCodes) | 2-roles=findByCodes(req.currentRoleCodes) | 3-for(const userRole of req.user.roles):for(of roles) authorized = true;break;next or error
   - the credential starts with schema.validate(body){email,password}
   - UserRepo.findByEmail(req.body.email)-->!user then error -->
-  - 
+  - * RefreshToken:
+1-val(auth, refresh Token)2- JWT.decode(req.accessToken)
+3-validateTokenData4-UserRepo.findById5-JWT.validate(req.body.refreshToken)6-validateRefrTokenData7-keystore.find8-keystore.rmove9-accesstoken, refreshtoken=hex10-KeystoreRepo.create11-tokens = createTokens11-new TokenRefreshResponse(the two Tokens).send(res);
   
   
 
