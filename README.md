@@ -87,7 +87,7 @@ DB Schema:
 
   notes before going to the class of ApiResponse:
   - protected members or methods can be used inside the class that implement the father class, in this case it is the ApiResponse.
-  - 
+  - when we said protected prepare, we need: it means that we will use inside a class that will extend the ApiResponsem By using super.prepare, and we will give it the class of TokenRefreshResponse that the super.prepare is used in as a type, so we are giving the container class as a type.
 ## abstract class APIResponse:
   - 3* protected class members(statusCode,status,message) and:
   
