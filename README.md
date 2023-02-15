@@ -85,6 +85,10 @@ DB Schema:
   
 
 
+  
+## abstract class APIResponse:
+  - 3* protected class members(statusCode,status,message) 1* protected method prepare, public send
+  - 
 ## fast programming shortcuts:
   - when taking an arg and its type you can use the arg a type since you decleared its type.
   - `const data = header['apikey']?.tostring()`
