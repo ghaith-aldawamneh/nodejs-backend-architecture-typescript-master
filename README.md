@@ -71,14 +71,14 @@ DB Schema:
   - we created the accessTokenKey by hex before in
   - at the end of the signup file we used the getUserData in order to retrieve the data directly from the DB so we make sure that all the steps went fine.
   - authentication:(validate auth:header,getToken, JWT.validate, validateTokenpayloud, setting user.user req.keystore)
-  - * authentication:1-{va_schema.auth(req[header]authorization: JoiAuthBearer(),header)} | 2-getAccessToken(req.headers.authorization){no/or no barear-->error Barear Token} | 3-payload = await JWT.validate | 4-validateTokenData{||!payload.prm||payload.aud!==tokenInfo.audience||!Types.ObjectId.isValid(payload.sub)} | 5-UserRepo.findById (req.user = user)--> KeystoreRepo.findforKey(req.keystore = keystore)
-  - role:1- req.currentRoleCodes = roleCodes;
+  - * authentication:1-{va_schema JoiAuthBearer(),header)} | 2-getAccessToken(req.headers.authorization){no/or no barear-->error Barear Token} | 3-payload = await JWT.validate | 4-validateTokenData{||!payload.prm||payload.aud!==tokenInfo.audience||!Types.ObjectId.isValid(payload.sub)} | 5-UserRepo.findById (req.user = user)--> KeystoreRepo.findforKey(req.keystore = keystore)
+  - * role:1- req.currentRoleCodes = roleCodes;
   - authorization: 1-(!req.user || !req.user.roles || !req.currentRoleCodes) | 2-roles=findByCodes(req.currentRoleCodes) | 3-for(const userRole of req.user.roles):for(of roles) authorized = true;break;next or error
   - the credential starts with schema.validate(body){email,password}
   - UserRepo.findByEmail(req.body.email)-->!user then error -->
   - * RefreshToken:
 1-val(auth, refresh Token)2- JWT.decode(req.accessToken)
-3-validateTokenData4-UserRepo.findById5-JWT.validate(req.body.refreshToken)6-validateRefrTokenData7-keystore.find8-keystore.rmove9-accesstoken, refreshtoken=hex10-KeystoreRepo.create11-tokens = createTokens11-new TokenRefreshResponse(the two Tokens).send(res);
+3-validateTokenData 4-UserRepo.findById 5-JWT.validate(req.body.refreshToken) 6-validateRefrTokenData7-keystore.find 8-keystore.rmove9-accesstoken, refreshtoken=hex 10-KeystoreRepo.create 11-tokens = createTokens 12-new TokenRefreshResponse(the two Tokens).send(res);
   
   
 
@@ -194,7 +194,9 @@ DB Schema:
   - from the BSON library .equals(Compares the equality of this ObjectId with `otherID`.
   - from the bson.d.ts declare class ObjectId{constructor(inputId?: string | number | ObjectId | ObjectIdLike | Buffer | Uint8Array);}
   - from the lodash library .pick(user, ['_id', 'name', 'email']){Creates an object composed of the picked `object` properties.}
-  
+  == is used for comparison between two variables irrespective of the datatype of variable.
+  === is used for comparision between two variables but this will check strict type, which
+  for example in the authorization we did the if (roles.length === 0) the same type
   
   
   
