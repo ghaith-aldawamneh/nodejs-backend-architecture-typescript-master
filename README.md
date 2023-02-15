@@ -87,7 +87,7 @@ DB Schema:
 
   
 ## abstract class APIResponse:
-  - 3* protected class members(statusCode,status,message) 1* protected method prepare, public send
+  - 3* protected class members(statusCode,status,message) 1* protected method prepare, 1* public send, 1* private static sanitize
   - 
 ## fast programming shortcuts:
   - when taking an arg and its type you can use the arg a type since you decleared its type.
