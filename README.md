@@ -197,7 +197,7 @@ DB Schema:
   == is used for comparison between two variables irrespective of the datatype of variable.
   === is used for comparision between two variables but this will check strict type, which
   for example in the authorization we did the if (roles.length === 0) the same type
-  
+  ("0"==0)-->True, (0n==0)-->True
   
   
   
