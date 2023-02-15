@@ -212,7 +212,7 @@ DB Schema:
   
   
 
-## basic concepts every one should know it:
+## basic concepts everyone should know it:
   
   - .PEM, Privacy Enhanced Mail (PEM) files are a type of Public Key Infrastructure (PKI) file used for keys and certificates. PEM, initially invented to make e-mail secure, is now an Internet security standard.
   - A relational database management system (RDBMS) is a program used to create, update, and manage relational databases. Some of the most well-known RDBMSs include MySQL, PostgreSQL, MariaDB, Microsoft SQL Server, and Oracle Database.
@@ -233,7 +233,7 @@ DB Schema:
   - The difference between Post and Get is :
   - Regarding Get: values are visible in the URL, limitation on the length of the values, generally 255 characters, performs are better compared to POST because of the simple nature of appending the values in the URL, supports only string data types, can be bookmarked, request is often cacheable, Parameters remain in web browser history.
   - Regarding Post: values are not visible in the URL, no limitation on the length of the values since they are submitted via the body of HTTP, lower performance as compared to GET method because of time spent in including POST values in the HTTP body, supports different data types, such as string, numeric, binary.., no bookmark, request is hardly cacheable, Parameters are not saved in web browser history.
-  
+  A credential is a data structure(a user name and password authentication token) that provides proof of an application's claim to a principal name. An application uses a credential to establish its global identity.
   
   
   
