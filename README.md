@@ -87,7 +87,9 @@ DB Schema:
 
   notes before going to the class of ApiResponse:
   - protected members or methods can be used inside the class that implement the father class, in this case it is the ApiResponse.
-  - when we said protected prepare, we need: it means that we will use inside a class that will extend the ApiResponsem By using super.prepare, and we will give it the class of TokenRefreshResponse that the super.prepare is used in as a type, so we are giving the container class as a type.
+  - when we said protected prepare, we need: it means that we will use inside the main class of ApiResponse and inside the class that will extend the ApiResponsem By using super.prepare, and we will give it the class of TokenRefreshResponse that the super.prepare is used in as a type, so we are giving the container class as a type.
+  
+  
 ## abstract class APIResponse:
   - 3* protected class members(statusCode,status,message) and:
   
@@ -218,7 +220,7 @@ DB Schema:
   | means or, & means and
   condition could be T | T[] | $eq, $gt, $gte, $in etc.
   - the type of the object and its indexes we mean the keys, are defined as followed //: { [key: string]: string }//
-  
+  - The res.append() function appends the specified value to the HTTP response header field and if the header is not already set then it creates the header with the specified value. 
   
   
   
