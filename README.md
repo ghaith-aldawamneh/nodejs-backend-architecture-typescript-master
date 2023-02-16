@@ -86,6 +86,12 @@ DB Schema:
 
 
   notes before going to the class of ApiResponse:
+   - private - Only the current class will have access to the field or method.
+   - protected - Only the current class and subclasses (and sometimes also same-package classes) of this class will have access to the field or method.
+   - public - Any class can refer to the field or call the method.
+   - static, you can call static methods, and access static properties, without having to instantiate class in which they are defined. Second, you can’t call these methods, and access these properties, on instances of the class in which they are defined. 
+   - public, All methods defined in a class are by default defined as public. This means that they will be accessible for all instances. Which also means that you can call them on all instances. However, you can’t call them on the class in which they are defined unless you instantiate it.
+  - private static, private: used only inside the same class, static: it's implemented by adding . point
   - protected members or methods can be used inside the class that implement the father class, in this case it is the ApiResponse.
   - when we said protected prepare, we need: it means that we will use inside the main class of ApiResponse and inside the class that will extend the ApiResponsem By using super.prepare, and we will give it the class of TokenRefreshResponse that the super.prepare is used in as a type, so we are giving the container class as a type.
   
