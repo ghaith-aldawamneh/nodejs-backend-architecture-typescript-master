@@ -88,6 +88,7 @@ DB Schema:
   notes before going to the class of ApiResponse:
    - private - Only the current class will have access to the field or method.
    - protected - Only the current class and subclasses (and sometimes also same-package classes) of this class will have access to the field or method.
+   - Protected: This keyword allows a little more access than private members but a lot less than the public. A protected member is accessible within the class (similar to private) and any object that inherits from it. A protected value is shared across all layers of the prototype chain. It is not accessible by anybody else.
    - public - Any class can refer to the field or call the method.
    - static, you can call static methods, and access static properties, without having to instantiate class in which they are defined. Second, you can’t call these methods, and access these properties, on instances of the class in which they are defined. 
    - public, All methods defined in a class are by default defined as public. This means that they will be accessible for all instances. Which also means that you can call them on all instances. However, you can’t call them on the class in which they are defined unless you instantiate it.
