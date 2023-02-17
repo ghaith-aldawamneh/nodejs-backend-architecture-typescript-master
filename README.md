@@ -93,7 +93,7 @@ DB Schema:
    - public - Any class can refer to the field or call the method.
    - static, you can call static methods, and access static properties, without having to instantiate class in which they are defined. Second, you can’t call these methods, and access these properties, on instances of the class in which they are defined. 
    - public, All methods defined in a class are by default defined as public. This means that they will be accessible for all instances. Which also means that you can call them on all instances. However, you can’t call them on the class in which they are defined unless you instantiate it.
-  - private static, private: used only inside the same class, static: it's implemented by adding . point
+  - private static, private: used only inside the same class, static: it's implemented by adding . point of the father decleared class.
   - protected members or methods can be used inside the class that implement the father class, in this case it is the ApiResponse.
   - when we said protected prepare, we need: it means that we will use inside the main class of ApiResponse and inside the class that will extend the ApiResponsem By using super.prepare, and we will give it the class of TokenRefreshResponse that the super.prepare is used in as a type, so we are giving the container class as a type.
   
@@ -199,7 +199,7 @@ DB Schema:
   - new(): T, is a class type that is referred to as a constructor function. 
   - some mongodb functions: mongoose.connection.close, mongoose.connection.on, mongoose.plugin, mongoose.connect
   - res.append (Appends the specified value to the HTTP response header field.)
-  - Object.assign(target, ...sources), it copies the values and properties from one or more source objects to a target object.
+  - Object.assign(target, ...sources), it copies the values and properties from one or more source objects to a target object, and overwrite the already existing keys.
   - delete operator removes a property from an object.
   - array.join(separator)
   - toString() is an inbuilt function in TypeScript which is used to return a string representing the specified object.
