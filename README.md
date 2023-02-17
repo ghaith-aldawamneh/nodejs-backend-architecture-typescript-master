@@ -97,7 +97,7 @@ DB Schema:
   - protected members or methods can be used inside the class that implement the father class, in this case it is the ApiResponse.
   - when we said protected prepare, we need: it means that we will use inside the main class of ApiResponse and inside the class that will extend the ApiResponsem By using super.prepare, and we will give it the class of TokenRefreshResponse that the super.prepare is used in as a type, so we are giving the container class as a type.
   - the public method is implemented by the object, while the static method is implemented by the father decleared class (ApiResponse)
-  
+  when the abstract class extend an interface like Error, so when you do the super, you do not need to put all the interface properties inside the super.
 ## abstract class APIResponse:
   - 3* protected class members(statusCode,status,message) and:
   
