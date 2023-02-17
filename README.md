@@ -85,18 +85,18 @@ DB Schema:
   
 
 
-  notes before going to the class of ApiResponse:
+##notes before going to the class of ApiResponse:
    - private - Only the current class will have access to the field or method.
    - protected - Only the current class and subclasses (and sometimes also same-package classes) of this class will have access to the field or method.
    - Protected: This keyword allows a little more access than private members but a lot less than the public. A protected member is accessible within the class (similar to private) and any object that inherits from it. A protected value is shared across all layers of the prototype chain. It is not accessible by anybody else.
-  Protected: This keyword allows a little more access than private members but a lot less than the public. A protected member is accessible within the class (similar to private) and any object that inherits from it. A protected value is shared across all layers of the prototype chain. It is not accessible by anybody else.
+
    - public - Any class can refer to the field or call the method.
    - static, you can call static methods, and access static properties, without having to instantiate class in which they are defined. Second, you can’t call these methods, and access these properties, on instances of the class in which they are defined. 
    - public, All methods defined in a class are by default defined as public. This means that they will be accessible for all instances. Which also means that you can call them on all instances. However, you can’t call them on the class in which they are defined unless you instantiate it.
   - private static, private: used only inside the same class, static: it's implemented by adding . point of the father decleared class.
   - protected members or methods can be used inside the class that implement the father class, in this case it is the ApiResponse.
   - when we said protected prepare, we need: it means that we will use inside the main class of ApiResponse and inside the class that will extend the ApiResponsem By using super.prepare, and we will give it the class of TokenRefreshResponse that the super.prepare is used in as a type, so we are giving the container class as a type.
-  
+  - the public method is implemented by the object, while the static method is implemented by the father decleared class (ApiResponse)
   
 ## abstract class APIResponse:
   - 3* protected class members(statusCode,status,message) and:
@@ -113,7 +113,7 @@ return res.status(this.status).json(private static ApiResponse.sanitize(response
 inside the private static sanitize<ext this>(response){
 const clone:T ={} as T;
 for(const i in clone) if (typeof clone[i]==='undefined') delete clone[i];}
-
+  -for the  Object.assign(clone, response); we put protectors for the members
   
 ## fast programming shortcuts:
   - when taking an arg and its type you can use the arg a type since you decleared its type.
