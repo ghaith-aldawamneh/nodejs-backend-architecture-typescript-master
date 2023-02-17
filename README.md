@@ -105,6 +105,15 @@ DB Schema:
   - 1* public send( res: Response, headers: { [key: string]: string } = {}, ): Response, 
   
   - 1* private static sanitize<T extends ApiResponse>(response: T): T
+  -we have the class.public send that will take a message from the usage area, and success codes from enum,
+constructor(mes,private ATok,private RTok)super(statuscode,ResStatus,mes)
+inside redefining public send protected prepare<this>(res,this)
+inside the protected prepare<ex this>(res,response,headers)
+return res.status(this.status).json(private static ApiResponse.sanitize(response))
+inside the private static sanitize<ext this>(response){
+const clone:T ={} as T;
+for(const i in clone) if (typeof clone[i]==='undefined') delete clone[i];}
+
   
 ## fast programming shortcuts:
   - when taking an arg and its type you can use the arg a type since you decleared its type.
