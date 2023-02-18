@@ -129,17 +129,25 @@ public static handle(err:ApiError,res:Response):Response{
     return new AuthFailureResponse(err.message).send(res)
     AuthFailureResponse{constructor(mes){super(protect code,status,mes)}}
     prepare<this>(res,this,header)
-}g
+}
   -
 ## Docker instructons:
   FROM node:15
   WORKDIR /app
   COPY package.json .
   RUN npm install
-  COPY 
+  COPY . ./
+  EXPOSE 3000
+  CMD ["node","index.js"]
   
+    
   - after each line and command of the above the docker will cach the changes and results
-    - COPY package.json . ,it means copy the package.json to the current directory that is set by WORKDIR 
+  - when you run docker build the first time, it will get through all the lines above starting from the FROM node etc.
+  - the next time you run Docker, it will not take as much time as the first time since it cached all the results.
+  - if step/layer three changes(we mean the package.json), we have to run from the layer three. 
+  - CMD it says the command that is assigned to the container.
+  
+  - COPY package.json . ,it means copy the package.json to the current directory that is set by WORKDIR 
   - COPY package.json /app , copy it to the /app directory
   
 ## Docker instructons:
