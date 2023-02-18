@@ -133,8 +133,11 @@ public static handle(err:ApiError,res:Response):Response{
   -
 ## Docker instructons:
   docker commands:
-  - docker image ls(to see the image that was created)
-  - docker image rm(delete the image that was created)
+  - docker image ls(list the image that was created)
+  - docker image rm(remove the image that was created)
+  - docker build -t node-app-image . (-t for giving the image a name)
+  - docker run -d --name node-app node-app-image(specify the image that it will create a container from)(naming the docker container by the name of node-app)(-d, by defualt when creating the container it will connected to cli but by adding -d then it is the deattached mode, so our command line will be free and open)
+  - 
   
   
   dockefile:
