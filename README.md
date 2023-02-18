@@ -129,22 +129,37 @@ public static handle(err:ApiError,res:Response):Response{
     return new AuthFailureResponse(err.message).send(res)
     AuthFailureResponse{constructor(mes){super(protect code,status,mes)}}
     prepare<this>(res,this,header)
-}
+}g
   -
+## Docker instructons:
+  FROM node:15
+  WORKDIR /app
+  COPY package.json .
+  RUN npm install
+  COPY 
+  
+  - after each line and command of the above the docker will cach the changes and results
+    - COPY package.json . ,it means copy the package.json to the current directory that is set by WORKDIR 
+  - COPY package.json /app , copy it to the /app directory
   
 ## Docker instructons:
+  - Docker images are more like templates used to create a Docker container.
+  - Docker Hub is a cloud-based repository in which users and partners could create, test, store and distribute container images.\
+  - 
   - FROM Creates layers of dependencies like we could build an OS layer.`node:18.12.1`
   - RUN allows us to install your application and packages required for it.`npm install`
   - COPY adds files from Docker client’s current directory.`--chown=node:node . .`
+
     //grant permission of node project directory to node user
   - EXPOSE instruction informs Docker that the container listens on the specified network port at runtime.`3000`
-  
   - WORKDIR setting working directory in the container `/home/node/app`
+  - every time you run a command the command will be run from this directly, when you copy a file it will copy it from this directly.
   - USER create user in the docker image `node`
-  
-  
   - CMD specifies what command to run within the Container.`[ "npm", "start" ]`
-
+  - 
+  Docker images are more like templates used to create a Docker container.
+  
+  
 ## fast programming shortcuts:
   - when taking an arg and its type you can use the arg as a type since you decleared its type.
   - `const data = header['apikey']?.tostring()`
