@@ -132,6 +132,12 @@ public static handle(err:ApiError,res:Response):Response{
 }
   -
 ## Docker instructons:
+  docker commands:
+  - docker image ls(to see the image that was created)
+  - docker image rm(delete the image that was created)
+  
+  
+  dockefile:
   FROM node:15
   WORKDIR /app
   COPY package.json .
@@ -140,12 +146,14 @@ public static handle(err:ApiError,res:Response):Response{
   EXPOSE 3000
   CMD ["node","index.js"]
   
+  
     
   - after each line and command of the above the docker will cach the changes and results
   - when you run docker build the first time, it will get through all the lines above starting from the FROM node etc.
   - the next time you run Docker, it will not take as much time as the first time since it cached all the results.
   - if step/layer three changes(we mean the package.json), we have to run from the layer three. 
-  - CMD it says the command that is assigned to the container.
+  - CMD (run time, when we run the container) it says the command that is assigned to the container, when deploying our container it will run the writen command
+  - RUN (build time)
   
   - COPY package.json . ,it means copy the package.json to the current directory that is set by WORKDIR 
   - COPY package.json /app , copy it to the /app directory
