@@ -136,7 +136,13 @@ public static handle(err:ApiError,res:Response):Response{
   - FROM Creates layers of dependencies like we could build an OS layer.`node:18.12.1`
   - RUN allows us to install your application and packages required for it.`npm install`
   - COPY adds files from Docker client’s current directory.`--chown=node:node . .`
+    //grant permission of node project directory to node user
   - EXPOSE instruction informs Docker that the container listens on the specified network port at runtime.`3000`
+  
+  - WORKDIR setting working directory in the container `/home/node/app`
+  - USER create user in the docker image `node`
+  
+  
   - CMD specifies what command to run within the Container.`[ "npm", "start" ]`
 
 ## fast programming shortcuts:
