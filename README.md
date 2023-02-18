@@ -137,7 +137,7 @@ public static handle(err:ApiError,res:Response):Response{
   - docker image rm(remove the image that was created)
   - docker build -t node-app-image . (-t for giving the image a name)
   - docker run -d --name node-app node-app-image(specify the image that it will create a container from)(naming the docker container by the name of node-app)(-d, by defualt when creating the container it will connected to cli but by adding -d then it is the deattached mode, so our command line will be free and open)
-  - 
+  - docker ps(we see what is opened of containers)
   
   
   dockefile:
@@ -150,13 +150,13 @@ public static handle(err:ApiError,res:Response):Response{
   CMD ["node","index.js"]
   
   
-    
+  - EXPOSE 3000, has no impact, just to tell the next person that we have the port 3000 that the container will be at.
   - after each line and command of the above the docker will cach the changes and results
   - when you run docker build the first time, it will get through all the lines above starting from the FROM node etc.
   - the next time you run Docker, it will not take as much time as the first time since it cached all the results.
   - if step/layer three changes(we mean the package.json), we have to run from the layer three. 
-  - CMD (run time, when we run the container) it says the command that is assigned to the container, when deploying our container it will run the writen command
-  - RUN (build time)
+  - CMD does in (run time, when we run the container) it says the command that is assigned to the container, when deploying our container it will run the writen command
+  - RUN does in (build time)
   
   - COPY package.json . ,it means copy the package.json to the current directory that is set by WORKDIR 
   - COPY package.json /app , copy it to the /app directory
