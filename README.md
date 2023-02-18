@@ -11,6 +11,7 @@ errors that i faced:
 
 DB Schema:
 //NB: RoleCode(LEARNER,WRITER,EDITOR,ADMIN)||_id:Types.ObjectId
+- interface Error:name,message,stack?
 -ApiKey(_id,key,version,permissions,comments,status?,createdAt,updatedAt)
 -RoleModel(code:s-enum,status:b,createdAt,updatedAt)
 -User(_id,name?,profilePicUrl?,email?,password?,roles[],verified?:b, status?,createdAt?,updatedAt?)
@@ -83,8 +84,8 @@ DB Schema:
 3-validateTokenData 4-UserRepo.findById 5-JWT.validate(req.body.refreshToken) 6-validateRefrTokenData7-keystore.find 8-keystore.rmove9-accesstoken, refreshtoken=hex 10-KeystoreRepo.create 11-tokens = createTokens 12-new TokenRefreshResponse(the two Tokens).send(res);
   
   
-
-
+  
+  
 ##notes before going to the class of ApiResponse:
    - private - Only the current class will have access to the field or method.
    - protected - Only the current class and subclasses (and sometimes also same-package classes) of this class will have access to the field or method.
@@ -97,7 +98,8 @@ DB Schema:
   - protected members or methods can be used inside the class that implement the father class, in this case it is the ApiResponse.
   - when we said protected prepare, we need: it means that we will use inside the main class of ApiResponse and inside the class that will extend the ApiResponsem By using super.prepare, and we will give it the class of TokenRefreshResponse that the super.prepare is used in as a type, so we are giving the container class as a type.
   - the public method is implemented by the object, while the static method is implemented by the father decleared class (ApiResponse)
-  when the abstract class extend an interface like Error, so when you do the super, you do not need to put all the interface properties inside the super.
+  - when the abstract class extend an interface like Error, so when you do the super, you do not need to put all the interface properties inside the super.
+  
 ## abstract class APIResponse:
   - 3* protected class members(statusCode,status,message) and:
   
@@ -113,7 +115,24 @@ return res.status(this.status).json(private static ApiResponse.sanitize(response
 inside the private static sanitize<ext this>(response){
 const clone:T ={} as T;
 for(const i in clone) if (typeof clone[i]==='undefined') delete clone[i];}
-  -for the  Object.assign(clone, response); we put protectors for the members
+  -for the  Object.assign(clone, response); we put protectors for the members.
+  
+  
+## abstract class ApiError extends interface Error:
+  - interface Error:name,message,stack?
+  - constructor all public(type,mes){super(type)}
+  - we will use it in switch this is a reason but not a big reason for using the public for the members.
+  - abstract class ApiError extends Error{
+constructor all public(type,mes){super(type)}}
+public static handle(err:ApiError,res:Response):Response{
+  switch (err.type) {
+    return new AuthFailureResponse(err.message).send(res)
+    AuthFailureResponse{constructor(mes){super(protect code,status,mes)}}
+    prepare<this>(res,this,header)
+}
+  -
+  
+  
   
 ## fast programming shortcuts:
   - when taking an arg and its type you can use the arg a type since you decleared its type.
