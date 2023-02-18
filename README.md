@@ -132,10 +132,15 @@ public static handle(err:ApiError,res:Response):Response{
 }
   -
   
-  
-  
+## Docker instructons:
+  - FROM Creates layers of dependencies like we could build an OS layer.`node:18.12.1`
+  - RUN allows us to install your application and packages required for it.`npm install`
+  - COPY adds files from Docker client’s current directory.`--chown=node:node . .`
+  - EXPOSE instruction informs Docker that the container listens on the specified network port at runtime.`3000`
+  - CMD specifies what command to run within the Container.`[ "npm", "start" ]`
+
 ## fast programming shortcuts:
-  - when taking an arg and its type you can use the arg a type since you decleared its type.
+  - when taking an arg and its type you can use the arg as a type since you decleared its type.
   - `const data = header['apikey']?.tostring()`
   
   
