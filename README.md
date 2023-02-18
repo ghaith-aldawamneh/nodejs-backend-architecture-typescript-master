@@ -138,9 +138,12 @@ public static handle(err:ApiError,res:Response):Response{
   - docker build -t node-app-image . (-t for giving the image a name)
   - docker run -d --name node-app node-app-image(specify the image that it will create a container from)(naming the docker container by the name of node-app)(-d, by defualt when creating the container it will connected to cli but by adding -d then it is the deattached mode, so our command line will be free and open)
   - docker ps(we see what is opened of containers)
+  - docker rm node-app -f(remove the docker container or killing it)
+  - docker ps(after killing all the containers we will see an empty list)
+  - docker run -p 3000:3000 -d --name node-app node-app-image(the left number it is the trafic coming in from the outside world, from the windows and then it will give it to the port of the right number which is the port of the container)(the right number is the port number that the container is listening to inside the conainer) 
   
   
-  dockefile:
+  **dockefile:
   FROM node:15
   WORKDIR /app
   COPY package.json .
@@ -150,7 +153,7 @@ public static handle(err:ApiError,res:Response):Response{
   CMD ["node","index.js"]
   
   
-  - EXPOSE 3000, has no impact, just to tell the next person that we have the port 3000 that the container will be at.
+  - EXPOSE 3000, has no impact does not open the port, just to tell the next person that we have the port 3000 that the container will be at.   
   - after each line and command of the above the docker will cach the changes and results
   - when you run docker build the first time, it will get through all the lines above starting from the FROM node etc.
   - the next time you run Docker, it will not take as much time as the first time since it cached all the results.
