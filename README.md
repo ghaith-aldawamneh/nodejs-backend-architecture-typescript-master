@@ -141,8 +141,8 @@ public static handle(err:ApiError,res:Response):Response{
   - docker rm node-app -f(remove the docker container or killing it)
   - docker ps(after killing all the containers we will see an empty list)
   - docker run -p 3000:3000 -d --name node-app node-app-image(the left number it is the trafic coming in from the outside world, from the windows and then it will give it to the port of the right number which is the port of the container)(the right number is the port number that the container is listening to inside the conainer) 
-  
-  
+  - 
+    
   **dockefile:
   FROM node:15
   WORKDIR /app
