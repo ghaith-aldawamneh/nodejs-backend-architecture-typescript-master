@@ -147,9 +147,15 @@ public static handle(err:ApiError,res:Response):Response{
   -  after setting the dockerignore file we will build again to see `docker build -t node-app-image .` 
   - after building our image, we run the container from the new created image.
   - inside the explorer of 50c80624:/app#, we pass `cat index.js`, it will print the containt code of the mentioned index.js file  
-  - docker run -v pathtofolderonlocamachine:pathtofolderoncontainer -p 3000:3000 -d --name node-app node-app-image(`-v` volume certain file from the container)
-  - pathtofolderonlocamachine cannot be .,% or it must be like C:\ etc.
+  - docker run -v pathtofolderonlocamachine:pathtofolderoncontainer -p 3000:3000 -d --name node-app node-app-image(`-v` volume certain file from the container)(every change will be transfered to the container)but we need to restart the node process.
+  - pathtofolderonlocamachine cannot be .,% , for windows powershall we use $(pwd),or it must be like C:\ etc.
   - pathtofolderoncontainer /app 
+  - inside the explorer of 50c80624:/app#, we pass `exit`, to get back to the main cli.
+  - we added nodemon to the package.json dependenceis and "dev":nodemon -L index.js, then we built the image, the we run the container
+  - so then we chane the CMD to ["npm", "run", "dev"]
+  -
+  
+  
   
   **dockefile:
   FROM node:15
