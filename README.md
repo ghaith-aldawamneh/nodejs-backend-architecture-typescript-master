@@ -140,6 +140,7 @@ public static handle(err:ApiError,res:Response):Response{
   - docker ps(we see what is opened from containers)
   - docker rm node-app -f (remove the docker container or killing it)(`-f` for force)
   - docker ps(after killing all the containers we will see an empty list)
+  - docker ps -a (show all containers started or stopped)
   - docker run -p 3000:3000 -d --name node-app node-app-image(the left number it is the trafic coming in from the outside world, from the windows and then it will give it to the port of the right number which is the port of the container)(the right number is the port number that the container is listening to inside the conainer) 
   - docker exec -it node-app (`-it` for interactive mode)(bash to allow us to look at the file system of our container)
   - inside the explorer of 50c80624:/app#, we pass `ls` to list all the files that were copied over
@@ -153,7 +154,12 @@ public static handle(err:ApiError,res:Response):Response{
   - inside the explorer of 50c80624:/app#, we pass `exit`, to get back to the main cli.
   - we added nodemon to the package.json dependenceis and "dev":nodemon -L index.js, then we built the image, the we run the container
   - so then we chane the CMD to ["npm", "run", "dev"]
-  -
+  - docker ps -a (we see all the containers started or stopped)
+  - docker logs node-app (show the logs of the specified container)
+  -  docker run -v pathtofolderonlocamachine:pathtofolderoncontainer -v /app/node_modules -p 3000:3000 -d --name node-app node-app-image (by -v /app/node_modules we are preventing this file from being changed if its copy on the host changed)
+  - 
+  
+  
   
   
   
