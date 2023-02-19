@@ -157,10 +157,10 @@ public static handle(err:ApiError,res:Response):Response{
   - docker ps -a (we see all the containers started or stopped)
   - docker logs node-app (show the logs of the specified container)
   -  docker run -v pathtofolderonlocamachine:pathtofolderoncontainer -v /app/node_modules -p 3000:3000 -d --name node-app node-app-image (by -v /app/node_modules we are preventing this file from being changed if its copy on the host changed)
+  - when production mode, there is no need for bind mode when mean the -v volume.
+  - inside the explorer of 50c80624:/app#,touch testfile, creating a file inside the container.
+  - docker run -v pathtofolderonlocamachine:pathtofolderoncontainer:ro -v /app/node_modules etc.(:ro readonly so the container has no permission to edit the files that we gave it to it)
   - 
-  
-  
-  
   
   
   **dockefile:
