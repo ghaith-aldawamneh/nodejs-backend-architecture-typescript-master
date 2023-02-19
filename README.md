@@ -147,9 +147,9 @@ public static handle(err:ApiError,res:Response):Response{
   -  after setting the dockerignore file we will build again to see `docker build -t node-app-image .` 
   - after building our image, we run the container from the new created image.
   - inside the explorer of 50c80624:/app#, we pass `cat index.js`, it will print the containt code of the mentioned index.js file  
-  
-  
-  
+  - docker run -v pathtofolderonlocamachine:pathtofolderoncontainer -p 3000:3000 -d --name node-app node-app-image(`-v` volume certain file from the container)
+  - pathtofolderonlocamachine cannot be .,% or it must be like C:\ etc.
+  - pathtofolderoncontainer /app 
   
   **dockefile:
   FROM node:15
@@ -340,7 +340,8 @@ public static handle(err:ApiError,res:Response):Response{
   - The difference between Post and Get is :
   - Regarding Get: values are visible in the URL, limitation on the length of the values, generally 255 characters, performs are better compared to POST because of the simple nature of appending the values in the URL, supports only string data types, can be bookmarked, request is often cacheable, Parameters remain in web browser history.
   - Regarding Post: values are not visible in the URL, no limitation on the length of the values since they are submitted via the body of HTTP, lower performance as compared to GET method because of time spent in including POST values in the HTTP body, supports different data types, such as string, numeric, binary.., no bookmark, request is hardly cacheable, Parameters are not saved in web browser history.
-  A credential is a data structure(a user name and password authentication token) that provides proof of an application's claim to a principal name. An application uses a credential to establish its global identity.
+  - In general, the HTTP PUT method is used to update an existing resource, while the POST method is used to create a new resource.
+  - A credential is a data structure(a user name and password authentication token) that provides proof of an application's claim to a principal name. An application uses a credential to establish its global identity.
   
   
   
