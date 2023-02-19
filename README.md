@@ -163,7 +163,15 @@ public static handle(err:ApiError,res:Response):Response{
   - docker run -v local:container:ro --env PORT=4000 etc.
   - inside the explorer of 50c80624:/app#,
   - docker run -v local:container:ro --env-file ./.env etc.(`--env-file` setting the env)
-  - 
+  - docker volume ls(list the volume)
+  - docker volume prune (remove volume)
+  - docker rm node-app -fv(remove it with volume)
+  **docker-compose.yml:
+   version: "3"
+   services: (containers)  
+    node-app:
+      build: .
+  
   
   
   **dockefile:
