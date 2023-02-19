@@ -170,8 +170,12 @@ public static handle(err:ApiError,res:Response):Response{
    version: "3"
    services: (containers)  
     node-app:
-      build: .
-  
+      build: . (which image that we are going to use)
+      ports: 
+        - "3000:3000"
+       volumes:
+        -./:/app
+        - /app/node_modules
   
   
   **dockefile:
