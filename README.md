@@ -134,7 +134,7 @@ public static handle(err:ApiError,res:Response):Response{
 ## Docker instructons:
   docker commands:
   - docker image ls(list the image that was created)
-  - docker image rm(remove the image that was created)
+  - docker image rm(remove the image that was created), we can build with the same name, so overwriting.
   - docker build -t node-app-image . (`-t` for giving the image a name)(creating the image)
   - docker run -d --name node-app node-app-image(specify the image that it will create a container from)(naming the docker container by the name of node-app)(`-d`, by defualt when creating the container it will connected to cli but by adding -d then it is the deattached mode, so our command line will be free and open)
   - docker ps(we see what is opened from containers)
@@ -147,6 +147,7 @@ public static handle(err:ApiError,res:Response):Response{
   -  after setting the dockerignore file we will build again to see `docker build -t node-app-image .` 
   - after building our image, we run the container from the new created image.
   - inside the explorer of 50c80624:/app#, we pass `cat index.js`, it will print the containt code of the mentioned index.js file  
+  
   
   
   
