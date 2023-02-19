@@ -156,10 +156,13 @@ public static handle(err:ApiError,res:Response):Response{
   - so then we chane the CMD to ["npm", "run", "dev"]
   - docker ps -a (we see all the containers started or stopped)
   - docker logs node-app (show the logs of the specified container)
-  -  docker run -v pathtofolderonlocamachine:pathtofolderoncontainer -v /app/node_modules -p 3000:3000 -d --name node-app node-app-image (by -v /app/node_modules we are preventing this file from being changed if its copy on the host changed)
+  -  docker run -v pathtofolderonlocalmachine:pathtofolderoncontainer -v /app/node_modules -p 3000:3000 -d --name node-app node-app-image (by -v /app/node_modules we are preventing this file from being changed if its copy on the host changed)
   - when production mode, there is no need for bind mode when mean the -v volume.
-  - inside the explorer of 50c80624:/app#,touch testfile, creating a file inside the container.
-  - docker run -v pathtofolderonlocamachine:pathtofolderoncontainer:ro -v /app/node_modules etc.(:ro readonly so the container has no permission to edit the files that we gave it to it)
+  - inside the explorer of 50c80624:/app#,touch testfile, creating a file inside the container, if there is a volume so bind mode, this file will be created on the local machine.
+  - docker run -v local:container:ro -v /app/node_modules etc.(:ro readonly so the container has no permission to edit the files that we gave it to it)
+  - docker run -v local:container:ro --env PORT=4000 etc.
+  - inside the explorer of 50c80624:/app#,
+  - docker run -v local:container:ro --env-file ./.env etc.(`--env-file` setting the env)
   - 
   
   
@@ -169,7 +172,8 @@ public static handle(err:ApiError,res:Response):Response{
   COPY package.json .
   RUN npm install
   COPY . ./
-  EXPOSE 3000
+  ENV PORT 3000
+  EXPOSE $PORT
   CMD ["node","index.js"]
   
   
