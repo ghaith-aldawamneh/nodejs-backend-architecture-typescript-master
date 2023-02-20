@@ -170,6 +170,8 @@ public static handle(err:ApiError,res:Response):Response{
   - docker-compose up -d(build image and start the container)(executed accourding to our docker compose.yml)(search for an image that is named projectname_imagename, if it is exist then it will not build the image again)
   - docker-compose up --help(see what commands are available)
   - docker-compose down -v (the container is removed, -v remove volumes)
+  - docker-compose up -d --build (so now the image will be built)
+  -
   
   
   
@@ -177,7 +179,7 @@ public static handle(err:ApiError,res:Response):Response{
    version: "3"
    services: (containers)  
     node-app:
-      build: . (which image that we are going to use)
+      build: . (which image that we are going to use)(the image that is defined in the Dockerfile in the defined path)
       ports: 
         - "3000:3000"
        volumes:
@@ -185,8 +187,17 @@ public static handle(err:ApiError,res:Response):Response{
         - /app/node_modules
         environment:
           - PORT=3000
-  
-  
+        command:
+  **docker-compose.dev.yml:
+        ports: 
+        - "3000:3000"
+       volumes:
+        - ./:/app
+        - /app/node_modules
+        environment:
+          - PORT=3000
+        command:
+          npm run dev
   
   **dockefile:
   FROM node:15
