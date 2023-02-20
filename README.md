@@ -167,7 +167,11 @@ public static handle(err:ApiError,res:Response):Response{
   - docker volume prune (remove volume)
   - docker rm node-app -fv(remove it with volume)
   - for -v (has many option type, if : is included, then local:container then it means which files are volumed from the host to the docker container, whether the for one docker container path mentioned it means the un volumed path in the docker container)
-  - docker-compose up (execute accourding to our docker compose.yml)
+  - docker-compose up -d(build image and start the container)(executed accourding to our docker compose.yml)(search for an image that is named projectname_imagename, if it is exist then it will not build the image again)
+  - docker-compose up --help(see what commands are available)
+  - docker-compose down -v (the container is removed, -v remove volumes)
+  
+  
   
   **docker-compose.yml:
    version: "3"
