@@ -166,6 +166,7 @@ public static handle(err:ApiError,res:Response):Response{
   - docker volume ls(list the volume)
   - docker volume prune (remove volume)
   - docker rm node-app -fv(remove it with volume)
+  - for -v (has many option type, if : is included, then local:container then it means which files are volumed from the host to the docker container, whether the for one docker container path mentioned it means the un volumed path in the docker container)
   **docker-compose.yml:
    version: "3"
    services: (containers)  
@@ -174,8 +175,10 @@ public static handle(err:ApiError,res:Response):Response{
       ports: 
         - "3000:3000"
        volumes:
-        -./:/app
+        - ./:/app
         - /app/node_modules
+  
+  
   
   
   **dockefile:
