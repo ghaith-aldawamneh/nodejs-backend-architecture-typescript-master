@@ -171,7 +171,10 @@ public static handle(err:ApiError,res:Response):Response{
   - docker-compose up --help(see what commands are available)
   - docker-compose down -v (the container is removed, -v remove volumes)
   - docker-compose up -d --build (so now the image will be built)
-  -
+  - docker-compose -f basefile(-f for file)
+  - docker-compose -f docker-compose.yml -f docker-compose.dev.yml (take all the configuration from the base file, and loud all the configurations from the dev file and see if there is any configurations that it needs to be overwritten)
+  - 
+  
   
   
   
