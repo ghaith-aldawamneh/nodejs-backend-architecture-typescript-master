@@ -143,6 +143,8 @@ public static handle(err:ApiError,res:Response):Response{
   - docker ps -a (show all containers started or stopped)
   - docker run -p 3000:3000 -d --name node-app node-app-image(the left number it is the trafic coming in from the outside world, from the windows and then it will give it to the port of the right number which is the port of the container)(the right number is the port number that the container is listening to inside the conainer) 
   - docker exec -it node-app (opening file explorer in the docker container)(`-it` for interactive mode)(bash to allow us to look at the file system of our container)-->b:/app# 
+  - b:/app# ls, if we input ls, we will see all the files inside the docker container 
+  - b:/app# cd node_modules --> b:/app#/node_modules ls --> see all the modules
   - inside the explorer of 50c80624:/app#, we pass `ls` to list all the files that were copied over
   - docker rm node-app -f, we remove the container.
   -  after setting the dockerignore file we will build again to see `docker build -t node-app-image .` 
@@ -174,8 +176,8 @@ public static handle(err:ApiError,res:Response):Response{
   - docker-compose -f basefile(-f for file)
   - docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d (take all the configuration from the base file, and loud all the configurations from the dev file and see if there is any configurations that it needs to be overwritten)
   - docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d --build (--build for rebuilding the image)
-  
-  
+  - in the Dockerfile, RUN npm install --only=production, so that prevent any devDependencies from being installed.("devDependencies":{"nodemon":"2.0.7"})
+  - in the Dockerfile, ARG NODE_RUN if ["$NODE_ENV"= "DEVELOPMENT" ]; \ then npm install; \ else npm install --only=production; \ fi
   
   
   **docker-compose.yml:
@@ -183,6 +185,9 @@ public static handle(err:ApiError,res:Response):Response{
    services: (containers)  
     node-app:
       build: . (which image that we are going to use)(the image that is defined in the Dockerfile in the defined path)
+        context: .(location of the docker file)
+        args:
+          NODE_ENV: development
       ports: 
         - "3000:3000"
        volumes:
@@ -214,6 +219,7 @@ public static handle(err:ApiError,res:Response):Response{
   
   
   - create dockerignore: nodemodules Dockerfile  .dockerignore  .git  .gitignore
+  - in dockerignore we put: docker-compose*, (*) it means do not copy any file that starts with docker-compose
   - no need to copy node modules, it is just after copying the package,json, we run npm install inside the Dockerfile, the the modules will be installed.
   - EXPOSE 3000, has no impact does not open the port, just to tell the next person that we have the port 3000 that the container will be at.   
   - after each line and command of the above the docker will cach the changes and results
