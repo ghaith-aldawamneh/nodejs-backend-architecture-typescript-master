@@ -142,7 +142,7 @@ public static handle(err:ApiError,res:Response):Response{
   - docker ps(after killing all the containers we will see an empty list)
   - docker ps -a (show all containers started or stopped)
   - docker run -p 3000:3000 -d --name node-app node-app-image(the left number it is the trafic coming in from the outside world, from the windows and then it will give it to the port of the right number which is the port of the container)(the right number is the port number that the container is listening to inside the conainer) 
-  - docker exec -it node-app (`-it` for interactive mode)(bash to allow us to look at the file system of our container)
+  - docker exec -it node-app (opening file explorer in the docker container)(`-it` for interactive mode)(bash to allow us to look at the file system of our container)-->b:/app# 
   - inside the explorer of 50c80624:/app#, we pass `ls` to list all the files that were copied over
   - docker rm node-app -f, we remove the container.
   -  after setting the dockerignore file we will build again to see `docker build -t node-app-image .` 
@@ -173,7 +173,7 @@ public static handle(err:ApiError,res:Response):Response{
   - docker-compose up -d --build (so now the image will be built)
   - docker-compose -f basefile(-f for file)
   - docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d (take all the configuration from the base file, and loud all the configurations from the dev file and see if there is any configurations that it needs to be overwritten)
-  -  
+  - docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d --build (--build for rebuilding the image)
   
   
   
