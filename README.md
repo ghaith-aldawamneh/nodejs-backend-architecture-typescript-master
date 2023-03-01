@@ -178,10 +178,16 @@ public static handle(err:ApiError,res:Response):Response{
   - docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d --build (--build for rebuilding the image)
   - in the Dockerfile, RUN npm install --only=production, so that prevent any devDependencies from being installed.("devDependencies":{"nodemon":"2.0.7"})
   - in the Dockerfile, ARG NODE_RUN if ["$NODE_ENV"= "DEVELOPMENT" ]; \ then npm install; \ else npm install --only=production; \ fi
+  - 
+  
+  
+  
+  
+  
   
   
   **docker-compose.yml:
-   version: "3"
+   version: "3" (version of compose)
    services: (containers)  
     node-app:
       build: . (which image that we are going to use)(the image that is defined in the Dockerfile in the defined path)
@@ -206,6 +212,26 @@ public static handle(err:ApiError,res:Response):Response{
           - PORT=3000
         command:
           npm run dev
+          
+  **docker-compose.dev.yml:(for docker)
+    version: "3"
+    services: (containers)  
+     node-app:
+        build: . 
+        ports: 
+        - "3000:3000"
+        environment:
+          - PORT=3000
+        command:
+          npm run dev
+     mongo:
+        image:mongo
+        environment:
+          - MONGO_INITDB_ROOT_USERNAME=username
+          - MONGO_INITDB_ROOT_PASSWORD=mypassword
+  
+  
+  
   
   **dockefile:
   FROM node:15
