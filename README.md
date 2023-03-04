@@ -288,10 +288,18 @@ public static handle(err:ApiError,res:Response):Response{
 
 ## mongoose database assembly declearation:
   - creating the database modeles 
+## MONGODB FindOneOptions:
+  -comment,order,cache,where,transaction,relations,join(what relations should be loaded),select(what columns should be retrieved),
+  
+
 ## MongoDB functions and techniques:
+  - EntityConstructor= typeof Project : Promise<InstanceType<T>> 
+  - EntityInstance Project | User (we can use the methods of BaseEntity .findone ,etc...)
+  - 
+  - const entities:{[key:string]:EntityConstructor}={Comment, Issue,Project,User};
+  - findEntityOrThrow<T ex EntityConstructor>(Constructor:T,id:N/S,FindOneOptions):Promise<InstanceType<T>>{const instance = await findEntityOrThrow(id, options);
+  - validateAndSaveEntity<SAME AS MENTIONED ABOVE>(instanse:T):Promise<T>{const Constructor = entities[instance.constructor.name];}
   -
-  
-  
   
   
 ## mongoDB BASICS every one should knows:
@@ -362,6 +370,8 @@ public static handle(err:ApiError,res:Response):Response{
   - .custom(fn: CustomValidator) ,type CustomValidator<V=any>=(value: V,helpers:CustomHelpers) =>V
   
 ## functions i learned:
+  - Object.entries (static method returns an array of a given object's own enumerable string-keyed property key-value pairs.)
+  for instance, const obj = { 0: "a", 1: "b",};-->Object.entries(obj) // [ ['0', 'a'], ['1', 'b'], ['2', 'c'] ]
   - RequestHandler Type is (req: Request, res: Response, next: NextFunction)=>void
   - Asyncfunction Type is (req: Request, res: Response, next: NextFunction)=>promise {so you can do the catch then}
   if you need to use the .catch you have to decleare the type of the AsyncFunction
