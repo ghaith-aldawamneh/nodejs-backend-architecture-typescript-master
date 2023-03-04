@@ -303,8 +303,8 @@ public static handle(err:ApiError,res:Response):Response{
   - the consequence of using alot of indexes: index creation can cause a significant performance impact. Disable the behavior by setting the autoIndex option of your schema to false, or globally on the connection by setting the option autoIndex to false.
    Data in MongoDB is stored in JSON format. More precisely said, data is stored in BSON format. BSON format provides a variety of data types. We can insert data from mongo shell or through mongoose. In both cases, the _id field is generated automatically in each document. The _id field acts as a primary key. It is unique throughout the collection. But there is one difference when inserting document(s) through mongoose. It auto-generates one more field. This field is the __v field. In this article, we will discuss what this __v field is and when it gets created.
    - Population is the process of automatically replacing the specified paths in the document with document(s) from other collection(s). We may populate a single document, multiple documents, plain object, multiple plain objects, or all objects returned from a query. Let's look at some examples.
-   for example, Story .find(...) .populate({ path: 'fans', match: { age: { $gte: 21 }}, select: 'name -_id', options: { limit: 5 }
-   path is the name of the collection, match the specified condition, the results will be showed accourdin to, options here we said we only want 5 results to be showed.
+   for example, Story `.find(...).populate({ path: 'fans', match: { age: { $gte: 21 }}, select: 'name -_id', options: { limit: 5 }`
+   path is the name of the collection, match the specified condition, the results will be showed accourding to, options here we said we only want 5 results to be showed.
    (https://www.grepper.com/tpc/mongoose+populate%20/%20......http://man.hubwiz.com/docset/Mongoose.docset/Contents/Resources/Documents/mongoosejs.com/docs/populate.html)
    - array of ObjectIds
    - mongoose methods and statics, and its declearing.
@@ -315,7 +315,7 @@ public static handle(err:ApiError,res:Response):Response{
    - Using trim will help in removing the white spaces present (beginning and ending of the string) in the string that you want to save to the DB like.
    - model<EnforcedDocType>{DOCUMENT_NAME,schema,COLLECTION_NAME}
 ## mongoose methods and ways of using every one shoud knows:
-  -  .lean() converts mongoose.Document to Plain Javascript Object (for create you must use .Object() because it returns a document)
+  -  .lean() converts mongoose.Document to Plain Javascript Object (for mongodb create method, you must use .Object() because mongodb returns a document)
   - Pre-save hooks in mongoose.js
   - Lean(), By default, Mongoose queries return an instance of the Mongoose Document class. Documents are much heavier than vanilla JavaScript objects, because they have a lot of internal state for change tracking. Enabling the lean option tells Mongoose to skip instantiating a full Mongoose document and just give you the POJO.
   - select:false, Currently, if we use select: false in a schema, we need to do Model.findOne({ _id }).select("+field_a") to get its value.
