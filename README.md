@@ -288,7 +288,12 @@ public static handle(err:ApiError,res:Response):Response{
 
 ## mongoose database assembly declearation:
   - creating the database modeles 
-
+## MongoDB functions and techniques:
+  -
+  
+  
+  
+  
 ## mongoDB BASICS every one should knows:
 (https://mongoosejs.com/docs/3.2.x/docs/guide.html#versionKey)
   
