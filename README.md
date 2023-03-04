@@ -370,6 +370,8 @@ public static handle(err:ApiError,res:Response):Response{
   - .custom(fn: CustomValidator) ,type CustomValidator<V=any>=(value: V,helpers:CustomHelpers) =>V
   
 ## functions i learned:
+  - Object.keys (return an array whose elements are strings corresponding to the enumerable properties found directly upon an object.)
+  for instance, var object = { 70: 'x', 21: 'y' };-->['21', '35'].
   - Object.entries (static method returns an array of a given object's own enumerable string-keyed property key-value pairs.)
   for instance, const obj = { 0: "a", 1: "b",};-->Object.entries(obj) // [ ['0', 'a'], ['1', 'b'], ['2', 'c'] ]
   - RequestHandler Type is (req: Request, res: Response, next: NextFunction)=>void
