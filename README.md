@@ -293,6 +293,8 @@ public static handle(err:ApiError,res:Response):Response{
   
 
 ## MongoDB functions and techniques:
+  - .create:T, 
+  - .save:Promise<this>
   
   - instance extends EntityConstructor(type of) to use the methods of BaseEntity like .create (instance.name)
   - wheras extends EntityInstance to store the data and (instance.constructor.name) and it can also use the methods of BaseEntity of the father parent class
@@ -304,7 +306,7 @@ public static handle(err:ApiError,res:Response):Response{
   - validateAndSaveEntity<SAME AS MENTIONED ABOVE>(instanse:T):Promise<T>{const Constructor = entities[instance.constructor.name];
   if ('validations' in Constructor);generateErrors(instance, Constructor.validations) const save = instance.save();return save as Promise<T>}
   - createEntity= async<T extends EntityConstructor>(Constructor:T,input:partial<instanceof<T>>):promise<instanceof<T>>{const instance=Constructor.create(input) return validateAndSaveEntity(instance as InstanceType<T>)}
-  
+  - updateEntity<T extends EntityConstructor>(Constructor,id:number|string,input:partial<instanceof<T>>){const instance=await findEntitOrThrow<T extends EntityConstructor>()}
   
 ## mongoDB BASICS every one should knows:
 (https://mongoosejs.com/docs/3.2.x/docs/guide.html#versionKey)
@@ -374,6 +376,7 @@ public static handle(err:ApiError,res:Response):Response{
   - .custom(fn: CustomValidator) ,type CustomValidator<V=any>=(value: V,helpers:CustomHelpers) =>V
   
 ## functions i learned:
+  - The keyword async before a function makes the function return a promise, for instance,async function myFunction() { return "Hello"; }Is the same as: function myFunction() { return Promise.resolve("Hello"); }
   - Object.keys (return an array whose elements are strings corresponding to the enumerable properties found directly upon an object.)
   for instance, var object = { 70: 'x', 21: 'y' };-->['21', '35'].
   - Object.entries (static method returns an array of a given object's own enumerable string-keyed property key-value pairs.)
