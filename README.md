@@ -27,7 +27,9 @@ DB Schema:
 
 
 
-
+## function findIpAddress(req:Request) :
+  - if (req.headers['x-forwarded-for']) { return req.headers['x-forwarded-for'].toString().split(',')[0]
+  - 
 
 ## Notes before the project assembly:
   - we use the validate(schema.auth,HEADER) when you want to get to the req.header
@@ -344,6 +346,7 @@ public static handle(err:ApiError,res:Response):Response{
   - select:false, Currently, if we use select: false in a schema, we need to do Model.findOne({ _id }).select("+field_a") to get its value.
   
 ## basics i learned:
+  - A network socket is a software structure within a network node of a computer network that serves as an endpoint for sending and receiving data across the network. The structure and properties of a socket are defined by an application programming interface (API) for the networking architecture. Sockets are created only during the lifetime of a process of an application running in the node.Normally, a server runs on a specific computer and has a socket that is bound to a specific port number. The server just waits, listening to the socket for a client to make a connection request.
   - We used private.key to sign JWT and public.key to verify it
   - modal.create, Creates a new document or documents.
   - process.exit(1) exit with failure error, while the process.exit(0) exits without
