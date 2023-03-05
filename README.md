@@ -289,6 +289,15 @@ public static handle(err:ApiError,res:Response):Response{
 ## mongoose database assembly declearation:
   - creating the database modeles 
   - for the lean() we put the interface in which the result shape will be.
+## some of the main models functions that were used:
+  - findByIdAndUpdate(blog._id,blog,{new: true})
+  - exists:P<boolean>/new true means that the returned file will be the updated/
+  - create,
+  - findByIdAndRemove(id):P<Keystore | null>
+  - deleteMany{client:client}
+  - findOne({{ client: client, primaryKey: primaryKey, secondaryKey: secondaryKey, }})
+  - 
+  
 ## mongoDB functions and techniques:
   - const now = new Date();
   - some of the main models functions that were used:findByIdAndUpdate(blog._id,blog,{new: true}),exists:P<boolean>/new true means that the returned file will be the updated/,create,
