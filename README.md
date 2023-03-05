@@ -295,7 +295,7 @@ public static handle(err:ApiError,res:Response):Response{
 ## MongoDB functions and techniques:
   - .create:T, 
   - .save:Promise<this>
-  
+  - .findOne:findOne<T|undefined>
   - instance extends EntityConstructor(type of) to use the methods of BaseEntity like .create (instance.name)
   - wheras extends EntityInstance to store the data and (instance.constructor.name) and it can also use the methods of BaseEntity of the father parent class
   - EntityConstructor= typeof Project : Promise<InstanceType<T>> 
@@ -306,7 +306,9 @@ public static handle(err:ApiError,res:Response):Response{
   - validateAndSaveEntity<SAME AS MENTIONED ABOVE>(instanse:T):Promise<T>{const Constructor = entities[instance.constructor.name];
   if ('validations' in Constructor);generateErrors(instance, Constructor.validations) const save = instance.save();return save as Promise<T>}
   - createEntity= async<T extends EntityConstructor>(Constructor:T,input:partial<instanceof<T>>):promise<instanceof<T>>{const instance=Constructor.create(input) return validateAndSaveEntity(instance as InstanceType<T>)}
-  - updateEntity<T extends EntityConstructor>(Constructor,id:number|string,input:partial<instanceof<T>>){const instance=await findEntitOrThrow<T extends EntityConstructor>()}
+  - updateEntity<T extends EntityConstructor>(Constructor,id:number|string,input:partial<instanceof<T>>){const instance=await findEntitOrThrow<T extends EntityConstructor>();Object.assign(instance, input);return validateAndSaveEntity(instance);}
+  - deleteEntity findEntityOrThrow;instance.remove();return instance;
+  
   
 ## mongoDB BASICS every one should knows:
 (https://mongoosejs.com/docs/3.2.x/docs/guide.html#versionKey)
