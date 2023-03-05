@@ -288,26 +288,19 @@ public static handle(err:ApiError,res:Response):Response{
 
 ## mongoose database assembly declearation:
   - creating the database modeles 
-## MONGODB FindOneOptions:
-  -comment,order,cache,where,transaction,relations,join(what relations should be loaded),select(what columns should be retrieved),
-  
-
-## MongoDB functions and techniques:
-  - .create:T, 
-  - .save:Promise<this>
-  - .findOne:findOne<T|undefined>
-  - instance extends EntityConstructor(type of) to use the methods of BaseEntity like .create (instance.name)
-  - wheras extends EntityInstance to store the data and (instance.constructor.name) and it can also use the methods of BaseEntity of the father parent class
-  - EntityConstructor= typeof Project : Promise<InstanceType<T>> 
-  - EntityInstance Project | User (we can use the methods of BaseEntity .findone ,etc...)
+  - for the lean() we put the interface in which the result shape will be.
+## mongoDB functions and techniques:
+  - const now = new Date();
+  - some of the main models functions that were used:findByIdAndUpdate(blog._id,blog,{new: true}),exists:P<boolean>/new true means that the returned file will be the updated/,create,
+  findByIdAndRemove(id):P<Keystore | null>,deleteMany{client:client},findOne({{ client: client, primaryKey: primaryKey, secondaryKey: secondaryKey, }}), 
+  - async function exists(id:Types.Object):promise<boolean>{const user=UserModel.exists({_id: id,status:true});return user !== null && user !== undefined}
+  - findPrivateProfileById(id):promise<interface user|null>{return UserModel.findOne({ _id: id, status: true }) .select('+email') .populate({ path: 'roles', match: { status: true }, select: { code: 1 }, }) .lean<User>() .exec();}
+  - findFieldsById(id,...fields:string[]):Promise<User | null>{return `UserModel.findOne`({ _id: id, status: true },[...fields]).lean().exec();}
+  - async function create{founded_roles=find roles--> user.roles=[founded_roles]}
+  - in KeystorModel, async function remove(id: Types.ObjectId):Promise<keystore | null>{
+  return KeystoreModel.`findByIdAndRemove`(id).lean().exec();}
+  - in KeystorModel, async function removeAllForClient(client: User){`KeystoreModel.deleteMany`({ client: client }).exec();}
   - 
-  - const entities:{[key:string]:EntityConstructor}={Comment, Issue,Project,User};
-  - findEntityOrThrow<T ex EntityConstructor>(Constructor:T,id:N/S,FindOneOptions):Promise<InstanceType<T>>{const instance = await findEntityOrThrow(id, options);
-  - validateAndSaveEntity<SAME AS MENTIONED ABOVE>(instanse:T):Promise<T>{const Constructor = entities[instance.constructor.name];
-  if ('validations' in Constructor);generateErrors(instance, Constructor.validations) const save = instance.save();return save as Promise<T>}
-  - createEntity= async<T extends EntityConstructor>(Constructor:T,input:partial<instanceof<T>>):promise<instanceof<T>>{const instance=Constructor.create(input) return validateAndSaveEntity(instance as InstanceType<T>)}
-  - updateEntity<T extends EntityConstructor>(Constructor,id:number|string,input:partial<instanceof<T>>){const instance=await findEntitOrThrow<T extends EntityConstructor>();Object.assign(instance, input);return validateAndSaveEntity(instance);}
-  - deleteEntity findEntityOrThrow;instance.remove();return instance;
   
   
 ## mongoDB BASICS every one should knows:
