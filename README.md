@@ -293,13 +293,17 @@ public static handle(err:ApiError,res:Response):Response{
   
 
 ## MongoDB functions and techniques:
+  
+  - instance extends EntityConstructor(type of) to use the methods of BaseEntity like .create (instance.name)
+  - wheras extends EntityInstance to store the data and (instance.constructor.name) and it can also use the methods of BaseEntity of the father parent class
   - EntityConstructor= typeof Project : Promise<InstanceType<T>> 
   - EntityInstance Project | User (we can use the methods of BaseEntity .findone ,etc...)
   - 
   - const entities:{[key:string]:EntityConstructor}={Comment, Issue,Project,User};
   - findEntityOrThrow<T ex EntityConstructor>(Constructor:T,id:N/S,FindOneOptions):Promise<InstanceType<T>>{const instance = await findEntityOrThrow(id, options);
-  - validateAndSaveEntity<SAME AS MENTIONED ABOVE>(instanse:T):Promise<T>{const Constructor = entities[instance.constructor.name];}
-  -
+  - validateAndSaveEntity<SAME AS MENTIONED ABOVE>(instanse:T):Promise<T>{const Constructor = entities[instance.constructor.name];
+  if ('validations' in Constructor);generateErrors(instance, Constructor.validations) const save = instance.save();return save as Promise<T>}
+  - createEntity= async<T extends EntityConstructor>(Constructor:T,input:partial<instanceof<T>>):promise<instanceof<T>>{const instance=Constructor.create(input) return validateAndSaveEntity(instance as InstanceType<T>)}
   
   
 ## mongoDB BASICS every one should knows:
