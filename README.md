@@ -300,11 +300,24 @@ public static handle(err:ApiError,res:Response):Response{
   - findOne({{ client: client, primaryKey: primaryKey, secondaryKey: secondaryKey, }})
   - 
   
+
+## mongoDB, some of the main models functions that were used:
+  - findByIdAndUpdate(blog._id,blog,{new: true})/new true means that the returned file will be the updated/
+  - exists(filter):P<boolean>,create,
+  - deleteMany(filter)
+  - findByIdAndRemove(id)
+  - findOne(filter)
+  - .create(doc_schema_interface)
+  - updateOne(filter,update,options)//update can be any
+  findByIdAndUpdateobj or _UpdateQuery/inc,min,max,mul,rename,set,etc../ these are like conditions before updating comparing before and after data and if the condition is true then update.
+  - findByIdAndUpdate(filter,update,)
+  
 ## mongoDB functions and techniques:
   - const now = new Date();
-  - some of the main models functions that were used:findByIdAndUpdate(blog._id,blog,{new: true}),exists:P<boolean>/new true means that the returned file will be the updated/,create,
-  findByIdAndRemove(id):P<Keystore | null>,deleteMany{client:client},findOne({{ client: client, primaryKey: primaryKey, secondaryKey: secondaryKey, }}), 
-  - async function exists(id:Types.Object):promise<boolean>{const user=UserModel.exists({_id: id,status:true});return user !== null && user !== undefined}
+  - remove(id):P<Keystore | null>-->findByIdAndRemove
+  - asy fu removeAllForClient{client:client}-->deleteMany
+  - findOne({{ client: client, primaryKey: primaryKey, secondaryKey: secondaryKey, }}), 
+  - async function exists(id:Types.Object):promise<boolean>{const user=UserModel.exists(filter);return user !== null && user !== undefined}
   - findPrivateProfileById(id):promise<interface user|null>{return UserModel.findOne({ _id: id, status: true }) .select('+email') .populate({ path: 'roles', match: { status: true }, select: { code: 1 }, }) .lean<User>() .exec();}
   - findFieldsById(id,...fields:string[]):Promise<User | null>{return `UserModel.findOne`({ _id: id, status: true },[...fields]).lean().exec();}
   - async function create{founded_roles=find roles--> user.roles=[founded_roles]}
