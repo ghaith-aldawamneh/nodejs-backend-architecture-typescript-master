@@ -311,6 +311,10 @@ public static handle(err:ApiError,res:Response):Response{
   - updateOne(filter,update,options)//update can be any
   findByIdAndUpdateobj or _UpdateQuery/inc,min,max,mul,rename,set,etc../ these are like conditions before updating comparing before and after data and if the condition is true then update.
   - findByIdAndUpdate(filter,update,)
+  - fing(filter,projection,options)
+
+  - fing().populate().sort().limit().sort(S|{[key:S]:SortOrder| { $meta: 'textScore' } })
+  - SortOrder = -1 | 1 | 'asc' | 'ascending' | 'desc' | 'descending';
   
 ## mongoDB functions and techniques:
   - const now = new Date();
