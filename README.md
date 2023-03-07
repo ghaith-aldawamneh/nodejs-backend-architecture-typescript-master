@@ -313,6 +313,7 @@ public static handle(err:ApiError,res:Response):Response{
   - findByIdAndUpdate(filter,update,)
   - fing(filter,projection,options)
 
+  
   - fing().populate().sort().limit().sort(S|{[key:S]:SortOrder| { $meta: 'textScore' } })
   - SortOrder = -1 | 1 | 'asc' | 'ascending' | 'desc' | 'descending';
   
