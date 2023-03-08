@@ -312,7 +312,11 @@ public static handle(err:ApiError,res:Response):Response{
   findByIdAndUpdateobj or _UpdateQuery/inc,min,max,mul,rename,set,etc../ these are like conditions before updating comparing before and after data and if the condition is true then update.
   - findByIdAndUpdate(filter,update,)
   - fing(filter,projection,options)
+  - collection.ensureIndex({"ingredients":"text"})
 
+  
+  
+  
   
   - fing().populate().sort().limit().sort(S|{[key:S]:SortOrder| { $meta: 'textScore' } })
   - SortOrder = -1 | 1 | 'asc' | 'ascending' | 'desc' | 'descending';
@@ -329,7 +333,9 @@ public static handle(err:ApiError,res:Response):Response{
   - in KeystorModel, async function remove(id: Types.ObjectId):Promise<keystore | null>{
   return KeystoreModel.`findByIdAndRemove`(id).lean().exec();}
   - in KeystorModel, async function removeAllForClient(client: User){`KeystoreModel.deleteMany`({ client: client }).exec();}
-  - 
+  - db.collection.find( { $text: { $search: "bread beef" } }, { score: { $meta: "textScore" } } ).sort( { score: { $meta: "textScore" } } )
+  - db.collection.find({ingredients:"beef"})
+  - db.collections.find({ ingredients: { $all: ["beef","bread"] } })
   
   
 ## mongoDB BASICS every one should knows:
