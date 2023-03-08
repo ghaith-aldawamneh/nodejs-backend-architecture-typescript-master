@@ -26,6 +26,24 @@ DB Schema:
   - .json
 
 
+## nodejs redis:
+  - Redis is a super fast and efficient in-memory, key–value cache and store. It’s also known as a data structure server, as the keys can contain strings, lists, sets, hashes and other data structures.
+  - Redis is an open-source, in-memory data structure store used as a database, cache, and message broker. It has multiple uses, like caching NodeJS applications and API responses for faster performance.
+
+You can think of it as a No-SQL database, which stores data as a key-value pair in the system memory. Redis supports disk-persistent data storage, too, if needed.
+
+Redis supports storing multiple data structures and types, including strings, lists, hashes, sets, and sorted sets. Supported data structures give Redis versatility for many use cases.
+  - If you don’t already have a Redis instance, you have a few options to get one:
+  1.Run a free Redis instance from redis.io
+  2.Install Redis locally, here’s how.
+  3.Run Redis on Linodo (cheap but not free)
+  4.Run Redis with Docker (my default for development){docker run -d --name redis-stack-server -p 6379:6379 redis/redis-stack-server:latest}
+  - To read data from a Redis Database you can use the method get from the Redis Client. For example: redisClient.get('MY_CACHE_KEY');
+  - redisClient.set('MY_CACHE_KEY', 'VALUE');
+
+  - npm install express axios redis.
+  - 
+
 
 ## function findIpAddress(req:Request) :
   - if (req.headers['x-forwarded-for']) { return req.headers['x-forwarded-for'].toString().split(',')[0]
