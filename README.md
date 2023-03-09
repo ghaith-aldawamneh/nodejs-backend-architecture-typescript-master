@@ -45,6 +45,17 @@ Redis supports storing multiple data structures and types, including strings, li
   - (async () =>{await client.connect();})();
   - redisClient.on('SIGINT',async ()=>{client.disconnect()});
   - 
+## Doing redis keys for the Blogs:
+  - first setting the enum DynamicKey with the two keys of BLOGS_SIMILAR = 'BLOGS_SIMILAR', BLOG='BLOG'
+  - export type DynamicKeyType = ``${DynamicKey}_${string}``
+  - export function getDynamicKey(Key:DynamicKey,suffix:string){}
+  - ex fun getdyn(dkey,string){const D:DKE=DKEY_S}
+  
+## Doing redis query:
+  - ex async function keyExists(...keys){return (await cache.exists(keys)) ? true : false;}
+  - 
+
+
 
 ## function findIpAddress(req:Request) :
   - if (req.headers['x-forwarded-for']) { return req.headers['x-forwarded-for'].toString().split(',')[0]
