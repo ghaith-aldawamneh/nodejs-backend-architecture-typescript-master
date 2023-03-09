@@ -39,11 +39,12 @@ Redis supports storing multiple data structures and types, including strings, li
   3.Run Redis on Linodo (cheap but not free)
   4.Run Redis with Docker (my default for development){docker run -d --name redis-stack-server -p 6379:6379 redis/redis-stack-server:latest}
   - To read data from a Redis Database you can use the method get from the Redis Client. For example: redisClient.get('MY_CACHE_KEY');
-  - redisClient.set('MY_CACHE_KEY', 'VALUE');
-
   - npm install express axios redis.
+  - const redisClient= redis.createClient();
+  - redisClient.set('MY_CACHE_KEY', 'VALUE');, redisClient.get('MY_CACHE_KEY')
+  - (async () =>{await client.connect();})();
+  - redisClient.on('SIGINT',async ()=>{client.disconnect()});
   - 
-
 
 ## function findIpAddress(req:Request) :
   - if (req.headers['x-forwarded-for']) { return req.headers['x-forwarded-for'].toString().split(',')[0]
