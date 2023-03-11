@@ -445,8 +445,9 @@ public static handle(err:ApiError,res:Response):Response{
   - the express had been decleared as a functions `declare function e(): core.Express;`
   and then we added new variables as the name of it (e) `declare namespace e {IRouterHandler}`, when we namef space with the same name `application,request,response,static,urlencoded,query,Router`
   - express.use is one of IRouterHandler interface items, as `(...handlers: Array<RequestHandler<RouteParameters<Route>>>): T;`
+  - inside var json: typeof bodyParser.json;, bodyParser.json is `json(options?: OptionsJson): NextHandleFunction;`, becuase inside the bodyParser.json there is `json(options?: OptionsJson): NextHandleFunction;`
   - so we can see that use can take a request handler which returns a void at the end.
-  - express.json takes the OptionsJson that has {reviver,strict} which extends interface options which has {inflate,limit,type,verify}
+  - express.json takes the OptionsJson that has {reviver,strict} which extends interface options which has {inflate,limit,type,verify}.
   -
   - 
   
