@@ -439,6 +439,17 @@ public static handle(err:ApiError,res:Response):Response{
   - .custom(fn: CustomValidator) ,type CustomValidator<V=any>=(value: V,helpers:CustomHelpers) =>V
   
 ## functions i learned:
+  - express is a function that returns an interface of `export interface Express extends Application { request: Request; response: Response; }`
+  - Application extends EventEmitter, Express.Application, IRouter
+  -  interface IRouter extends RequestHandler{all,patch,options,head,connect,checkout,mkactivity,copy,merge}
+  - the express had been decleared as a functions `declare function e(): core.Express;`
+  and then we added new variables as the name of it (e) `declare namespace e {IRouterHandler}`, when we namef space with the same name `application,request,response,static,urlencoded,query,Router`
+  - express.use is one of IRouterHandler interface items, as `(...handlers: Array<RequestHandler<RouteParameters<Route>>>): T;`
+  - so we can see that use can take a request handler which returns a void at the end.
+  - express.json takes the OptionsJson that has {reviver,strict} which extends interface options which has {inflate,limit,type,verify}
+  -
+  - 
+  
   - The keyword async before a function makes the function return a promise, for instance,async function myFunction() { return "Hello"; }Is the same as: function myFunction() { return Promise.resolve("Hello"); }
   - Object.keys (return an array whose elements are strings corresponding to the enumerable properties found directly upon an object.)
   for instance, var object = { 70: 'x', 21: 'y' };-->['21', '35'].
