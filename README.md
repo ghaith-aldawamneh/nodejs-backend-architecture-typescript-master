@@ -448,8 +448,13 @@ public static handle(err:ApiError,res:Response):Response{
   - inside var json: typeof bodyParser.json;, bodyParser.json is `json(options?: OptionsJson): NextHandleFunction;`, becuase inside the bodyParser.json there is `json(options?: OptionsJson): NextHandleFunction;`
   - so we can see that use can take a request handler which returns a void at the end.
   - express.json takes the OptionsJson that has {reviver,strict} which extends interface options which has {inflate,limit,type,verify}.
-  -
+  - app.use(express.urlencoded), inside the namespace e we have the urlencoded that takes different parameters and returns RequestHandler.
+  - app.use is used because the of the IRouterMatcher that is existing inside the namespace of e.
+  - the express().use becuase of the IRouterMatcher it can 
   - 
+  
+  
+  
   
   - The keyword async before a function makes the function return a promise, for instance,async function myFunction() { return "Hello"; }Is the same as: function myFunction() { return Promise.resolve("Hello"); }
   - Object.keys (return an array whose elements are strings corresponding to the enumerable properties found directly upon an object.)
