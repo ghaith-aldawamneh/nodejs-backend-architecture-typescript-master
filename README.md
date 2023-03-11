@@ -20,6 +20,7 @@ DB Schema:
 -interface Tokens{accessToken,refreshToken}
 -interface JwtPayload(issuer: s, audience:s, subject: s,param:s,validity: number){sub:user id, param:the key in the keystore}
 
+
 ## for res we have.
   - .send
   - .render
@@ -400,6 +401,7 @@ public static handle(err:ApiError,res:Response):Response{
   - select:false, Currently, if we use select: false in a schema, we need to do Model.findOne({ _id }).select("+field_a") to get its value.
   
 ## basics i learned:
+  - we import the other index files that have general default export for the initializing purpose,so the exported item will be established without being used in the importing file, for instance, redis,database, 
   - A network socket is a software structure within a network node of a computer network that serves as an endpoint for sending and receiving data across the network. The structure and properties of a socket are defined by an application programming interface (API) for the networking architecture. Sockets are created only during the lifetime of a process of an application running in the node.Normally, a server runs on a specific computer and has a socket that is bound to a specific port number. The server just waits, listening to the socket for a client to make a connection request.
   - We used private.key to sign JWT and public.key to verify it
   - modal.create, Creates a new document or documents.
