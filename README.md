@@ -442,9 +442,17 @@ public static handle(err:ApiError,res:Response):Response{
   - .custom(fn: CustomValidator) ,type CustomValidator<V=any>=(value: V,helpers:CustomHelpers) =>V
 ## Files distribution and classification:  
   - in the core folder we put the ApiError, ApiResponse,Logger{init,params,const dailyRotateFile = new DailyRotateFile},JWT{class JwtPayload} and utils{API_KEY,AUTHORIZATION}.
+  - in the config file we have {caching,redis,tokenInfo,corsUrl,db}
+  - 
+  
   
   
 ## functions i learned:
+  - The 'uncaughtException' event is emitted when an uncaught JavaScript exception bubbles all the way back to the event loop. By default, Node.js handles such exceptions by printing the stack trace to stderr and exiting with code 1, overriding any previously set process.exitCode. Adding a handler for the 'uncaughtException' event overrides this default behavior. Alternatively, change the process.exitCode in the 'uncaughtException' handler which will result in the process exiting with the provided exit code. Otherwise, in the presence of such handler the process will exit with 0.
+  
+  
+  - the next() is a function that takes any, as shown in the following: (err?: any): void
+  - in side the namespace NodeJS, we have process extends EventEmitter, and redecleared it again.
   - Process events({'beforeExit' makes asynchronous calls},)
   - Process.on(uncaughtException(uncaught exception bubbles to the event loop), unhandledRejection (The latter is used when an exception happens in a Promise based async context)
   - uncaughtException(uncaught exception bubbles to the event loop), unhandledRejection (The latter is used when an exception happens in a Promise based async context)
@@ -454,6 +462,9 @@ public static handle(err:ApiError,res:Response):Response{
   - inside the global redeclearing the namespace of NODEJS to declear new contents.
   - Symbol has no constructor function, (Symbols also work as property keys, but are not iterable, which is great for serialisation)
   - Global symbols registry, There’s a global symbols registry that allows you to access tokens across your whole application.
+  - 
+  
+  
   
   
   
