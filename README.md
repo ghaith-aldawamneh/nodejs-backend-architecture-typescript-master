@@ -437,8 +437,13 @@ public static handle(err:ApiError,res:Response):Response{
   - Joi.object().pattern(/\w{2,25}/, Joi.date().iso())
   - .allow, for examples allowing the null or ''.
   - .custom(fn: CustomValidator) ,type CustomValidator<V=any>=(value: V,helpers:CustomHelpers) =>V
+## Files distribution and classification:  
+  - in the core folder we put the ApiError, ApiResponse,Logger{init,params,const dailyRotateFile = new DailyRotateFile},JWT{class JwtPayload} and utils{API_KEY,AUTHORIZATION}.
+  
   
 ## functions i learned:
+  - express --> Application--> EventEmitter, IRouter, Express.Application
+  - listen was taken from the application, and on was taken from the EventEmitter which Application is extending.
   - express is a function that returns an interface of `export interface Express extends Application { request: Request; response: Response; }`
   - Application extends EventEmitter, Express.Application, IRouter
   -  interface IRouter extends RequestHandler{all,patch,options,head,connect,checkout,mkactivity,copy,merge}
@@ -456,12 +461,14 @@ public static handle(err:ApiError,res:Response):Response{
   - .listen(port,hostname,backlog/callback,callback?):http.Server
   - .listen(handle:any,listeningListener:?()):http.Server
   - first, NetServer or Server extends EventEmitter{constructor(options?: ServerOpts,connectionListener?:(socket:Socket)=>void);}.(from the net.d.ts file) it has members like on,listen,close,address,getConnections,emit,once,prependListener,tener(event:S,list:(...args)=>void)
-  - (from http.Server) http.Server is a class<req,res> extends NetServer, as the netserver its constructors are:
-  . constructor(requestListener?: RequestListener<Request, Response>)
-  . constructor(options: ServerOptions<Request, Response>, requestListener?: RequestListener<Request, Response>);
-  - 
-  
-  
+  - (from http.Server) http.Server is a class<req,res> extends NetServer, as the netserver its 
+  - http.Server's constructors are:
+       . constructor(requestListener?: RequestListener<Request, Response>)
+       . constructor(options: ServerOptions<Request, Response>, requestListener?: RequestListener<Request, Response>);
+  - NetServer or Server's constructors are:
+      .  constructor(connectionListener?: (socket: Socket) => void);
+      .  constructor(options?: ServerOpts, connectionListener?: (socket: Socket) => void);
+  - Logger(options?:LoggerOptions) is a function from the winston 
   
   
   - The keyword async before a function makes the function return a promise, for instance,async function myFunction() { return "Hello"; }Is the same as: function myFunction() { return Promise.resolve("Hello"); }
