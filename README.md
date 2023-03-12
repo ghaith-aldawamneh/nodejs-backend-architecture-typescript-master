@@ -426,6 +426,10 @@ public static handle(err:ApiError,res:Response):Response{
   - (TLS) is a Transport Layer Security, it encrypts data sent over the Internet to ensure that eavesdroppers and hackers are unable to see what you transmit which is particularly useful for private and sensitive information such as passwords, credit card numbers, and personal correspondence.
   - winston is designed to be a simple and universal logging library with support for multiple transports, https://github.com/winstonjs/winston
   - baseUrl tells Typescript to base all your modules from a specific directory. Which means they will also be compiled with paths relative to baseUrl, but node is not aware of tsconfig.json, so it will try to find these modules in the path relative to the script and relative to NODE_PATH env variable, So the solution would be to pass NODE_PATH before running, like this:```git npx tsc && NODE_PATH=src node src/main/app.ts```
+  - var outside->glob, inside->local (updated,undefined before declecration)
+  - let(improved var {block scoped})(updated,same name decleared in another scope,error before declecration)
+  - const has the let properties, but not updated
+  
   - var is function scoped(available only within that function.,If outside of it, then available everywhere i.e. a global variable.,you can refer to it anywhere inside the function in which it is defined.)
   - let & const are block-scoped. They are scoped to the block in which they are declared i.e. inside the if/try/catch/while/for or any code block.
   - let & const If outside the function and code block, then they are available globally or become a global variable.
