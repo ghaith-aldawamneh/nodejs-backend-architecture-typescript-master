@@ -450,9 +450,13 @@ public static handle(err:ApiError,res:Response):Response{
   - express.json takes the OptionsJson that has {reviver,strict} which extends interface options which has {inflate,limit,type,verify}.
   - app.use(express.urlencoded), inside the namespace e we have the urlencoded that takes different parameters and returns RequestHandler.
   - app.use is used because the of the IRouterMatcher that is existing inside the namespace of e.
-  - the express().use becuase of the IRouterMatcher it can 
-  - 
-  
+  - becuase of the IRouterMatcher that is contained inside the namespace e, the express().use can take two variables, the path and the requesthandler.
+  - because of that e extend application, we can do the express().listen(),we have multi options,
+  - .listen(port/path,callback):http.Server
+  - .listen(port,hostname,backlog/callback,callback?):http.Server
+  - .listen(handle:any,listeningListener:?()):http.Server
+  - NetServer or Server extends EventEmitter{constructor(options?: ServerOpts,connectionListener?:(socket:Socket)=>void);}.(from the net.d.ts file) it has 
+  - (from http.Server) http.Server is a class<req,res> extends NetServer ()
   
   
   
