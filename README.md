@@ -412,15 +412,13 @@ public static handle(err:ApiError,res:Response):Response{
   - extends keyof usage, public property names of T
   - Abstract classes are mainly for inheritance where other classes may derive from them.
   - CORS Configuration Options: origin(Configures the Access-Control-Allow-Origin CORS header), methods(Configures the Access-Control-Allow-Methods CORS header), allowedHeaders(ex: ['Content-Type', 'Authorization']), exposedHeaders, optionsSuccessStatus: a status code for successful OPTIONS requests, since some legacy browsers (IE11, various SmartTVs) choke on 204.
-  - Process events({'beforeExit' makes asynchronous calls},)
-  - Process.on(uncaughtException(uncaught exception bubbles to the event loop), unhandledRejection (The latter is used when an exception happens in a Promise based async context)
-  - uncaughtException(uncaught exception bubbles to the event loop), unhandledRejection (The latter is used when an exception happens in a Promise based async context)
-  - winston (one of the most popular logging library),(Use Structured Logging),post-mortem debugging
-  - lib.es5{the most famous used interface is Error interface}
-  - events.d.ts{global{var process=NODEJS.process;namespace NODEJS{interface Process extends EventEmitter}}}, process.d.ts{global{namespace NODEJS{EventEmitter{on}}}
-  - inside the global redeclearing the namespace of NODEJS to declear new contents.
-  - Symbol has no constructor function, (Symbols also work as property keys, but are not iterable, which is great for serialisation)
-  - Global symbols registry, There’s a global symbols registry that allows you to access tokens across your whole application.
+  
+  
+  
+
+  
+  
+  
   - declearing global in typescript
   - Running tsc locally will compile the closest project defined by a tsconfig.json, you can compile a set of TypeScript files by passing in a glob of files you want.
   - (TLS) is a Transport Layer Security, it encrypts data sent over the Internet to ensure that eavesdroppers and hackers are unable to see what you transmit which is particularly useful for private and sensitive information such as passwords, credit card numbers, and personal correspondence.
@@ -429,6 +427,7 @@ public static handle(err:ApiError,res:Response):Response{
   - var outside->glob, inside->local (updated,undefined before declecration)
   - let(improved var {block scoped})(updated,same name decleared in another scope,error before declecration)
   - const has the let properties, but not updated
+  
   
   - var is function scoped(available only within that function.,If outside of it, then available everywhere i.e. a global variable.,you can refer to it anywhere inside the function in which it is defined.)
   - let & const are block-scoped. They are scoped to the block in which they are declared i.e. inside the if/try/catch/while/for or any code block.
@@ -446,6 +445,20 @@ public static handle(err:ApiError,res:Response):Response{
   
   
 ## functions i learned:
+  - Process events({'beforeExit' makes asynchronous calls},)
+  - Process.on(uncaughtException(uncaught exception bubbles to the event loop), unhandledRejection (The latter is used when an exception happens in a Promise based async context)
+  - uncaughtException(uncaught exception bubbles to the event loop), unhandledRejection (The latter is used when an exception happens in a Promise based async context)
+  - winston (one of the most popular logging library),(Use Structured Logging),post-mortem debugging
+  - lib.es5{the most famous used interface is Error interface}
+  - events.d.ts{global{var process=NODEJS.process;namespace NODEJS{interface Process extends EventEmitter}}}, process.d.ts{global{namespace NODEJS{EventEmitter{on}}}
+  - inside the global redeclearing the namespace of NODEJS to declear new contents.
+  - Symbol has no constructor function, (Symbols also work as property keys, but are not iterable, which is great for serialisation)
+  - Global symbols registry, There’s a global symbols registry that allows you to access tokens across your whole application.
+  
+  
+  
+  
+  
   - express --> Application--> EventEmitter, IRouter, Express.Application
   - listen was taken from the application, and on was taken from the EventEmitter which Application is extending.
   - express is a function that returns an interface of `export interface Express extends Application { request: Request; response: Response; }`
@@ -473,6 +486,36 @@ public static handle(err:ApiError,res:Response):Response{
       .  constructor(connectionListener?: (socket: Socket) => void);
       .  constructor(options?: ServerOpts, connectionListener?: (socket: Socket) => void);
   - Logger(options?:LoggerOptions) is a function from the winston 
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
   
   - The keyword async before a function makes the function return a promise, for instance,async function myFunction() { return "Hello"; }Is the same as: function myFunction() { return Promise.resolve("Hello"); }
