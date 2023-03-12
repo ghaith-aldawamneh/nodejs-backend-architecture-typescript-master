@@ -344,7 +344,7 @@ public static handle(err:ApiError,res:Response):Response{
   - findByIdAndUpdate(filter,update,)
   - fing(filter,projection,options)
   - collection.ensureIndex({"ingredients":"text"})
-
+  
   
   
   
@@ -455,8 +455,12 @@ public static handle(err:ApiError,res:Response):Response{
   - .listen(port/path,callback):http.Server
   - .listen(port,hostname,backlog/callback,callback?):http.Server
   - .listen(handle:any,listeningListener:?()):http.Server
-  - NetServer or Server extends EventEmitter{constructor(options?: ServerOpts,connectionListener?:(socket:Socket)=>void);}.(from the net.d.ts file) it has 
-  - (from http.Server) http.Server is a class<req,res> extends NetServer ()
+  - first, NetServer or Server extends EventEmitter{constructor(options?: ServerOpts,connectionListener?:(socket:Socket)=>void);}.(from the net.d.ts file) it has members like on,listen,close,address,getConnections,emit,once,prependListener,tener(event:S,list:(...args)=>void)
+  - (from http.Server) http.Server is a class<req,res> extends NetServer, as the netserver its constructors are:
+  . constructor(requestListener?: RequestListener<Request, Response>)
+  . constructor(options: ServerOptions<Request, Response>, requestListener?: RequestListener<Request, Response>);
+  - 
+  
   
   
   
