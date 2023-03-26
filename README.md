@@ -230,10 +230,9 @@ app# createfile (touch testfile)
   - docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d --build (--build for rebuilding the image)
   - in the Dockerfile, RUN npm install --only=production, so that prevent any devDependencies from being installed.("devDependencies":{"nodemon":"2.0.7"})
   - in the Dockerfile, ARG NODE_RUN if ["$NODE_ENV"= "DEVELOPMENT" ]; \ then npm install; \ else npm install --only=production; \ fi
-  - 
-  
-  
 
+  
+  
   
   
   **docker-compose.yml:
@@ -276,6 +275,7 @@ app# createfile (touch testfile)
           - PORT=3000
         command:
           npm run dev
+  
      mongo:
         image:mongo
         environment:
@@ -297,7 +297,7 @@ app# createfile (touch testfile)
   CMD ["node","index.js"]
   
   
-  - create dockerignore: nodemodules Dockerfile  .dockerignore  .git  .gitignore
+  - create dockerignore: nodemodules Dockerfile  .dockerignore  .git  .gitignore docker-compose*
   - in dockerignore we put: docker-compose*, (*) it means do not copy any file that starts with docker-compose
   - no need to copy node modules, it is just after copying the package,json, we run npm install inside the Dockerfile, the the modules will be installed.
   - EXPOSE 3000, has no impact does not open the port, just to tell the next person that we have the port 3000 that the container will be at.   
