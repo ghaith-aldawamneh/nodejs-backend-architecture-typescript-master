@@ -233,9 +233,7 @@ app# createfile (touch testfile)
   - 
   
   
-  
-  
-  
+
   
   
   **docker-compose.yml:
@@ -254,6 +252,8 @@ app# createfile (touch testfile)
         environment:
           - PORT=3000
         command:
+  
+  
   **docker-compose.dev.yml:
         ports: 
         - "3000:3000"
@@ -269,7 +269,7 @@ app# createfile (touch testfile)
     version: "3"
     services: (containers)  
      node-app:
-        build: . 
+        build: .
         ports: 
         - "3000:3000"
         environment:
@@ -281,6 +281,7 @@ app# createfile (touch testfile)
         environment:
           - MONGO_INITDB_ROOT_USERNAME=username
           - MONGO_INITDB_ROOT_PASSWORD=mypassword
+  
   
   
   
