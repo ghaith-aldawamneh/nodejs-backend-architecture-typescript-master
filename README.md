@@ -230,7 +230,7 @@ app# createfile (touch testfile)
   - docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d --build (--build for rebuilding the image)
   - in the Dockerfile, RUN npm install --only=production, so that prevent any devDependencies from being installed.("devDependencies":{"nodemon":"2.0.7"})
   - in the Dockerfile, ARG NODE_RUN if ["$NODE_ENV"= "DEVELOPMENT" ]; \ then npm install; \ else npm install --only=production; \ fi
-
+  
   
   
   
@@ -325,7 +325,11 @@ app# createfile (touch testfile)
   - every time you run a command the command will be run from this directly, when you copy a file it will copy it from this directly.
   - USER create user in the docker image `node`
   - CMD specifies what command to run within the Container.`[ "npm", "start" ]`
-  - 
+  - COPY [–chown=<user>:<group>] [“<src>”,… “<dest>”] –chown is used to change the ownership of the file in the container filesystem. <user>:<group> is used to specify the user and group to whom we want to give the ownership.
+  - The chown() function shall change the user and group ownership of a file. The path argument points to a pathname naming a file. The user ID and group ID of the named file shall be set to the numeric values contained in owner and group, respectively.
+  
+  
+  
   Docker images are more like templates used to create a Docker container.
   
   
