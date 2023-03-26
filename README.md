@@ -165,6 +165,18 @@ public static handle(err:ApiError,res:Response):Response{
 }
   -
 ## Docker instructons:
+
+
+build image (docker build -t node-app-image) {dockerignore-->build again}
+container run init(docker run -d --name node-app node-app-image)
+container exp (docker exec -it node-app)
+container to be used (docker ps, docker ps -a,  )
+container killing (docker rm node-app -f,)
+
+b:/app# (ls, cd, )
+app# print (cat index.js)
+
+
   docker commands:
   - docker image ls(list the image that was created)
   - docker image rm(remove the image that was created), we can build with the same name, so overwriting.
@@ -172,15 +184,16 @@ public static handle(err:ApiError,res:Response):Response{
   - docker run -d --name node-app node-app-image(specify the image that it will create a container from)(naming the docker container by the name of node-app)(`-d`, by defualt when creating the container it will connected to cli but by adding -d then it is the deattached mode, so our command line will be free and open)
   - docker ps(we see what is opened from containers)
   - docker rm node-app -f (remove the docker container or killing it)(`-f` for force)
-  - docker ps(after killing all the containers we will see an empty list)
+  - docker ps(after killing all the containers we will see an empty list, which is the still running containers)
   - docker ps -a (show all containers started or stopped)
+  - docker run -p outside traffic:container port 
   - docker run -p 3000:3000 -d --name node-app node-app-image(the left number it is the trafic coming in from the outside world, from the windows and then it will give it to the port of the right number which is the port of the container)(the right number is the port number that the container is listening to inside the conainer) 
   - docker exec -it node-app (opening file explorer in the docker container)(`-it` for interactive mode)(bash to allow us to look at the file system of our container)-->b:/app# 
   - b:/app# ls, if we input ls, we will see all the files inside the docker container 
   - b:/app# cd node_modules --> b:/app#/node_modules ls --> see all the modules
   - inside the explorer of 50c80624:/app#, we pass `ls` to list all the files that were copied over
   - docker rm node-app -f, we remove the container.
-  -  after setting the dockerignore file we will build again to see `docker build -t node-app-image .` 
+  - after setting the dockerignore file we will build again to see `docker build -t node-app-image .` 
   - after building our image, we run the container from the new created image.
   - inside the explorer of 50c80624:/app#, we pass `cat index.js`, it will print the containt code of the mentioned index.js file  
   - docker run -v pathtofolderonlocamachine:pathtofolderoncontainer -p 3000:3000 -d --name node-app node-app-image(`-v` volume certain file from the container)(every change will be transfered to the container)but we need to restart the node process.
