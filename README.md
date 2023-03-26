@@ -168,15 +168,21 @@ public static handle(err:ApiError,res:Response):Response{
 
 
 build image (docker build -t node-app-image) {dockerignore-->build again}
-container run init(docker run -d --name node-app node-app-image)
-container exp (docker exec -it node-app)
-container to be used (docker ps, docker ps -a,  )
-container killing (docker rm node-app -f,)
-
-b:/app# (ls, cd, )
+docker-compose up -d (build img and run cont acc to docker compose.yml)
+docker-compose contrem+valrem(down -v) (up -d --build), .yml(-f basefile) (-f docker-compose.yml -f docker-compose.dev.yml -d) rebuilding(-f docker-compose.yml -f docker-compose.dev.yml -d --build)
+  
+  
+cont run init(docker run -d --name node-app node-app-image)
+cont exp (docker exec -it node-app)
+cont to be used (running: docker ps,runornot: docker ps -a, docker run -v locmachC:\:fpathoncont/app  -p n:n -d --name x ima_name, docker run -v f:f -v preventedpath/app/node_modules --env PORT=4000 --env-file ./.env -p n:n -d --name im_name )
+cont killing (docker rm node-app -f -fv,)
+cont logs (docker logs node-app)
+b:/app# (ls, cd,  )
 app# print (cat index.js)
+app# back to main cli(exit)
+app# createfile (touch testfile)
 
-
+  
   docker commands:
   - docker image ls(list the image that was created)
   - docker image rm(remove the image that was created), we can build with the same name, so overwriting.
@@ -196,30 +202,30 @@ app# print (cat index.js)
   - after setting the dockerignore file we will build again to see `docker build -t node-app-image .` 
   - after building our image, we run the container from the new created image.
   - inside the explorer of 50c80624:/app#, we pass `cat index.js`, it will print the containt code of the mentioned index.js file  
-  - docker run -v pathtofolderonlocamachine:pathtofolderoncontainer -p 3000:3000 -d --name node-app node-app-image(`-v` volume certain file from the container)(every change will be transfered to the container)but we need to restart the node process.
+  - docker run -v pathtofolderonlocamachine:pathtofolderoncontainer -p 3000:3000 -d --name node-app node-app-image(`-v` volume certain file from the container)(every change will be transfered to the container) but we need to restart the node process.
   - pathtofolderonlocamachine cannot be .,% , for windows powershall we use $(pwd),or it must be like C:\ etc.
   - pathtofolderoncontainer /app 
   - inside the explorer of 50c80624:/app#, we pass `exit`, to get back to the main cli.
-  - we added nodemon to the package.json dependenceis and "dev":nodemon -L index.js, then we built the image, the we run the container
-  - so then we chane the CMD to ["npm", "run", "dev"]
+  - we added nodemon to the package.json dependenceis and the npm run command of "dev":nodemon -L index.js, then we built the image, then we run the container
+  - so then we change the CMD to ["npm", "run", "dev"]
   - docker ps -a (we see all the containers started or stopped)
   - docker logs node-app (show the logs of the specified container)
-  -  docker run -v pathtofolderonlocalmachine:pathtofolderoncontainer -v /app/node_modules -p 3000:3000 -d --name node-app node-app-image (by -v /app/node_modules we are preventing this file from being changed if its copy on the host changed)
+  - docker run -v pathtofolderonlocalmachine:pathtofolderoncontainer -v /app/node_modules -p 3000:3000 -d --name node-app node-app-image (by -v /app/node_modules we are preventing this file from being changed if its copy on the host changed)
   - when production mode, there is no need for bind mode when mean the -v volume.
   - inside the explorer of 50c80624:/app#,touch testfile, creating a file inside the container, if there is a volume so bind mode, this file will be created on the local machine.
   - docker run -v local:container:ro -v /app/node_modules etc.(:ro readonly so the container has no permission to edit the files that we gave it to it)
   - docker run -v local:container:ro --env PORT=4000 etc.
   - inside the explorer of 50c80624:/app#,
   - docker run -v local:container:ro --env-file ./.env etc.(`--env-file` setting the env)
-  - docker volume ls(list the volume)
+  - docker volume ls(list the volume)docker volume ls, docker volume prune
   - docker volume prune (remove volume)
-  - docker rm node-app -fv(remove it with volume)
+  - docker rm node-app -fv(remove it with volume) 
   - for -v (has many option type, if : is included, then local:container then it means which files are volumed from the host to the docker container, whether the for one docker container path mentioned it means the un volumed path in the docker container)
   - docker-compose up -d(build image and start the container)(executed accourding to our docker compose.yml)(search for an image that is named projectname_imagename, if it is exist then it will not build the image again)
   - docker-compose up --help(see what commands are available)
   - docker-compose down -v (the container is removed, -v remove volumes)
   - docker-compose up -d --build (so now the image will be built)
-  - docker-compose -f basefile(-f for file)
+  - docker-compose -f basefile(-f for file) 
   - docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d (take all the configuration from the base file, and loud all the configurations from the dev file and see if there is any configurations that it needs to be overwritten)
   - docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d --build (--build for rebuilding the image)
   - in the Dockerfile, RUN npm install --only=production, so that prevent any devDependencies from being installed.("devDependencies":{"nodemon":"2.0.7"})
