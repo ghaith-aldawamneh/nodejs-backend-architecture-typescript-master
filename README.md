@@ -243,7 +243,7 @@ app# createfile (touch testfile)
    services: (containers)  
     node-app:
       build: . (which image that we are going to use)(the image that is defined in the Dockerfile in the defined path)
-        context: .(location of the docker file)
+        context: .(location of the Dockerfile)
         args:
           NODE_ENV: development
       ports: 
