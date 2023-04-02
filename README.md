@@ -166,16 +166,18 @@ public static handle(err:ApiError,res:Response):Response{
   -
 ## Docker instructons:
 
+  RUN npm install --only=production(no installing devDependencies)
+  
 
 build image (docker build -t node-app-image) {dockerignore-->build again}
 docker-compose up -d (build img and run cont acc to docker compose.yml)
 docker-compose contrem + valrem(down -v) (up -d --build), .yml(-f basefile) (-f docker-compose.yml -f docker-compose.dev.yml -d) rebuilding(-f docker-compose.yml -f docker-compose.dev.yml -d --build)
   
-  
+
 cont run init(docker run -d --name node-app node-app-image)
 cont exp (docker exec -it node-app)
 cont to be used (running: docker ps,runornot: docker ps -a, docker run -v locmachC:\:fpathoncont/app  -p n:n -d --name x ima_name, docker run -v f:f -v preventedpath/app/node_modules --env PORT=4000 --env-file ./.env -p n:n -d --name im_name )
-cont killing (docker rm node-app -f -fv,)
+cont killing (docker rm node-app -f -fv,) /-f for force/
 cont logs (docker logs node-app)
 b:/app# (ls, cd,  )
 app# print (cat index.js)
@@ -187,7 +189,7 @@ app# createfile (touch testfile)
   - docker image ls(list the image that was created)
   - docker image rm(remove the image that was created), we can build with the same name, so overwriting.
   - docker build -t node-app-image . (`-t` for giving the image a name)(creating the image)
-  - docker run -d --name node-app node-app-image(specify the image that it will create a container from)(naming the docker container by the name of node-app)(`-d`, by defualt when creating the container it will connected to cli but by adding -d then it is the deattached mode, so our command line will be free and open)
+  - docker run -d --name node-app node-app-image(specify the image that it will create a container from)(naming the docker container by the name of node-app)(`-d`, by default when creating the container it will connected to cli of the container but by adding -d then it is the deattached mode, so our command line will be free and open)
   - docker ps(we see what is opened from containers)
   - docker rm node-app -f (remove the docker container or killing it)(`-f` for force)
   - docker ps(after killing all the containers we will see an empty list, which is the still running containers)
