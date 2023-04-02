@@ -170,7 +170,7 @@ public static handle(err:ApiError,res:Response):Response{
   
 
 build image (docker build -t node-app-image) {dockerignore-->build again}
-docker-compose up -d (build img and run cont acc to docker compose.yml)
+docker-compose up -d (build img and run cont accourding  to docker compose.yml)
 docker-compose contrem + valrem(down -v) (up -d --build), .yml(-f basefile) (-f docker-compose.yml -f docker-compose.dev.yml -d) rebuilding(-f docker-compose.yml -f docker-compose.dev.yml -d --build)
   
 
