@@ -25,7 +25,8 @@ DB Schema:
 - running the file normally without debugging by node .\dist\index.js
 - by debugging, node --inspect .\dist\index.js  -===then>>>>chrome //inspect/#devices
 - debugging without the need to go to the chrome and staying with the same cli, node inspect .\dist\index.js
-- in general you build with npx tsc and then you run the node --inspect or node inspect 
+- in general you build with npx tsc && then you run the node --inspect or node inspect.
+- to do it in one command, you do the (node --inspect -r ts-node/register ./src/demo.ts)
 
 ## for res we have.
   - .send
