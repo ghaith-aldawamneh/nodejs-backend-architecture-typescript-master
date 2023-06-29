@@ -1,9 +1,9 @@
-# this project has been taken in order to takes notes from.
+This project has been taken in order to take notes.
 # Node.js Backend Architecture Typescript Project
 
 ### A complete project to build a blogging platform like Medium, and FreeCodeCamp
 
-errors that i faced:
+errors that I faced:
   - must use TLS 1.2 or higher. You are currently using plaintext http to connect. Please visit the GitHub blog for more information: https://github.blog/2021-08-23-npm-registry-deprecating-tls-1-0-tls-1-1/{i fixed it be:
   ```git
   npm config set registry https://registry.npmjs.org/
@@ -11,7 +11,7 @@ errors that i faced:
 
 DB Schema:
 //NB: RoleCode(LEARNER,WRITER,EDITOR,ADMIN)||_id:Types.ObjectId
-- interface Error:name,message,stack?
+- interface Error: name, message, stack?
 -ApiKey(_id,key,version,permissions,comments,status?,createdAt,updatedAt)
 -RoleModel(code:s-enum,status:b,createdAt,updatedAt)
 -User(_id,name?,profilePicUrl?,email?,password?,roles[],verified?:b, status?,createdAt?,updatedAt?)
@@ -20,6 +20,12 @@ DB Schema:
 -interface Tokens{accessToken,refreshToken}
 -interface JwtPayload(issuer: s, audience:s, subject: s,param:s,validity: number){sub:user id, param:the key in the keystore}
 
+## project debugging:
+- first building the ts files is so important, it can be done by npx tsc.
+- running the file normally without debugging by node .\dist\index.js
+- by debugging, node --inspect .\dist\index.js  -===then>>>>chrome //inspect/#devices
+- debugging without the need to go to the chrome and staying with the same cli, node inspect .\dist\index.js
+- in general you build with npx tsc and then you run the node --inspect or node inspect 
 
 ## for res we have.
   - .send
@@ -35,10 +41,10 @@ You can think of it as a No-SQL database, which stores data as a key-value pair 
 
 Redis supports storing multiple data structures and types, including strings, lists, hashes, sets, and sorted sets. Supported data structures give Redis versatility for many use cases.
   - If you don’t already have a Redis instance, you have a few options to get one:
-  1.Run a free Redis instance from redis.io
-  2.Install Redis locally, here’s how.
-  3.Run Redis on Linodo (cheap but not free)
-  4.Run Redis with Docker (my default for development){docker run -d --name redis-stack-server -p 6379:6379 redis/redis-stack-server:latest}
+  1. Run a free Redis instance from redis.io
+  2. Install Redis locally, here’s how.
+  3. Run Redis on Linodo (cheap but not free)
+  4. Run Redis with Docker (my default for development){docker run -d --name redis-stack-server -p 6379:6379 redis/redis-stack-server:latest}
   - To read data from a Redis Database you can use the method get from the Redis Client. For example: redisClient.get('MY_CACHE_KEY');
   - npm install express axios redis.
   - const redisClient= redis.createClient();
@@ -64,7 +70,7 @@ Redis supports storing multiple data structures and types, including strings, li
 
 ## Notes before the project assembly:
   - we use the validate(schema.auth,HEADER) when you want to get to the req.header
-  - the validate by many way, but acually it depends on how accurate we want to validate, for example, we validate the api-key with joi to make an accurate validation, but we validated the payloud samply by (!payload ||!payload.iss ...etc)
+  - the validate by many ways, but actually it depends on how accurately we want to validate, for example, we validate the api-key with joi to make an accurate validation, but we validated the payload simply by (!payload ||!payload.iss ...etc)
   - for validation purposes, for one middleware, we can set the type of the req to make sure that it contains a certain content like, like req: PublicRequest
   - we use the authentication in the three of:(credential|profile|logout(post(L,validator,))), by .use before the middleware method(like .post)
   - the authentication: in brief gives the req.user and req.keystore from the Jwt.validate(Token)
@@ -89,9 +95,9 @@ Redis supports storing multiple data structures and types, including strings, li
   - JoiAuthBearer is `Joi.string().custom(`
   - the apikey asyncHandler takes inside it an async function (req:PublicRequest extends Request{apiKey:ApiKey;},res,next) which will get the key_p as req.headers['x-api-key'] and `key = req.headers[Header.API_KEY]?.toString();` or throw new error. , the next step
   - finding the apiKey from the mongoose by awaiting a function of findByKey
-  - findByKey is a function that takes one arg and return a Promise<ApiKey | null | undefined> inside this function it retruns `ApiKeyModel.findOne{ key: key, status: true }` , setting `req.apiKey = apiKey;` , not to forgeting to return `next()`
+  - findByKey is a function that takes one arg and return a Promise<ApiKey | null | undefined> inside this function it returns `ApiKeyModel.findOne{ key: key, status: true }` , setting `req.apiKey = apiKey;` , not to forgetting to return `next()`
   - the permission is an arrow function that after giving it the first arg of `'GENERAL'` as permission, the function will arrows to reqhandler func tha take (req,res,next) inside the reqhandler we have the try which inside it if `(!req.apikey!.permission)` return next(new ForbiddenError), then `exists= req.apikey.permission.find((entry)=>entry=== `'GENERAL'` as permission)`
-  - we can add an extra permission beside the `GENERAL = 'GENERAL'`
+  - we can add extra permission beside the `GENERAL = 'GENERAL'`
   - signup middleware starts with two args(validator, async function) with the validator that does: the same as the last explained validator
   - the signup asyncHandler takes inside it an async function (req:RoleRequest extends Request{currentRoleCodes:string[];},res,next) which will get search as `UserRepo.findByEmail(req.body.email)` if exist then throw an error.
   - then awaiting the async create function:Promise<{ user: User; keystore: Keystore }> which takes four parameters{user:User,accessTokenKey:string,refreshTokenKey:string, roleCode:s('LEARNER')}, the accessTokenKey and refreshTokenKey are created by `crypto.randomBytes(64).toString('hex');` and the refreshTokenKey
@@ -103,7 +109,7 @@ Redis supports storing multiple data structures and types, including strings, li
   - in brief the signup{-findByEmail/error 2-accessTokenKey/refreshTokenKey 3-passwordHash 4-UserRepo.create(name: req.body.name, etc)4- inside the UserRepo.create role=RoleModel.findOne, user.roles=[role];createdUser=await UserModel.create(user); const keystore=await KeystoreRepo.create 5-tokens=await createTokens 6- userData=await getUserData{_.pick(user, ['_id', 'name', 'roles', 'profilePicUrl'])} 7-
   - createTokens:Promise<Tokens> will sign the payloud(user_data) with the private Key,
   - we made a JwtPayload class with(aud,sub,iss,prm,iat=Math.floor(Date.now() / 1000),exp=iat+validity)
-  - in brief we gave the payloud to the jwt.sign as {tokenInfo.issuer,tokenInfo.audience,user._id.toString(),accessTokenKey,tokenInfo.accessTokenValidity}
+  - in brief, we gave the payload to the jwt.sign as {tokenInfo.issuer,tokenInfo.audience,user._id.toString(),accessTokenKey,tokenInfo.accessTokenValidity}
   - we created the accessTokenKey by hex before in
   - at the end of the signup file we used the getUserData in order to retrieve the data directly from the DB so we make sure that all the steps went fine.
   - authentication:(validate auth:header,getToken, JWT.validate, validateTokenpayloud, setting user.user req.keystore)
@@ -126,12 +132,12 @@ Redis supports storing multiple data structures and types, including strings, li
 
    - public - Any class can refer to the field or call the method.
    - static, you can call static methods, and access static properties, without having to instantiate class in which they are defined. Second, you can’t call these methods, and access these properties, on instances of the class in which they are defined. 
-   - public, All methods defined in a class are by default defined as public. This means that they will be accessible for all instances. Which also means that you can call them on all instances. However, you can’t call them on the class in which they are defined unless you instantiate it.
-  - private static, private: used only inside the same class, static: it's implemented by adding . point of the father decleared class.
-  - protected members or methods can be used inside the class that implement the father class, in this case it is the ApiResponse.
-  - when we said protected prepare, we need: it means that we will use inside the main class of ApiResponse and inside the class that will extend the ApiResponsem By using super.prepare, and we will give it the class of TokenRefreshResponse that the super.prepare is used in as a type, so we are giving the container class as a type.
+   - public, All methods defined in a class are by default defined as public. This means that they will be accessible for all instances. Which also means that you can call them in all instances. However, you can’t call them on the class in which they are defined unless you instantiate it.
+  - private static, private: used only inside the same class, static: it's implemented by adding. point of the father declared class.
+  - protected members or methods can be used inside the class that implements the father class, in this case, it is the ApiResponse.
+  - when we said protected prepare, we need: it means that we will use inside the main class of ApiResponse and inside the class that will extend the ApiResponsem By using super. prepare, and we will give it the class of TokenRefreshResponse that the super. prepare is used in as a type, so we are giving the container class as a type.
   - the public method is implemented by the object, while the static method is implemented by the father decleared class (ApiResponse)
-  - when the abstract class extend an interface like Error, so when you do the super, you do not need to put all the interface properties inside the super.
+  - when the abstract class extends an interface like Error, so when you do the super, you do not need to put all the interface properties inside the super.
   
 ## abstract class APIResponse:
   - 3* protected class members(statusCode,status,message) and:
@@ -164,7 +170,7 @@ public static handle(err:ApiError,res:Response):Response{
     prepare<this>(res,this,header)
 }
   -
-## Docker instructons:
+## Docker instructions:
 
   RUN npm install --only=production(no installing devDependencies)
   
@@ -202,18 +208,18 @@ app# createfile (touch testfile)
   - inside the explorer of 50c80624:/app#, we pass `ls` to list all the files that were copied over
   - docker rm node-app -f, we remove the container.
   - after setting the dockerignore file we will build again to see `docker build -t node-app-image .` 
-  - after building our image, we run the container from the new created image.
+  - after building our image, we run the container from the newly created image.
   - inside the explorer of 50c80624:/app#, we pass `cat index.js`, it will print the containt code of the mentioned index.js file  
   - docker run -v pathtofolderonlocamachine:pathtofolderoncontainer -p 3000:3000 -d --name node-app node-app-image(`-v` volume certain file from the container)(every change will be transfered to the container) but we need to restart the node process.
   - pathtofolderonlocamachine cannot be .,% , for windows powershall we use $(pwd),or it must be like C:\ etc.
   - pathtofolderoncontainer /app 
   - inside the explorer of 50c80624:/app#, we pass `exit`, to get back to the main cli.
-  - we added nodemon to the package.json dependenceis and the npm run command of "dev":nodemon -L index.js, then we built the image, then we run the container
+  - we added nodemon to the package.json dependencies and the npm run command of "dev":nodemon -L index.js, then we built the image, then we run the container
   - so then we change the CMD to ["npm", "run", "dev"]
   - docker ps -a (we see all the containers started or stopped)
   - docker logs node-app (show the logs of the specified container)
   - docker run -v pathtofolderonlocalmachine:pathtofolderoncontainer -v /app/node_modules -p 3000:3000 -d --name node-app node-app-image (by -v /app/node_modules we are preventing this file from being changed if its copy on the host changed)
-  - when production mode, there is no need for bind mode when mean the -v volume.
+  - when production mode, there is no need for bind mode when meaning the -v volume.
   - inside the explorer of 50c80624:/app#,touch testfile, creating a file inside the container, if there is a volume so bind mode, this file will be created on the local machine.
   - docker run -v local:container:ro -v /app/node_modules etc.(:ro readonly so the container has no permission to edit the files that we gave it to it)
   - docker run -v local:container:ro --env PORT=4000 etc.
@@ -222,13 +228,13 @@ app# createfile (touch testfile)
   - docker volume ls(list the volume)docker volume ls, docker volume prune
   - docker volume prune (remove volume)
   - docker rm node-app -fv(remove it with volume) 
-  - for -v (has many option type, if : is included, then local:container then it means which files are volumed from the host to the docker container, whether the for one docker container path mentioned it means the un volumed path in the docker container)
+  - for -v (has many option types, if: is included, then local: container then it means which files are volumed from the host to the docker container, whether the for one docker container path mentioned it means the un volumed path in the docker container)
   - docker-compose up -d(build image and start the container)(executed accourding to our docker compose.yml)(search for an image that is named projectname_imagename, if it is exist then it will not build the image again)
   - docker-compose up --help(see what commands are available)
-  - docker-compose down -v (the container is removed, -v remove volumes)
+  - docker-compose down -v (the container is removed, -v removes volumes)
   - docker-compose up -d --build (so now the image will be built)
   - docker-compose -f basefile(-f for file) 
-  - docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d (take all the configuration from the base file, and loud all the configurations from the dev file and see if there is any configurations that it needs to be overwritten)
+  - docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d (take all the configuration from the base file, and loud all the configurations from the dev file and see if there are any configurations that it needs to be overwritten)
   - docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d --build (--build for rebuilding the image)
   - in the Dockerfile, RUN npm install --only=production, so that prevent any devDependencies from being installed.("devDependencies":{"nodemon":"2.0.7"})
   - in the Dockerfile, ARG NODE_RUN if ["$NODE_ENV"= "DEVELOPMENT" ]; \ then npm install; \ else npm install --only=production; \ fi
