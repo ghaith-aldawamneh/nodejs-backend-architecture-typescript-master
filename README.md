@@ -19,8 +19,10 @@ DB Schema:
 -Blog(_id,title,description,text?,draftText?,tags,author,imgUrl?,blogUrl,likes?: n,score: n,isSubmitted: b,isDraft: b,isPublished: b,status?: -b,publishedAt?,createdBy?: User,updatedBy?: User, createdAt?,updatedAt?)
 -interface Tokens{accessToken,refreshToken}
 -interface JwtPayload(issuer: s, audience:s, subject: s,param:s,validity: number){sub:user id, param:the key in the keystore}
+
 ## customizing VS Code:
 - Cobalt2, server live, setting (format on save), setting (Font Family-->('cascadia code')), setting (Font Family-->(font ligatures))
+- eslint npm install eslint
 ## project debugging:
 - first building the ts files is so important, it can be done by npx tsc.
 - running the file normally without debugging by node .\dist\index.js
