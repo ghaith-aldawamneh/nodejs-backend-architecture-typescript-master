@@ -18,12 +18,13 @@ DB Schema:
 -Keystore(_id,client,primaryKey,secondaryKey,status?,createdAt?,updatedAt?)
 -Blog(_id,title,description,text?,draftText?,tags,author,imgUrl?,blogUrl,likes?: n,score: n,isSubmitted: b,isDraft: b,isPublished: b,status?: -b,publishedAt?,createdBy?: User,updatedBy?: User, createdAt?,updatedAt?)
 -interface Tokens{accessToken,refreshToken}
--interface JwtPayload(issuer: s, audience:s, subject: s,param:s,validity: number){sub:user id, param:the key in the keystore}
+-interface JwtPayload(issuer: s, audience:s, subject: s, param:s, validity: number){sub: user id, param: the key in the keystore}
 
 
-## commit changes to GitHub:
+## Commit changes to GitHub:
 stage changes --> commit changes   --> push changes remote repository name + the branch 
 git add .     -->   git commit -m 'changes decription' -->  git push -u origin main
+- "main" refers to the name of the local branch you want to push to the remote repository.
 the -u is for Establishing Upstream Tracking: When pushing a local branch to a remote repository for the first time, the -u flag sets up a tracking relationship between the local branch and the remote branch.
 - renaming repository name on GitHub is done by: git remote rename origin primary ///// the default name is the origin
 - other useful commands:git remote rm origin, git remote remove origin https://git.....  , git ls-remote
@@ -36,15 +37,15 @@ the -u is for Establishing Upstream Tracking: When pushing a local branch to a r
 - 
 
 
-## customizing VS Code:
+## Customizing VS Code:
 - Cobalt2, server live, setting (format on save), setting (Font Family-->('cascadia code')), setting (Font Family-->(font ligatures))
 - eslint npm install eslint
-## project debugging:
+## Project debugging:
 - first building the ts files is so important, it can be done by npx tsc.
 - running the file normally without debugging by node .\dist\index.js
 - by debugging, node --inspect .\dist\index.js  -===then>>>>chrome //inspect/#devices
 - debugging without the need to go to the chrome and staying with the same cli, node inspect .\dist\index.js
-- in general you build with npx tsc && then you run the node --inspect or node inspect.
+- in general, you build with npx tsc && then you run the node --inspect or node inspect.
 - to do it in one command, you do the (node --inspect -r ts-node/register ./src/demo.ts)
 
 ## for res we have.
