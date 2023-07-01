@@ -20,6 +20,10 @@ DB Schema:
 -interface Tokens{accessToken,refreshToken}
 -interface JwtPayload(issuer: s, audience:s, subject: s, param:s, validity: number){sub: user id, param: the key in the keystore}
 
+## advanced technology:
+- lerna, bootstrap command in Lerna installs the dependencies for all the packages in the repository and links them together, ensuring that they work together correctly.
+
+
 
 ## Commit changes to GitHub:
 stage changes --> commit changes   --> push changes remote repository name + the branch 
