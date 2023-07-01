@@ -20,6 +20,11 @@ DB Schema:
 -interface Tokens{accessToken,refreshToken}
 -interface JwtPayload(issuer: s, audience:s, subject: s,param:s,validity: number){sub:user id, param:the key in the keystore}
 
+
+## commit changes to GitHub:
+stage changes --> commit changes   --> push changes remote repository + the branch
+git add .     -->   git commit -m  -->  git push origin main
+
 ## pm2 (monitoring the process in the production):
 - first npm install pm2 -g, if it is not recognized try to install it without global npm install pm2.
 - pm2 start index.js ||||| pm2 list ||||| pm2 monit ||||| pm2 logs ||||| 
