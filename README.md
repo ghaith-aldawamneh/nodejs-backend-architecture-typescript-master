@@ -27,11 +27,12 @@ DB Schema:
 
 ## Commit changes to GitHub:
 stage changes --> commit changes   --> push changes remote repository name + the branch 
-git add .     -->   git commit -m 'changes decription' -->  git push -u origin main
+git add .     -->   git commit -m 'changes description -->  git push -u origin main
 - "main" refers to the name of the local branch you want to push to the remote repository.
+- multi branches-->means multi developers for one project
 the -u is for Establishing Upstream Tracking: When pushing a local branch to a remote repository for the first time, the -u flag sets up a tracking relationship between the local branch and the remote branch.
 - renaming repository name on GitHub is done by: git remote rename origin primary ///// the default name is the origin
-- other useful commands:git remote rm origin, git remote remove origin https://git.....  , git ls-remote
+- other useful commands: git remote rm origin, git remote remove origin https://git.....  , git ls-remote
 - 
 
 
