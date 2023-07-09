@@ -53,6 +53,13 @@ the -u is for Establishing Upstream Tracking: When pushing a local branch to a r
 - debugging without the need to go to the chrome and staying with the same cli, node inspect .\dist\index.js
 - in general, you build with npx tsc && then you run the node --inspect or node inspect.
 - to do it in one command, you do the (node --inspect -r ts-node/register ./src/demo.ts)
+- 
+## BluebirdPromise:
+- Performance improvements
+- Concurrency control BluebirdPromise.map(promises, { concurrency: concurrencyLimit }) .then((results) =>
+- Timeout support promise.timeout(
+-  Cancellation support allowing you to cancel pending promises or chains of promises. This can be useful in scenarios where you want to abort or stop ongoing asynchronous operations.
+
 
 important tools to be used:
 - Snyk: Snyk is a popular security tool used to find and fix vulnerabilities in open-source dependencies
@@ -60,9 +67,14 @@ important tools to be used:
 - generate documentation using a tool called Typedoc, Typedoc
 - IMPORT Typedoc is a documentation generator for TypeScript projects. It analyzes TypeScript code and generates API documentation in a clean and structured format, making it easier for developers to understand and work with your code.
 - IMPORT TSLint is a static analysis tool for TypeScript projects that checks the code for potential errors, code style violations, and best practices. It helps enforce coding conventions and maintain a consistent codebase.
+- IMPORT "workspaces" there is a related concept called "workspaces" that is used in the context of package management tools like Yarn and npm.
+- IMPORT Gitpod is a cloud-based development environment that allows you to spin up a fully configured development workspace directly from your GitHub repository. Gitpod relies on a Dockerfile or a devcontainer configuration file (devcontainer.json for Visual Studio Code) to define the development environment setup, it means that Gitpod creates a cloud-based development environment for your project based on the code in your GitHub repository. This development workspace includes all the necessary dependencies, tools, and configurations required to work on your project.
+- IMPORT The .travis.yml file is a configuration file used by Travis CI, a popular continuous integration and deployment service. It defines the build environment, the required dependencies, and the commands to be executed during the build process.
+- IMPORT The .circleci/config.yml file, commonly referred to as the CircleCI configuration file, is a YAML file used by CircleCI, a popular continuous integration and deployment platform. It defines the configuration for building, testing, and deploying your application in a CI/CD (Continuous Integration/Continuous Deployment) pipeline.
 - nyc is a command-line tool and a popular code coverage tool for JavaScript applications. It stands for "istanbul"
 - Lerna is a tool that aids in managing JavaScript projects with multiple packages or modules. It optimizes the workflow for large-scale projects by allowing you to split them into smaller, independently versioned packages, while also providing tools for inter-package dependencies and management.
-
+-The .stylelintrc.json file is a configuration file used by Stylelint, a popular linter for CSS and CSS-like syntaxes. It allows you to define the rules and configurations that Stylelint should enforce when analyzing your CSS code.
+- The crowdin.yml file is a configuration file used by Crowdin, a localization management platform. It allows you to define the settings and configurations for managing translations and localization projects in Crowdin.
 
 ## yarn:
 - yarn --cwd specify a specific directory as the working directory (cwd), for Yarn commands. It allows you to run Yarn commands from a different directory than your current terminal location.
