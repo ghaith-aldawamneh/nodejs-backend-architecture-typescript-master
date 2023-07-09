@@ -53,6 +53,20 @@ the -u is for Establishing Upstream Tracking: When pushing a local branch to a r
 - in general, you build with npx tsc && then you run the node --inspect or node inspect.
 - to do it in one command, you do the (node --inspect -r ts-node/register ./src/demo.ts)
 
+important tools to be used:
+- Snyk: Snyk is a popular security tool used to find and fix vulnerabilities in open-source dependencies
+- husky(for git)(hooks),managing github hooks
+- nyc is a command-line tool and a popular code coverage tool for JavaScript applications. It stands for "istanbul"
+- generate documentation using a tool called Typedoc, Typedoc
+- Lerna is a tool that aids in managing JavaScript projects with multiple packages or modules. It optimizes the workflow for large-scale projects by allowing you to split them into smaller, independently versioned packages, while also providing tools for inter-package dependencies and management.
+- Typedoc is a documentation generator for TypeScript projects. It analyzes TypeScript code and generates API documentation in a clean and structured format, making it easier for developers to understand and work with your code.
+- 
+
+## yarn:
+- npm install -g yarn   ----->>   yarn --version
+- Initialize the new project using Yarn by : -----> yarn init
+- Install a Package with Yarn by : ---> yarn add tailwindcss
+- run a script with Yarn by : -----> yarn run
 ## for res we have.
   - .send
   - .render
@@ -111,7 +125,7 @@ Redis supports storing multiple data structures and types, including strings, li
 ## project assembly:
 
   - the permission is in the req.apikey, the apikey was put in the req.headers, password in the req.body
-  - the data base starts form 
+  - the database starts form 
   - use routes with path of the '/' `express.Router()`
   - classifying the routes by `router.use` for each route like '/signup' including the apikey and  permission
   - apikey is the route also `express.Router` the use many args of (validator,asyncHandler)
