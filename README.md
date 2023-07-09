@@ -45,6 +45,7 @@ the -u is for Establishing Upstream Tracking: When pushing a local branch to a r
 ## Customizing VS Code:
 - Cobalt2, server live, setting (format on save), setting (Font Family-->('cascadia code')), setting (Font Family-->(font ligatures))
 - eslint npm install eslint
+- 
 ## Project debugging:
 - first building the ts files is so important, it can be done by npx tsc.
 - running the file normally without debugging by node .\dist\index.js
@@ -55,14 +56,16 @@ the -u is for Establishing Upstream Tracking: When pushing a local branch to a r
 
 important tools to be used:
 - Snyk: Snyk is a popular security tool used to find and fix vulnerabilities in open-source dependencies
-- husky(for git)(hooks),managing github hooks
-- nyc is a command-line tool and a popular code coverage tool for JavaScript applications. It stands for "istanbul"
+- IMPORT husky(for git)(hooks),managing github hooks
 - generate documentation using a tool called Typedoc, Typedoc
+- IMPORT Typedoc is a documentation generator for TypeScript projects. It analyzes TypeScript code and generates API documentation in a clean and structured format, making it easier for developers to understand and work with your code.
+- IMPORT TSLint is a static analysis tool for TypeScript projects that checks the code for potential errors, code style violations, and best practices. It helps enforce coding conventions and maintain a consistent codebase.
+- nyc is a command-line tool and a popular code coverage tool for JavaScript applications. It stands for "istanbul"
 - Lerna is a tool that aids in managing JavaScript projects with multiple packages or modules. It optimizes the workflow for large-scale projects by allowing you to split them into smaller, independently versioned packages, while also providing tools for inter-package dependencies and management.
-- Typedoc is a documentation generator for TypeScript projects. It analyzes TypeScript code and generates API documentation in a clean and structured format, making it easier for developers to understand and work with your code.
-- 
+
 
 ## yarn:
+- yarn --cwd specify a specific directory as the working directory (cwd), for Yarn commands. It allows you to run Yarn commands from a different directory than your current terminal location.
 - npm install -g yarn   ----->>   yarn --version
 - Initialize the new project using Yarn by : -----> yarn init
 - Install a Package with Yarn by : ---> yarn add tailwindcss
