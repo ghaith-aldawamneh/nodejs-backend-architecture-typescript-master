@@ -247,6 +247,7 @@ app# createfile (touch testfile)
 
   
   docker commands:
+  - docker exec -it cont_id /bin/bash
   - docker image ls(list the image that was created)
   - docker image rm(remove the image that was created), we can build with the same name, so overwriting.
   - docker build -t node-app-image . (`-t` for giving the image a name)(creating the image)
