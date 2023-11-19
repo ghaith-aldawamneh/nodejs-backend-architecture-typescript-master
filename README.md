@@ -33,13 +33,16 @@ git add .     -->   git commit -m 'changes description -->  git push -u origin m
 the -u is for Establishing Upstream Tracking: When pushing a local branch to a remote repository for the first time, the -u flag sets up a tracking relationship between the local branch and the remote branch.
 - renaming repository name on GitHub is done by: git remote rename origin primary ///// the default name is the origin
 - other useful commands: git remote rm origin, git remote remove origin https://git.....  , git ls-remote
+- git clean -dfx       clean all your files then i did the   git pull origin main
+- git checkout . then git pull origin main
 - 
 
 
 ## pm2 (monitoring the process in the production):
 - first npm install pm2 -g, if it is not recognized try to install it without global npm install pm2.
 - pm2 start index.js ||||| pm2 list ||||| pm2 monit ||||| pm2 logs ||||| 
-- 
+-  this worked.
+-  
 
 
 ## Customizing VS Code:
